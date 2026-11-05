@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#062b35">
+  <meta name="description" content="Accesso al Sistema Osservativo Marino, ai data server e alle API, alla mappa delle osservazioni e ai modelli previsionali di CNR ISMAR.">
+  <title>Dati e servizi · CNR ISMAR</title>
+  <link rel="icon" href="assets/brand/ismar.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="assets/maps/mediterranean.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="motion.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenuto">Vai ai servizi</a>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="CNR ISMAR · pagina iniziale">
+      <img class="brand-cnr" src="assets/brand/cnr.svg" alt="" width="53" height="50">
+      <span class="brand-divider" aria-hidden="true"></span>
+      <img class="brand-ismar" src="assets/brand/ismar.svg" alt="" width="50" height="51">
+      <span class="brand-name" aria-hidden="true">CNR<br>ISMAR</span>
+    </a>
+    <h1>Dati e servizi</h1>
+  </header>
+  <main id="contenuto" class="main" tabindex="-1">
+    <nav id="tiles" class="tiles" aria-label="Dati e servizi marini"></nav>
+    <noscript>
+      <div class="no-script">
+        <p>Per visualizzare le tile animate, attiva JavaScript. Puoi comunque accedere ai servizi:</p>
+        <ul>
+          <li><a href="./som/">SOM · Sistema Osservativo Marino</a></li>
+          <li><a href="./server/">Data Server / API</a></li>
+          <li><a href="./mappa/">Esplora i dati · Mappa delle osservazioni</a></li>
+          <li><a href="./modelli/">Modelli previsionali</a></li>
+        </ul>
+      </div>
+    </noscript>
+  </main>
+  <footer class="site-footer">
+    <span>CNR · ISMAR</span>
+    <div class="footer-actions">
+      <button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="true" aria-label="Metti in pausa le animazioni" hidden>
+        <img src="assets/icons/player-pause.svg" width="17" height="17" alt="">
+        <span>Animazioni attive</span>
+      </button>
+      <a id="contact-link" href="https://www.ismar.cnr.it/">ISMAR</a>
+    </div>
+  </footer>
+</body>
+</html>
