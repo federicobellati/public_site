@@ -1,6 +1,6 @@
 /* Unico file da modificare per collegamenti, testi e nuove tile.
- * I quattro percorsi sono predisposti: le pagine di destinazione NON sono
- * incluse in questa landing. Sostituire href con gli indirizzi definitivi.
+ * I percorsi SOM, mappa e modelli sono predisposti: le pagine di destinazione
+ * non sono incluse. Sostituire href con gli indirizzi definitivi.
  * Sono accettati percorsi relativi (./som/), assoluti (/som/) o URL https://.
  */
 window.ISMAR_PORTAL = {
@@ -25,7 +25,7 @@ window.ISMAR_PORTAL = {
       title: "Data Server / API",
       description: "Accesso ai dati e alle API",
       detail: "ERDDAP · THREDDS · GeoNode · CKAN",
-      href: "./server/",
+      href: "./dataservers.html",
       icon: "stack-2",
       animation: "servers"
     },
@@ -44,6 +44,22 @@ window.ISMAR_PORTAL = {
       href: "./modelli/",
       icon: "grid-3x3",
       animation: "models"
+    },
+    {
+      id: "infrastrutture",
+      title: "Infrastrutture di Ricerca",
+      description: "Le infrastrutture di ricerca che collaborano con ISMAR",
+      href: "https://assets.ve.ismar.cnr.it/public/public_pages/ri/",
+      icon: "network",
+      animation: "infrastructure"
+    },
+    {
+      id: "facilities",
+      title: "Facilities",
+      description: "Piattaforme e reti di strumenti osservativi",
+      href: "./facilities.html",
+      icon: "aaot",
+      animation: "facilities"
     }
   ]
 };

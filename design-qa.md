@@ -59,3 +59,11 @@ final result: passed
 - Nuova animazione verificata su due catture desktop della medesima area: 2398 canali colore variati oltre la tolleranza JPEG; evidenziazione progressiva dei punti visibile.
 
 Nessun problema P0/P1/P2 residuo nella revisione.
+
+## Aggiunta Infrastrutture di Ricerca — 7 novembre 2026
+
+- Aggiunta la quinta destinazione con titolo “Infrastrutture di Ricerca”, sottotitolo “Le infrastrutture di ricerca che collaborano con ISMAR” e URL `https://assets.ve.ismar.cnr.it/public/public_pages/ri/`. Collegamento presente anche senza JavaScript.
+- Riutilizzata l'animazione delle stazioni marine; aggiunta un'icona SVG locale di rete, coerente con il tratto delle icone esistenti.
+- Sesta tile vuota per completare la griglia a due colonne: nessun collegamento, testo, animazione o focus. Nascosta sotto i 641 px, quando la griglia passa a una colonna.
+- Controlli sintattici JavaScript e controllo statico delle risorse locali superati. Il controllo distingue ora i collegamenti alle destinazioni dalle dipendenze esterne.
+- Verifica visiva non completata: anteprima integrata non raggiungibile; il controllo del browser Windows si è interrotto perché non riusciva a identificare con certezza l'URL corrente. Le catture delle revisioni precedenti documentano la versione a quattro tile, non questa aggiunta.

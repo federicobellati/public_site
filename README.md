@@ -12,18 +12,26 @@ La directory web deve essere servita con il normale indice `index.html` e i MIME
 
 ## Collegamenti da completare
 
-Le pagine di destinazione saranno sviluppate separatamente e non sono incluse. I quattro collegamenti sono già predisposti in **config.js**:
+Le pagine SOM, mappa e modelli saranno sviluppate separatamente e non sono incluse. I collegamenti sono configurati in **config.js**; la pagina Data Server è inclusa e per Facilities è già inclusa una pagina vuota:
 
 | Tile | Percorso iniziale, da sostituire quando disponibile |
 | --- | --- |
 | SOM | `./som/` |
-| Data Server / API | `./server/` |
+| Data Server / API | `./dataservers.html` (pagina inclusa) |
 | Esplora i dati · Mappa delle osservazioni | `./mappa/` |
 | Modelli previsionali | `./modelli/` |
+| Infrastrutture di Ricerca | `https://assets.ve.ismar.cnr.it/public/public_pages/ri/` (collegamento definitivo) |
+| Facilities | `./facilities.html` (pagina vuota inclusa, da costruire) |
 
 Modificare il valore `href` di ciascuna tile con un URL completo, un percorso dalla radice del dominio o un percorso relativo al portale. Finché le destinazioni non esistono, questi percorsi potranno restituire una pagina non trovata. Non sono presenti indirizzi fittizi di servizi reali.
 
-Anche il collegamento ISMAR nel piè di pagina è configurabile. Non è stato inserito un indirizzo email di contatto non concordato.
+Anche il collegamento ISMAR nel piè di pagina della home è configurabile. Non è stato inserito un indirizzo email di contatto non concordato.
+
+## Data server
+
+`dataservers.html` contiene i collegamenti ai cinque data server, con titoli e indirizzi visibili. La pagina usa lo stile condiviso del portale, dispone i riquadri su due colonne e passa a una colonna su smartphone. Funziona anche senza JavaScript.
+
+Per aggiungere un server, duplicare un elemento `<li>` dentro `<ul class="server-list">` in **dataservers.html** e aggiornare il titolo (`server-title`), l'indirizzo visibile (`server-url`) e il collegamento (`href`). La griglia si adatta automaticamente. I collegamenti si aprono nella stessa scheda; “Dati e servizi” e i loghi riportano alla home.
 
 ## Aggiungere una tile
 
@@ -42,7 +50,9 @@ Duplicare un oggetto nell'array `tiles` di **config.js**, cambiando titolo, desc
 
 `detail` è una seconda riga facoltativa. `newTab: true` apre una destinazione in una nuova scheda. `icon` corrisponde al nome di un file in `assets/icons/` senza estensione. Animazioni disponibili: `observatory`, `servers`, `map`, `models`. È possibile aggiungere altre icone SVG locali.
 
-Se si modificano i collegamenti iniziali e serve il supporto senza JavaScript, aggiornare anche i quattro link nel blocco `noscript` di `index.html`.
+La quinta tile è “Infrastrutture di Ricerca”, con sottotitolo “Le infrastrutture di ricerca che collaborano con ISMAR”. La sesta è “Facilities”, con sottotitolo “Piattaforme e reti di strumenti osservativi” e un'icona originale ispirata alla piattaforma AAOT. È attiva anche su smartphone e apre `facilities.html`, nella stessa directory di `index.html`: per ora la pagina è vuota e conserva il colore di fondo del portale.
+
+Se si modificano i collegamenti e serve il supporto senza JavaScript, aggiornare anche i link nel blocco `noscript` di `index.html`.
 
 ## Animazioni e accessibilità
 
@@ -59,6 +69,8 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 ## File
 
 - `index.html`: struttura della pagina.
+- `dataservers.html`: elenco dei data server, con link diretti ai servizi.
+- `facilities.html`: pagina vuota predisposta per le facilities.
 - `config.js`: tile, testi, collegamenti e opzioni.
 - `styles.css`: stile e adattamento a desktop, tablet e smartphone.
 - `app.js`: genera la griglia a partire dalla configurazione.
@@ -70,4 +82,4 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 
 Loghi CNR e ISMAR originali dal sito istituzionale: https://www.ismar.cnr.it/. I marchi appartengono ai rispettivi titolari e non sono coperti dalle licenze di font e icone.
 
-Carattere Manrope, distribuito con SIL Open Font License. Icone Tabler, distribuite con licenza MIT. Licenze complete nella cartella `licenses/`.
+Carattere Manrope, distribuito con SIL Open Font License. Icone Tabler, distribuite con licenza MIT; icone di rete e AAOT disegnate localmente nello stesso stile. Licenze complete nella cartella `licenses/`.

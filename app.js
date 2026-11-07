@@ -3,7 +3,7 @@
   const config = window.ISMAR_PORTAL || {};
   const container = document.getElementById("tiles");
   const safeIcons = /^[a-z0-9-]+$/;
-  const kinds = new Set(["observatory", "servers", "map", "models"]);
+  const kinds = new Set(["observatory", "servers", "map", "models", "infrastructure", "facilities"]);
 
   function safeHref(value) {
     if (typeof value !== "string" || !value.trim()) return "./";
@@ -30,6 +30,12 @@
   }
 
   for (const [index, item] of (config.tiles || []).entries()) {
+    if (item.placeholder) {
+      const placeholder = element("div", "tile tile-placeholder");
+      placeholder.setAttribute("aria-hidden", "true");
+      container.append(placeholder);
+      continue;
+    }
     const kind = kinds.has(item.animation) ? item.animation : "servers";
     const tile = element("a", "tile");
     tile.href = safeHref(item.href);
