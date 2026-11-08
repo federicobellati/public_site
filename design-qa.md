@@ -60,6 +60,14 @@ final result: passed
 
 Nessun problema P0/P1/P2 residuo nella revisione.
 
+## Modelli previsionali — 8 novembre 2026
+
+- Aggiunta `models.html` con ISSOS, Kassandra, Henetus, Nettuno e AdriOper nell'ordine richiesto. Ogni scheda riserva almeno tre righe alla descrizione e cresce con il testo; homepage ancora da inserire, senza link fittizi attivi.
+- Stile condiviso con Data Server: stessi loghi, font locale, palette, bordi, griglia e navigazione di ritorno. Collegamento dalla home aggiornato in `config.js` e nel blocco `noscript`.
+- Verifica nel browser a 1280 × 720 e 390 × 844 px: due colonne su desktop, una su smartphone, nessun overflow orizzontale, tutte le immagini caricate. Controllata visivamente la leggibilità di intestazione, introduzione e schede.
+- Navigazione verificata dalla pagina modelli alla home e dalla tile della home alla pagina modelli. Pagina HTTP 200; controllo statico dei cinque nomi, dei cinque spazi descrittivi e delle risorse locali superato, insieme al controllo esistente del portale e alla sintassi della configurazione.
+- I contenuti definitivi e gli URL delle homepage restano da fornire; istruzioni di aggiornamento nel file HTML e nel README.
+
 ## Aggiunta Infrastrutture di Ricerca — 7 novembre 2026
 
 - Aggiunta la quinta destinazione con titolo “Infrastrutture di Ricerca”, sottotitolo “Le infrastrutture di ricerca che collaborano con ISMAR” e URL `https://assets.ve.ismar.cnr.it/public/public_pages/ri/`. Collegamento presente anche senza JavaScript.

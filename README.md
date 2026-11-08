@@ -12,16 +12,16 @@ La directory web deve essere servita con il normale indice `index.html` e i MIME
 
 ## Collegamenti da completare
 
-Le pagine SOM, mappa e modelli saranno sviluppate separatamente e non sono incluse. I collegamenti sono configurati in **config.js**; la pagina Data Server è inclusa e per Facilities è già inclusa una pagina vuota:
+La pagina SOM sarà sviluppata separatamente e non è inclusa. I collegamenti sono configurati in **config.js**; le pagine Data Server, Modelli previsionali e Facilities sono incluse:
 
 | Tile | Percorso iniziale, da sostituire quando disponibile |
 | --- | --- |
 | SOM | `./som/` |
 | Data Server / API | `./dataservers.html` (pagina inclusa) |
-| Esplora i dati · Mappa delle osservazioni | `./mappa/` |
-| Modelli previsionali | `./modelli/` |
+| Esplora i dati · Mappa delle osservazioni | `http://erddapdash.ve.ismar.cnr.it/` (collegamento definitivo) |
+| Modelli previsionali | `./models.html` (pagina inclusa) |
 | Infrastrutture di Ricerca | `https://assets.ve.ismar.cnr.it/public/public_pages/ri/` (collegamento definitivo) |
-| Facilities | `./facilities.html` (pagina vuota inclusa, da costruire) |
+| Facilities | `./facilities.html` (mappa inclusa) |
 
 Modificare il valore `href` di ciascuna tile con un URL completo, un percorso dalla radice del dominio o un percorso relativo al portale. Finché le destinazioni non esistono, questi percorsi potranno restituire una pagina non trovata. Non sono presenti indirizzi fittizi di servizi reali.
 
@@ -32,6 +32,18 @@ Anche il collegamento ISMAR nel piè di pagina della home è configurabile. Non 
 `dataservers.html` contiene i collegamenti ai cinque data server, con titoli e indirizzi visibili. La pagina usa lo stile condiviso del portale, dispone i riquadri su due colonne e passa a una colonna su smartphone. Funziona anche senza JavaScript.
 
 Per aggiungere un server, duplicare un elemento `<li>` dentro `<ul class="server-list">` in **dataservers.html** e aggiornare il titolo (`server-title`), l'indirizzo visibile (`server-url`) e il collegamento (`href`). La griglia si adatta automaticamente. I collegamenti si aprono nella stessa scheda; “Dati e servizi” e i loghi riportano alla home.
+
+## Modelli previsionali
+
+`models.html` elenca ISSOS, Kassandra, Henetus, Nettuno e AdriOper, nello stile condiviso del portale: due colonne su desktop e una su smartphone. La pagina funziona senza JavaScript ed è collegata alla tile della home, anche nel blocco `noscript`.
+
+Ogni riquadro riserva spazio per una descrizione di circa 200 caratteri. Sostituire “Descrizione in arrivo.” nel paragrafo `model-description` con il testo definitivo; lo spazio si espande se necessario. Quando disponibile, sostituire `<span class="model-homepage">Collegamento in arrivo</span>` con `<a class="model-homepage" href="URL-DELLA-HOMEPAGE">Vai al modello →</a>`, usando l'indirizzo effettivo. Al momento non sono presenti collegamenti fittizi alle homepage dei modelli. Per aggiungere un modello, duplicare un elemento `<li>` e aggiornare anche l'ID del titolo e il relativo `aria-labelledby`.
+
+## Facilities
+
+`facilities.html` mostra i soli contorni dello Stato italiano, con le isole, senza riempimenti, confini regionali o Paesi limitrofi. La base cartografica Natural Earth 1:10m è inclusa in `assets/maps/italy-outline.svg`: la pagina funziona anche senza JavaScript e senza servizi cartografici esterni.
+
+La stessa icona AAOT della tile Facilities è centrata alle coordinate **45.3142467 N, 12.5082483 E**, pubblicate da ISMAR: https://www.ismar.cnr.it/en/what-we-do/oceanographic-infrastructures/acqua-alta-oceanographic-tower/. La posizione usa la medesima proiezione di Mercatore del contorno, e resta allineata durante il ridimensionamento. L’icona è accessibile da tastiera e rimanda a **`./AAOT.html`** (maiuscole comprese), da creare nella stessa cartella; la pagina AAOT non è inclusa.
 
 ## Aggiungere una tile
 
@@ -50,7 +62,7 @@ Duplicare un oggetto nell'array `tiles` di **config.js**, cambiando titolo, desc
 
 `detail` è una seconda riga facoltativa. `newTab: true` apre una destinazione in una nuova scheda. `icon` corrisponde al nome di un file in `assets/icons/` senza estensione. Animazioni disponibili: `observatory`, `servers`, `map`, `models`. È possibile aggiungere altre icone SVG locali.
 
-La quinta tile è “Infrastrutture di Ricerca”, con sottotitolo “Le infrastrutture di ricerca che collaborano con ISMAR”. La sesta è “Facilities”, con sottotitolo “Piattaforme e reti di strumenti osservativi” e un'icona originale ispirata alla piattaforma AAOT. È attiva anche su smartphone e apre `facilities.html`, nella stessa directory di `index.html`: per ora la pagina è vuota e conserva il colore di fondo del portale.
+La quinta tile è “Infrastrutture di Ricerca”, con sottotitolo “Le infrastrutture di ricerca che collaborano con ISMAR”. La sesta è “Facilities”, con sottotitolo “Piattaforme e reti di strumenti osservativi” e un'icona originale ispirata alla piattaforma AAOT. È attiva anche su smartphone e apre `facilities.html`, nella stessa directory di `index.html`.
 
 Se si modificano i collegamenti e serve il supporto senza JavaScript, aggiornare anche i link nel blocco `noscript` di `index.html`.
 
@@ -70,7 +82,8 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 
 - `index.html`: struttura della pagina.
 - `dataservers.html`: elenco dei data server, con link diretti ai servizi.
-- `facilities.html`: pagina vuota predisposta per le facilities.
+- `models.html`: elenco dei modelli previsionali, con spazio per descrizioni e homepage future.
+- `facilities.html`: mappa dei contorni italiani con la piattaforma AAOT cliccabile.
 - `config.js`: tile, testi, collegamenti e opzioni.
 - `styles.css`: stile e adattamento a desktop, tablet e smartphone.
 - `app.js`: genera la griglia a partire dalla configurazione.

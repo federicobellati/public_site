@@ -1,6 +1,6 @@
-/* Unico file da modificare per collegamenti, testi e nuove tile.
- * I percorsi SOM, mappa e modelli sono predisposti: le pagine di destinazione
- * non sono incluse. Sostituire href con gli indirizzi definitivi.
+/* Configurazione di collegamenti, testi e nuove tile della home.
+ * Il percorso SOM è predisposto: la pagina di destinazione
+ * non è inclusa. Sostituire href con l'indirizzo definitivo.
  * Sono accettati percorsi relativi (./som/), assoluti (/som/) o URL https://.
  */
 window.ISMAR_PORTAL = {
@@ -33,7 +33,7 @@ window.ISMAR_PORTAL = {
       id: "mappa",
       title: "Esplora i dati",
       description: "Mappa delle osservazioni",
-      href: "./mappa/",
+      href: "http://erddapdash.ve.ismar.cnr.it/",
       icon: "map-2",
       animation: "map"
     },
@@ -41,7 +41,7 @@ window.ISMAR_PORTAL = {
       id: "modelli",
       title: "Modelli previsionali",
       description: "Risultati dei modelli per area",
-      href: "./modelli/",
+      href: "./models.html",
       icon: "grid-3x3",
       animation: "models"
     },

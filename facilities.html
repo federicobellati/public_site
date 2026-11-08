@@ -4,9 +4,59 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#062b35">
+  <meta name="description" content="Le facilities di CNR ISMAR sulla mappa d’Italia: scopri la piattaforma oceanografica Acqua Alta (AAOT), nel Golfo di Venezia.">
   <title>Facilities · CNR ISMAR</title>
   <link rel="icon" href="assets/brand/ismar.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body></body>
+<body>
+  <a class="skip-link" href="#contenuto">Vai alla mappa delle facilities</a>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="CNR ISMAR · pagina iniziale">
+      <img class="brand-cnr" src="assets/brand/cnr.svg" alt="" width="53" height="50">
+      <span class="brand-divider" aria-hidden="true"></span>
+      <img class="brand-ismar" src="assets/brand/ismar.svg" alt="" width="50" height="51">
+      <span class="brand-name" aria-hidden="true">CNR<br>ISMAR</span>
+    </a>
+    <h1>Facilities</h1>
+  </header>
+  <main id="contenuto" class="main facilities-main" tabindex="-1">
+    <a class="back-link" href="./">
+      <img src="assets/icons/arrow-right.svg" width="20" height="20" alt="">
+      <span>Dati e servizi</span>
+    </a>
+    <div class="facilities-intro">
+      <h2>Piattaforme e reti di strumenti osservativi</h2>
+      <p>Seleziona una facility sulla mappa per scoprirla.</p>
+    </div>
+    <figure class="facilities-atlas" aria-labelledby="facilities-map-caption">
+      <div class="facilities-map" style="--aaot-x: 49.623378%; --aaot-y: 18.839571%">
+        <img class="italy-outline" src="assets/maps/italy-outline.svg" alt="Mappa dei soli contorni dello Stato italiano, isole comprese." width="760" height="920">
+        <!-- Centro dell’icona proiettato dalle coordinate ufficiali ISMAR:
+             45.3142467 N, 12.5082483 E. Stessa proiezione dell’SVG.
+             Fonte: https://www.ismar.cnr.it/en/what-we-do/oceanographic-infrastructures/acqua-alta-oceanographic-tower/ -->
+        <a class="facility-marker" href="./AAOT.html" aria-label="AAOT · Piattaforma oceanografica Acqua Alta. Apri la pagina dedicata." aria-describedby="aaot-coordinates" data-latitude="45.3142467" data-longitude="12.5082483">
+          <span class="facility-icon">
+            <img src="assets/icons/aaot.svg" alt="" width="24" height="24">
+          </span>
+          <span class="facility-label" aria-hidden="true">
+            <strong>AAOT</strong>
+            <span>Piattaforma Acqua Alta</span>
+          </span>
+        </a>
+      </div>
+      <figcaption id="facilities-map-caption" class="facilities-caption">
+        <span>Piattaforma oceanografica Acqua Alta · Golfo di Venezia</span>
+        <span id="aaot-coordinates">45.314247° N · 12.508248° E</span>
+      </figcaption>
+    </figure>
+  </main>
+  <footer class="site-footer">
+    <span>CNR · ISMAR</span>
+    <div class="footer-actions">
+      <a href="https://www.ismar.cnr.it/">ISMAR</a>
+    </div>
+  </footer>
+</body>
 </html>
