@@ -101,7 +101,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--aqua); outline-
 a.model-homepage { color: var(--aqua); text-underline-offset: 5px; }
 a.model-homepage:hover { color: var(--text); }
 
-/* Facilities: contorni italiani e posizione geografica della piattaforma AAOT. */
+/* Facilities: contorni italiani e posizioni geografiche delle stazioni. */
 .facilities-main { display: block; padding-top: 40px; padding-bottom: 48px; }
 .facilities-intro { margin: 24px 0 30px; }
 .facilities-intro h2 { margin: 0 0 12px; font-size: clamp(28px, 3.22vw, 49px); line-height: 1.2; letter-spacing: -1.3px; text-wrap: balance; }
@@ -109,10 +109,10 @@ a.model-homepage:hover { color: var(--text); }
 .facilities-atlas { margin: 0; overflow: hidden; background: var(--tile); border: 1px solid var(--edge); border-radius: var(--radius); }
 .facilities-map { position: relative; width: min(100%, 900px, calc(88svh * 760 / 920)); margin-inline: auto; aspect-ratio: 760 / 920; }
 .italy-outline { display: block; width: 100%; height: 100%; }
-.facility-marker { position: absolute; left: var(--aaot-x); top: var(--aaot-y); display: flex; width: 32px; height: 32px; align-items: center; justify-content: center; transform: translate(-50%, -50%); color: var(--text); text-decoration: none; }
+.facility-marker { position: absolute; left: var(--facility-x); top: var(--facility-y); display: flex; width: 24px; height: 24px; align-items: center; justify-content: center; transform: translate(-50%, -50%); color: var(--text); text-decoration: none; }
 .facility-icon { display: grid; place-items: center; width: 24px; height: 24px; }
 .facility-icon img { display: block; filter: brightness(0) invert(96%); transition: filter 180ms ease; }
-.facility-label { position: absolute; left: calc(100% + 8px); top: 50%; transform: translateY(-50%); display: grid; gap: 3px; width: max-content; max-width: min(210px, 30vw); visibility: hidden; pointer-events: none; line-height: 1.4; }
+.facility-label { position: absolute; left: calc(100% + 8px); top: 50%; transform: translateY(-50%); display: grid; gap: 3px; width: max-content; max-width: min(210px, 30vw); padding: 6px 8px; background: var(--tile); border-radius: 5px; visibility: hidden; pointer-events: none; line-height: 1.4; }
 .facility-label strong { color: var(--aqua); font-size: 17px; letter-spacing: .5px; }
 .facility-label > span { color: var(--text); font-size: 13px; }
 .facility-marker:focus-visible { z-index: 1; }
@@ -123,7 +123,9 @@ a.model-homepage:hover { color: var(--text); }
   .facility-marker:hover .facility-label { visibility: visible; }
   .facility-marker:hover .facility-icon img { filter: brightness(0) saturate(100%) invert(88%) sepia(17%) saturate(846%) hue-rotate(110deg) brightness(97%) contrast(92%); }
 }
-.facilities-caption { display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; padding: 18px 24px; border-top: 1px solid var(--edge); color: var(--muted); font-size: 13px; line-height: 1.6; }
+.facilities-caption { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 24px; padding: 18px 24px; border-top: 1px solid var(--edge); color: var(--muted); font-size: 13px; line-height: 1.6; }
+.facilities-caption > span { display: grid; gap: 2px; }
+.facilities-caption strong { color: var(--text); font-weight: 600; }
 
 @media (max-width: 640px) {
   .facilities-main { padding-top: 22px; padding-bottom: 32px; }
@@ -131,7 +133,9 @@ a.model-homepage:hover { color: var(--text); }
   .facilities-intro h2 { font-size: clamp(26px, 6.7vw, 34px); letter-spacing: -.8px; }
   .facilities-intro p { font-size: 16px; }
   .facilities-map { width: 100%; }
-  .facilities-caption { padding: 16px 18px; font-size: 12px; gap: 6px; }
+  .facility-icon { width: clamp(14px, 4.6vw, 24px); height: clamp(14px, 4.6vw, 24px); }
+  .facility-icon img { width: 100%; height: 100%; }
+  .facilities-caption { grid-template-columns: 1fr; padding: 16px 18px; font-size: 12px; gap: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .facility-icon img { transition: none; }

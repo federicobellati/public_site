@@ -45,6 +45,10 @@ Ogni riquadro riserva spazio per una descrizione di circa 200 caratteri. Sostitu
 
 La stessa icona AAOT della tile Facilities è centrata alle coordinate **45.3142467 N, 12.5082483 E**, pubblicate da ISMAR: https://www.ismar.cnr.it/en/what-we-do/oceanographic-infrastructures/acqua-alta-oceanographic-tower/. La posizione usa la medesima proiezione di Mercatore del contorno, e resta allineata durante il ridimensionamento. L’icona è accessibile da tastiera e rimanda a **`./AAOT.html`** (maiuscole comprese), da creare nella stessa cartella; la pagina AAOT non è inclusa.
 
+Sono presenti anche **Paloma** (45.618283 N, 13.565217 E), **S1GB** (44.7384 N, 12.4526 E) e **E1** (44.14325 N, 12.5701 E). Paloma e S1GB condividono l’icona `assets/icons/meda.svg`, nella versione approvata con palo slanciato; E1 usa `assets/icons/boa-e1.svg`. Le icone aprono rispettivamente la scheda ISMAR di Paloma, la scheda JERICO di S1GB e la scheda DEIMS di E1. I nomi compaiono al passaggio del cursore e al focus da tastiera; nomi e coordinate sono riportati anche sotto la mappa. Su smartphone le icone si riducono per separare le stazioni vicine.
+
+Coordinate: [Paloma, CNR-ISMAR](https://www.ismar.cnr.it/web-content/cosa-facciamo/infrastrutture-oceanografiche/meda-paloma/), [S1GB, JERICO](https://www.jerico-ri.eu/infrastructure/meteoceanographic-site-s1-gb/), [E1, rapporto CNR-ISMAR](https://www.ismar.cnr.it/wp-content/uploads/2023/11/RT_Rete-Naz-Siti-Osservativi-Marini_ITA__ENG.pdf). Ogni posizione è memorizzata nei valori `data-latitude` e `data-longitude` del relativo collegamento. Il generatore locale `../verifica-portale/prepara-facilities.mjs` ricalcola tutte le posizioni con la stessa proiezione della mappa.
+
 ## Aggiungere una tile
 
 Duplicare un oggetto nell'array `tiles` di **config.js**, cambiando titolo, descrizione e collegamento. Non occorre modificare l'impaginazione: la griglia aggiunge automaticamente altre righe.
@@ -83,7 +87,7 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 - `index.html`: struttura della pagina.
 - `dataservers.html`: elenco dei data server, con link diretti ai servizi.
 - `models.html`: elenco dei modelli previsionali, con spazio per descrizioni e homepage future.
-- `facilities.html`: mappa dei contorni italiani con la piattaforma AAOT cliccabile.
+- `facilities.html`: mappa dei contorni italiani con AAOT, mede Paloma e S1GB e boa E1.
 - `config.js`: tile, testi, collegamenti e opzioni.
 - `styles.css`: stile e adattamento a desktop, tablet e smartphone.
 - `app.js`: genera la griglia a partire dalla configurazione.

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#062b35">
-  <meta name="description" content="Le facilities di CNR ISMAR sulla mappa d’Italia: scopri la piattaforma oceanografica Acqua Alta (AAOT), nel Golfo di Venezia.">
+  <meta name="description" content="Le facilities di CNR ISMAR sulla mappa d’Italia: piattaforma Acqua Alta (AAOT), mede Paloma e S1GB e boa E1.">
   <title>Facilities · CNR ISMAR</title>
   <link rel="icon" href="assets/brand/ismar.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin>
@@ -31,12 +31,12 @@
       <p>Seleziona una facility sulla mappa per scoprirla.</p>
     </div>
     <figure class="facilities-atlas" aria-labelledby="facilities-map-caption">
-      <div class="facilities-map" style="--aaot-x: 49.623378%; --aaot-y: 18.839571%">
+      <div class="facilities-map">
         <img class="italy-outline" src="assets/maps/italy-outline.svg" alt="Mappa dei soli contorni dello Stato italiano, isole comprese." width="760" height="920">
         <!-- Centro dell’icona proiettato dalle coordinate ufficiali ISMAR:
              45.3142467 N, 12.5082483 E. Stessa proiezione dell’SVG.
              Fonte: https://www.ismar.cnr.it/en/what-we-do/oceanographic-infrastructures/acqua-alta-oceanographic-tower/ -->
-        <a class="facility-marker" href="./AAOT.html" aria-label="AAOT · Piattaforma oceanografica Acqua Alta. Apri la pagina dedicata." aria-describedby="aaot-coordinates" data-latitude="45.3142467" data-longitude="12.5082483">
+        <a class="facility-marker" href="./AAOT.html" aria-label="AAOT · Piattaforma oceanografica Acqua Alta. Apri la pagina dedicata." aria-describedby="aaot-coordinates" data-latitude="45.3142467" data-longitude="12.5082483" style="--facility-x: 49.623378%; --facility-y: 18.839571%">
           <span class="facility-icon">
             <img src="assets/icons/aaot.svg" alt="" width="24" height="24">
           </span>
@@ -45,10 +45,27 @@
             <span>Piattaforma Acqua Alta</span>
           </span>
         </a>
+        <!-- Paloma: coordinate pubblicate da CNR-ISMAR nella scheda della meda. -->
+        <a class="facility-marker" href="https://www.ismar.cnr.it/web-content/cosa-facciamo/infrastrutture-oceanografiche/meda-paloma/" aria-label="Paloma · Meda oceanografica nel Golfo di Trieste. Apri la scheda ISMAR." aria-describedby="paloma-coordinates" data-latitude="45.618283" data-longitude="13.565217" style="--facility-x: 57.304011%; --facility-y: 16.237221%">
+          <span class="facility-icon"><img src="assets/icons/meda.svg" alt="" width="24" height="24"></span>
+          <span class="facility-label" aria-hidden="true"><strong>Paloma</strong><span>Meda · Golfo di Trieste</span></span>
+        </a>
+        <!-- S1GB: coordinate della meda elastica, fonte JERICO Research Infrastructure. -->
+        <a class="facility-marker" href="https://www.jerico-ri.eu/infrastructure/meteoceanographic-site-s1-gb/" aria-label="S1GB · Meda oceanografica al largo del Delta del Po. Apri la scheda JERICO." aria-describedby="s1gb-coordinates" data-latitude="44.7384" data-longitude="12.4526" style="--facility-x: 49.219001%; --facility-y: 23.730459%">
+          <span class="facility-icon"><img src="assets/icons/meda.svg" alt="" width="24" height="24"></span>
+          <span class="facility-label" aria-hidden="true"><strong>S1GB</strong><span>Meda · Delta del Po</span></span>
+        </a>
+        <!-- E1: coordinate del sito nel rapporto CNR-ISMAR sulla rete nazionale di siti osservativi. -->
+        <a class="facility-marker" href="https://deims.org/locations/45409faa-b33f-496e-919d-e442921bd923" aria-label="E1 · Boa meteo-oceanografica al largo di Rimini. Apri la scheda della stazione." aria-describedby="e1-coordinates" data-latitude="44.14325" data-longitude="12.5701" style="--facility-x: 50.072834%; --facility-y: 28.734379%">
+          <span class="facility-icon"><img src="assets/icons/boa-e1.svg" alt="" width="24" height="24"></span>
+          <span class="facility-label" aria-hidden="true"><strong>E1</strong><span>Boa · Costa riminese</span></span>
+        </a>
       </div>
       <figcaption id="facilities-map-caption" class="facilities-caption">
-        <span>Piattaforma oceanografica Acqua Alta · Golfo di Venezia</span>
-        <span id="aaot-coordinates">45.314247° N · 12.508248° E</span>
+        <span><strong>AAOT · Piattaforma Acqua Alta</strong><span id="aaot-coordinates">45.314247° N · 12.508248° E</span></span>
+        <span><strong>Paloma · Meda</strong><span id="paloma-coordinates">45.618283° N · 13.565217° E</span></span>
+        <span><strong>S1GB · Meda</strong><span id="s1gb-coordinates">44.7384° N · 12.4526° E</span></span>
+        <span><strong>E1 · Boa</strong><span id="e1-coordinates">44.14325° N · 12.5701° E</span></span>
       </figcaption>
     </figure>
   </main>
