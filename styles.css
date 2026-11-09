@@ -63,7 +63,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--aqua); outline-
 .tile[data-kind="policy"] .tile-visual { top: 20px; height: 40%; }
 .tile[data-kind="chatbot"] .tile-visual { top: 22px; height: 45%; }
 /* Live Acqua Alta measurements stay readable independently of the canvas. */
-.dashboard-preview { position: absolute; top: 62px; left: 34px; right: 34px; pointer-events: none; }
+.dashboard-preview { position: absolute; top: 72px; left: 34px; right: 34px; pointer-events: none; }
 .dashboard-source { margin: 0; color: var(--muted); text-align: center; font-size: 11px; line-height: 14px; letter-spacing: .3px; }
 .tile[data-kind="dashboard"] .tile-visual { top: 14px; left: 0; width: 100%; height: 38px; z-index: 0; transform: none !important; }
 .dashboard-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 38px 0 0; text-align: center; }
@@ -169,7 +169,7 @@ a.model-homepage:hover { color: var(--text); }
   .tile-description, .tile[data-kind="servers"] .tile-description { font-size: 19px; }
   .tile-detail { font-size: 17px; }
   .tile[data-kind="servers"] .tile-detail { font-size: 16px; }
-  .dashboard-preview { top: 66px; left: 25px; right: 25px; }
+  .dashboard-preview { top: 76px; left: 25px; right: 25px; }
   .dashboard-metrics { margin-top: 28px; }
   .tile[data-kind="dashboard"] .tile-visual { height: 28px; }
   .tile[data-kind="dashboard"] .tile-description { font-size: 17px; }
@@ -197,7 +197,7 @@ a.model-homepage:hover { color: var(--text); }
   .tile:is([data-kind="infrastructure"], [data-kind="facilities"]) .tile-visual { top: 20px; height: 31%; }
   .tile[data-kind="policy"] .tile-visual { top: 18px; height: 32%; }
   .tile[data-kind="chatbot"] .tile-visual { top: 24px; height: 40%; }
-  .dashboard-preview { top: 68px; left: 23px; right: 23px; }
+  .dashboard-preview { top: 78px; left: 23px; right: 23px; }
   .dashboard-source { font-size: 10px; line-height: 14px; }
   .dashboard-label { font-size: 9px; line-height: 12px; }
   .dashboard-value { font-size: 20px; line-height: 24px; }

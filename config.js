@@ -88,6 +88,14 @@ window.ISMAR_PORTAL = {
       href: "./chatbot.html",
       icon: "chatbot",
       animation: "chatbot"
+    },
+    {
+      id: "locations",
+      title: "Locations",
+      description: "Dove sono installati i sensori",
+      href: "./locations.html",
+      icon: "map-pin",
+      animation: "map"
     }
   ]
 };

@@ -27,6 +27,7 @@ La pagina SOM sarà sviluppata separatamente e non è inclusa. I collegamenti so
 | Dashboard | `./dashboard.html` (pagina vuota inclusa) |
 | Data Policy e Data Management Plan | `./datapolicy.html` (pagina vuota inclusa) |
 | IS-mA-BOT | `./chatbot.html` (pagina vuota inclusa) |
+| Locations | `./locations.html` (pagina vuota inclusa) |
 
 Modificare il valore `href` di ciascuna tile con un URL completo, un percorso dalla radice del dominio o un percorso relativo al portale. Finché le destinazioni non esistono, questi percorsi potranno restituire una pagina non trovata. Non sono presenti indirizzi fittizi di servizi reali.
 
@@ -110,6 +111,7 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 - `dashboard.html`: pagina vuota collegata alla tile Dashboard.
 - `datapolicy.html`: pagina vuota collegata alla tile Data Policy e Data Management Plan.
 - `chatbot.html`: pagina vuota collegata alla tile IS-mA-BOT, con sottotitolo “Chiedi al nostro chatbot!”.
+- `locations.html`: pagina vuota collegata alla tile Locations, con sottotitolo “Dove sono installati i sensori” e icona di posizione; riutilizza l'animazione cartografica illustrativa.
 - `config.js`: tile, testi, collegamenti e opzioni.
 - `styles.css`: stile e adattamento a desktop, tablet e smartphone.
 - `app.js`: genera la griglia a partire dalla configurazione.
