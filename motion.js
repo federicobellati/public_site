@@ -1,4 +1,4 @@
-/* Diagrammi illustrativi animati: non rappresentano misure o stati reali.
+/* Diagrammi illustrativi animati; Dashboard usa le misure reali dell'API ISMAR.
  * Un solo ciclo, limitato a 30 fps, si ferma fuori schermo o in background.
  */
 (() => {
@@ -193,6 +193,73 @@
       else { x = b.x; y = b.y + b.h - (distance - b.w * 2 - b.h); }
       dot(ctx, x, y, active ? 3 : 2.4, aqua, .95);
     });
+  }
+
+  // Three compact instruments, aligned with the accessible HTML measurements.
+  function dashboard(ctx, t, active, width, height) {
+    const scale = Math.min(1, height / 38);
+    ctx.scale(scale, scale);
+    width /= scale;
+    height /= scale;
+    const measures = window.ISMAR_DASHBOARD?.measures || {};
+    const level = measures.livello?.value;
+    const wave = measures.onda_altezza_significativa?.value;
+    const wind = measures.vento_velocita?.value;
+    const direction = measures.vento_direzione?.value;
+    const cy = height / 2;
+    const centers = [width / 6, width / 2, width * 5 / 6];
+    const bright = active ? 1 : .85;
+
+    // The gauge follows the measured level; ripples only suggest the surface.
+    const x = centers[0];
+    stroke(ctx, indigo, .65, 1.2);
+    ctx.beginPath(); ctx.moveTo(x - 21, cy - 14); ctx.lineTo(x - 21, cy + 14);
+    for (let tick = -12; tick <= 12; tick += 6) {
+      ctx.moveTo(x - 21, cy + tick); ctx.lineTo(x - 17, cy + tick);
+    }
+    ctx.stroke();
+    const surface = cy + (level == null ? 0 : 5 - Math.max(-1, Math.min(2, level)) * 7);
+    stroke(ctx, level == null ? indigo : aqua, level == null ? .4 : bright, 1.7);
+    if (level == null) ctx.setLineDash([3, 4]);
+    ctx.beginPath();
+    for (let dx = -12; dx <= 23; dx++) {
+      const y = surface + (level == null ? 0 : Math.sin(dx / 7 - t * 1.1) * 1.6);
+      if (dx === -12) ctx.moveTo(x + dx, y); else ctx.lineTo(x + dx, y);
+    }
+    ctx.stroke(); ctx.setLineDash([]);
+
+    // A missing wave measurement gets a quiet dashed line, never a fake value.
+    const amplitude = wave == null ? 0 : Math.min(10, Math.max(1, wave * 5));
+    for (let row = 0; row < 2; row++) {
+      stroke(ctx, wave == null ? indigo : row ? indigo : aqua, wave == null ? .4 : row ? .55 : bright, 1.6);
+      if (wave == null) ctx.setLineDash([3, 4]);
+      ctx.beginPath();
+      for (let dx = -24; dx <= 24; dx++) {
+        const y = cy - 4 + row * 10 + Math.sin(dx / 8 - t * 1.7 + row * .7) * amplitude;
+        if (dx === -24) ctx.moveTo(centers[1] + dx, y); else ctx.lineTo(centers[1] + dx, y);
+      }
+      ctx.stroke(); ctx.setLineDash([]);
+    }
+
+    // Meteorological bearing: 0° points north, 90° east (wind provenance).
+    const wx = centers[2];
+    stroke(ctx, indigo, .55, 1);
+    ctx.beginPath(); ctx.arc(wx, cy, 13, 0, Math.PI * 2); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(wx, cy - 17); ctx.lineTo(wx, cy - 14); ctx.stroke();
+    if (direction != null) {
+      ctx.save(); ctx.translate(wx, cy); ctx.rotate(direction * Math.PI / 180);
+      stroke(ctx, aqua, bright, 1.6);
+      ctx.beginPath(); ctx.moveTo(0, 9); ctx.lineTo(0, -10);
+      ctx.moveTo(-4, -5); ctx.lineTo(0, -10); ctx.lineTo(4, -5); ctx.stroke();
+      if (wind != null && wind > 0) {
+        const phase = (t * Math.min(1.3, wind / 12)) % 1;
+        dot(ctx, 0, -24 + phase * 9, 1.7, aqua, (1 - phase) * .7);
+      }
+      ctx.restore();
+    } else {
+      stroke(ctx, indigo, .4, 1.5);
+      ctx.beginPath(); ctx.moveTo(wx - 4, cy); ctx.lineTo(wx + 4, cy); ctx.stroke();
+    }
   }
 
   // A federation of research hubs, drawn as floating hexagonal modules.
@@ -469,6 +536,12 @@
     if (!width || !height) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.save();
+    if (scene.kind === "dashboard") {
+      ctx.scale(canvas.width / width, canvas.height / height);
+      dashboard(ctx, time, scene.active, width, height);
+      ctx.restore();
+      return;
+    }
     const horizontalScale = canvas.width / 640;
     if (["infrastructure", "facilities", "policy", "chatbot"].includes(scene.kind)) {
       // Preserve instrument and module proportions, including on small phones.
@@ -565,5 +638,8 @@
     }
   });
   document.addEventListener("visibilitychange", sync);
+  document.addEventListener("ismar:dashboard-update", () => {
+    scenes.filter(scene => scene.kind === "dashboard").forEach(scene => paint(scene, elapsed));
+  });
   sync();
 })();

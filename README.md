@@ -10,6 +10,8 @@ La directory web deve essere servita con il normale indice `index.html` e i MIME
 
 È possibile aprire `index.html` anche direttamente dal computer per vedere grafica e animazioni.
 
+La tile Dashboard richiede l'accesso via HTTP/HTTPS e l'autorizzazione CORS dell'API per l'origine del portale. Aprendo la pagina da file o da un'origine non autorizzata, il portale resta utilizzabile e la tile mostra “Dati non raggiungibili”.
+
 ## Collegamenti da completare
 
 La pagina SOM sarà sviluppata separatamente e non è inclusa. I collegamenti sono configurati in **config.js**; le pagine Data Server, Modelli previsionali e Facilities sono incluse:
@@ -32,7 +34,7 @@ Anche il collegamento ISMAR nel piè di pagina della home è configurabile. Non 
 
 ## Data server
 
-`dataservers.html` contiene i collegamenti ai cinque data server, con titoli e indirizzi visibili. La pagina usa lo stile condiviso del portale, dispone i riquadri su due colonne e passa a una colonna su smartphone. Funziona anche senza JavaScript.
+`dataservers.html` contiene i collegamenti ai sette data server, inclusi SEAMAP Catalog e SEAMAP Explorer, con titoli e indirizzi visibili. La pagina usa lo stile condiviso del portale, dispone i riquadri su due colonne e passa a una colonna su smartphone. Funziona anche senza JavaScript.
 
 Per aggiungere un server, duplicare un elemento `<li>` dentro `<ul class="server-list">` in **dataservers.html** e aggiornare il titolo (`server-title`), l'indirizzo visibile (`server-url`) e il collegamento (`href`). La griglia si adatta automaticamente. I collegamenti si aprono nella stessa scheda; “Dati e servizi” e i loghi riportano alla home.
 
@@ -67,7 +69,7 @@ Duplicare un oggetto nell'array `tiles` di **config.js**, cambiando titolo, desc
 }
 ```
 
-`detail` è una seconda riga facoltativa. `newTab: true` apre una destinazione in una nuova scheda. `icon` corrisponde al nome di un file in `assets/icons/` senza estensione. Animazioni disponibili: `observatory`, `servers`, `map`, `models`, `infrastructure`, `facilities`, `policy`, `chatbot`. È possibile aggiungere altre icone SVG locali.
+`detail` è una seconda riga facoltativa. `newTab: true` apre una destinazione in una nuova scheda. `icon` corrisponde al nome di un file in `assets/icons/` senza estensione. Animazioni disponibili: `observatory`, `servers`, `map`, `models`, `infrastructure`, `facilities`, `dashboard`, `policy`, `chatbot`. È possibile aggiungere altre icone SVG locali.
 
 La quinta tile è “Infrastrutture di Ricerca”, con sottotitolo “Le infrastrutture di ricerca che collaborano con ISMAR”. La sesta è “Facilities”, con sottotitolo “Piattaforme e reti di strumenti osservativi” e un'icona originale ispirata alla piattaforma AAOT. È attiva anche su smartphone e apre `facilities.html`, nella stessa directory di `index.html`.
 
@@ -75,7 +77,17 @@ Se si modificano i collegamenti e serve il supporto senza JavaScript, aggiornare
 
 ## Animazioni e accessibilità
 
-I diagrammi animati sono richiami visivi illustrativi, non misure o indicatori dello stato dei server. Le animazioni sono disegnate nel browser, senza video o immagini da scaricare.
+I diagrammi animati sono richiami visivi illustrativi, tranne la Dashboard, che visualizza le misure reali descritte sotto. Non sono indicatori dello stato dei server. Le animazioni sono disegnate nel browser, senza video o immagini da scaricare.
+
+### Dashboard · Acqua Alta
+
+La tile mostra marea in metri, altezza significativa delle onde in metri e velocità del vento in m/s dall'endpoint `https://apiapp.ve.ismar.cnr.it/api/fetch-data/?format=json`. Usa i campi `livello`, `onda_altezza_significativa`, `vento_velocita` e `vento_direzione` della piattaforma Acqua Alta; ignora gli eventuali campi legacy `wind_ave10` e `dir_ave10`. La freccia indica la provenienza del vento: 0° nord, 90° est. La scala della marea e l'ampiezza delle onde seguono i valori ricevuti; il movimento è un richiamo illustrativo, non una serie temporale di misure.
+
+L'indirizzo e l'intervallo di aggiornamento sono configurabili in `config.js`, nella sezione `dashboard`. La richiesta parte al caricamento e viene ripetuta ogni cinque minuti, con timeout di dieci secondi; il polling si sospende in background. Non vengono inviati cookie o credenziali, né usati proxy esterni o Open-Meteo.
+
+Un trattino sostituisce le singole misure assenti o non numeriche, senza impedire la lettura delle altre. In caso di errore di rete, CORS o risposta non valida, la tile mostra “Dati non raggiungibili” e rimuove i valori precedenti; riprova all'aggiornamento successivo. Non sono presenti valori di ripiego simulati.
+
+La data e l'ora sono quelle riportate dall'API, senza conversione di fuso: l'API attuale non ne specifica uno. Se gli orari differiscono, sono disponibili nei dettagli delle singole misure, al passaggio del cursore e per gli strumenti di lettura dello schermo. Il pulsante di pausa ferma le animazioni ma consente l'aggiornamento dei dati.
 
 La tile Data Policy usa l'animazione dedicata `policy`: tre piccoli insiemi di dati confluiscono in un documento, le righe ricevono una spunta e un sigillo finale completa il ciclo. Mantiene le proporzioni su smartphone e rispetta il comando di pausa e la preferenza di movimento ridotto.
 
@@ -87,7 +99,7 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 - Il comando nel piè di pagina permette di sospendere e riattivare le animazioni. La preferenza resta sul dispositivo; non viene trasmessa.
 - La preferenza di sistema per ridurre il movimento viene rispettata automaticamente alla prima visita.
 - Il ciclo grafico è limitato a 30 fotogrammi al secondo. Le scene fuori schermo non vengono ridisegnate e il ciclo si ferma quando la scheda del browser è in background.
-- Nessun tracciamento, cookie, chiamata API o dipendenza da CDN.
+- Nessun tracciamento, cookie o dipendenza da CDN. L'unica chiamata API è quella della tile Dashboard.
 
 ## File
 
@@ -101,6 +113,7 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 - `config.js`: tile, testi, collegamenti e opzioni.
 - `styles.css`: stile e adattamento a desktop, tablet e smartphone.
 - `app.js`: genera la griglia a partire dalla configurazione.
+- `dashboard.js`: lettura dell'API Acqua Alta, formattazione delle misure e aggiornamento della tile.
 - `motion.js`: animazioni locali e controlli del movimento.
 - `assets/`: loghi originali, font e icone.
 - `licenses/`: licenze dei componenti redistribuiti e provenienza dei loghi.

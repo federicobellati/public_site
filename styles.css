@@ -62,6 +62,17 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--aqua); outline-
 .tile:is([data-kind="infrastructure"], [data-kind="facilities"]) .tile-visual { top: 28px; height: 43%; }
 .tile[data-kind="policy"] .tile-visual { top: 20px; height: 40%; }
 .tile[data-kind="chatbot"] .tile-visual { top: 22px; height: 45%; }
+/* Live Acqua Alta measurements stay readable independently of the canvas. */
+.dashboard-preview { position: absolute; top: 62px; left: 34px; right: 34px; pointer-events: none; }
+.dashboard-source { margin: 0; color: var(--muted); text-align: center; font-size: 11px; line-height: 14px; letter-spacing: .3px; }
+.tile[data-kind="dashboard"] .tile-visual { top: 14px; left: 0; width: 100%; height: 38px; z-index: 0; transform: none !important; }
+.dashboard-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 38px 0 0; text-align: center; }
+.dashboard-metric { min-width: 0; pointer-events: auto; }
+.dashboard-label { color: var(--muted); font-size: 10px; line-height: 12px; letter-spacing: 1.2px; text-transform: uppercase; }
+.dashboard-value { display: flex; align-items: baseline; justify-content: center; gap: 4px; margin: 2px 0 0; color: var(--aqua); font-size: 23px; line-height: 26px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.dashboard-unit { color: var(--muted); font-size: 11px; font-weight: 450; }
+.dashboard-metric[data-available="false"] .dashboard-number { color: var(--muted); }
+.dashboard-status { margin: 3px 0 0; color: var(--muted); text-align: center; font-size: 10px; line-height: 12px; }
 .site-footer { width: calc(100% - var(--gutter) * 2); max-width: calc(1760px - var(--gutter) * 2); margin: 0 auto; min-height: 68px; border-top: 1px solid #69939b; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 16px; }
 .footer-actions { display: flex; align-items: center; gap: 30px; }
 .footer-actions > a { text-decoration: none; text-underline-offset: 5px; }
@@ -158,6 +169,10 @@ a.model-homepage:hover { color: var(--text); }
   .tile-description, .tile[data-kind="servers"] .tile-description { font-size: 19px; }
   .tile-detail { font-size: 17px; }
   .tile[data-kind="servers"] .tile-detail { font-size: 16px; }
+  .dashboard-preview { top: 66px; left: 25px; right: 25px; }
+  .dashboard-metrics { margin-top: 28px; }
+  .tile[data-kind="dashboard"] .tile-visual { height: 28px; }
+  .tile[data-kind="dashboard"] .tile-description { font-size: 17px; }
 }
 @media (max-width: 640px) {
   :root { --gutter: 20px; --radius: 11px; }
@@ -182,6 +197,12 @@ a.model-homepage:hover { color: var(--text); }
   .tile:is([data-kind="infrastructure"], [data-kind="facilities"]) .tile-visual { top: 20px; height: 31%; }
   .tile[data-kind="policy"] .tile-visual { top: 18px; height: 32%; }
   .tile[data-kind="chatbot"] .tile-visual { top: 24px; height: 40%; }
+  .dashboard-preview { top: 68px; left: 23px; right: 23px; }
+  .dashboard-source { font-size: 10px; line-height: 14px; }
+  .dashboard-label { font-size: 9px; line-height: 12px; }
+  .dashboard-value { font-size: 20px; line-height: 24px; }
+  .dashboard-unit { font-size: 10px; }
+  .dashboard-status { margin-top: 3px; font-size: 9px; line-height: 12px; }
   .tile[data-kind="servers"] .tile-detail { font-size: 14px; }
   .site-footer { min-height: 76px; font-size: 13px; gap: 12px; }
   .footer-actions { gap: 16px; }
@@ -196,6 +217,9 @@ a.model-homepage:hover { color: var(--text); }
   .server-url { font-size: 13px; }
   .server-arrow { width: 25px; height: 25px; }
   .model-card { padding: 24px 22px; }
+}
+@media (max-width: 360px) {
+  .tile[data-kind="dashboard"] { height: 280px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

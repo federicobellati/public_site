@@ -6,6 +6,10 @@
 window.ISMAR_PORTAL = {
   // Animazioni attive, salvo preferenze di accessibilità del visitatore.
   animations: true,
+  dashboard: {
+    endpoint: "https://apiapp.ve.ismar.cnr.it/api/fetch-data/?format=json",
+    refreshMs: 300000
+  },
   footer: {
     label: "ISMAR",
     href: "https://www.ismar.cnr.it/"
@@ -67,7 +71,7 @@ window.ISMAR_PORTAL = {
       description: "Molti modi di vedere i nostri dati",
       href: "./dashboard.html",
       icon: "chart-data",
-      animation: "models"
+      animation: "dashboard"
     },
     {
       id: "datapolicy",
