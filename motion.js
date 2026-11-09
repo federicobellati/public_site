@@ -321,7 +321,82 @@
     }
   }
 
-  const draw = { observatory, servers, map, models, infrastructure, facilities };
+  // Data records enter a management plan; each row is checked before release.
+  function policy(ctx, t, active) {
+    const cycle = t % 10;
+    const fade = Math.min(1, (10 - cycle) / .7);
+    const clamp = value => Math.max(0, Math.min(1, value));
+    const ease = value => value * value * (3 - 2 * value);
+    const check = (x, y, progress, size = 1, alpha = 1) => {
+      const first = Math.min(1, progress / .35);
+      const second = clamp((progress - .35) / .65);
+      stroke(ctx, aqua, alpha, 1.8);
+      ctx.beginPath(); ctx.moveTo(x - 5 * size, y);
+      ctx.lineTo(x + (-5 + 4 * first) * size, y + 4 * first * size);
+      if (second > 0) ctx.lineTo(x + (-1 + 9 * second) * size, y + (4 - 12 * second) * size);
+      ctx.stroke();
+    };
+
+    // A folded document holds three records, distinct from the server branches.
+    stroke(ctx, indigo, active ? .95 : .78, 1.5);
+    ctx.beginPath(); ctx.moveTo(390, 24); ctx.lineTo(466, 24);
+    ctx.lineTo(490, 48); ctx.lineTo(490, 176); ctx.lineTo(390, 176);
+    ctx.closePath(); ctx.moveTo(466, 24); ctx.lineTo(466, 48);
+    ctx.lineTo(490, 48); ctx.stroke();
+    stroke(ctx, indigo, .45, 1.2);
+    ctx.beginPath(); ctx.moveTo(406, 40); ctx.lineTo(443, 40); ctx.stroke();
+
+    for (let i = 0; i < 3; i++) {
+      const y = 67 + i * 39;
+      const progress = clamp((cycle - i * 1.4) / 1.8);
+      const accepted = ease(clamp((cycle - i * 1.4 - 1.8) / .55));
+      // Small source tables and curved lanes remain legible when motion is off.
+      stroke(ctx, indigo, .55, 1.1);
+      ctx.strokeRect(245, y - 10, 32, 20);
+      ctx.beginPath(); ctx.moveTo(245, y - 3); ctx.lineTo(277, y - 3);
+      ctx.moveTo(256, y - 3); ctx.lineTo(256, y + 10);
+      ctx.moveTo(267, y - 3); ctx.lineTo(267, y + 10); ctx.stroke();
+      stroke(ctx, indigo, .25, 1);
+      ctx.beginPath(); ctx.moveTo(285, y);
+      ctx.bezierCurveTo(325, y, 340, y - 14, 382, y); ctx.stroke();
+
+      if (progress > 0 && progress < 1) {
+        const p = ease(progress);
+        const x = bezier(285, 325, 340, 382, p);
+        const py = bezier(y, y, y - 14, y, p);
+        stroke(ctx, aqua, fade, 1.4);
+        ctx.strokeRect(x - 4, py - 3, 8, 6);
+        dot(ctx, x - 11, py, 1.5, aqua, .45 * fade);
+      }
+
+      // A record fills, then a hand-drawn check confirms it.
+      stroke(ctx, indigo, .25, 1.1);
+      ctx.beginPath(); ctx.moveTo(405, y - 3); ctx.lineTo(447, y - 3);
+      ctx.moveTo(405, y + 4); ctx.lineTo(432, y + 4); ctx.stroke();
+      if (accepted > 0) {
+        stroke(ctx, aqua, .75 * fade, 1.3);
+        ctx.beginPath(); ctx.moveTo(405, y - 3); ctx.lineTo(405 + 42 * accepted, y - 3);
+        ctx.moveTo(405, y + 4); ctx.lineTo(405 + 27 * accepted, y + 4); ctx.stroke();
+        check(466, y, accepted, .7, fade);
+      }
+    }
+
+    // The completed plan releases a record to a circular approval seal.
+    const release = ease(clamp((cycle - 5.5) / 1.2));
+    stroke(ctx, indigo, .3, 1.1);
+    ctx.beginPath(); ctx.moveTo(498, 105); ctx.lineTo(538, 105); ctx.stroke();
+    ring(ctx, 565, 105, 23, .18);
+    if (release > 0 && release < 1) dot(ctx, 498 + 40 * release, 105, 3, aqua, fade);
+    const seal = ease(clamp((cycle - 6.7) / .6));
+    if (seal > 0) {
+      stroke(ctx, aqua, .8 * fade, 1.4);
+      ctx.beginPath(); ctx.arc(565, 105, 23, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * seal); ctx.stroke();
+      check(564, 107, seal, 1.4, fade);
+      ring(ctx, 565, 105, 23 + (1 - Math.exp(-(cycle - 6.7))) * 11, .25 * (1 - seal) * fade);
+    }
+  }
+
+  const draw = { observatory, servers, map, models, infrastructure, facilities, policy };
 
   function paint(scene, time) {
     const { ctx, canvas, width, height } = scene;
@@ -329,7 +404,7 @@
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.save();
     const horizontalScale = canvas.width / 640;
-    if (scene.kind === "infrastructure" || scene.kind === "facilities") {
+    if (scene.kind === "infrastructure" || scene.kind === "facilities" || scene.kind === "policy") {
       // Preserve instrument and module proportions, including on small phones.
       const scale = Math.min(horizontalScale, canvas.height / 200);
       ctx.translate((canvas.width - 640 * scale) / 2, (canvas.height - 200 * scale) / 2);

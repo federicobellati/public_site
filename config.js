@@ -60,6 +60,30 @@ window.ISMAR_PORTAL = {
       href: "./facilities.html",
       icon: "aaot",
       animation: "facilities"
+    },
+    {
+      id: "dashboard",
+      title: "Dashboard",
+      description: "Molti modi di vedere i nostri dati",
+      href: "./dashboard.html",
+      icon: "chart-data",
+      animation: "models"
+    },
+    {
+      id: "datapolicy",
+      title: "Data Policy e Data Management Plan",
+      description: "Come gestiamo i dati a Ismar",
+      href: "./datapolicy.html",
+      icon: "file-check",
+      animation: "policy"
+    },
+    {
+      id: "chatbot",
+      title: "IS-mA-BOT",
+      description: "Chiedi al nostro chatbot!",
+      href: "./chatbot.html",
+      icon: "chatbot",
+      animation: "infrastructure"
     }
   ]
 };

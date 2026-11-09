@@ -22,6 +22,9 @@ La pagina SOM sarà sviluppata separatamente e non è inclusa. I collegamenti so
 | Modelli previsionali | `./models.html` (pagina inclusa) |
 | Infrastrutture di Ricerca | `https://assets.ve.ismar.cnr.it/public/public_pages/ri/` (collegamento definitivo) |
 | Facilities | `./facilities.html` (mappa inclusa) |
+| Dashboard | `./dashboard.html` (pagina vuota inclusa) |
+| Data Policy e Data Management Plan | `./datapolicy.html` (pagina vuota inclusa) |
+| IS-mA-BOT | `./chatbot.html` (pagina vuota inclusa) |
 
 Modificare il valore `href` di ciascuna tile con un URL completo, un percorso dalla radice del dominio o un percorso relativo al portale. Finché le destinazioni non esistono, questi percorsi potranno restituire una pagina non trovata. Non sono presenti indirizzi fittizi di servizi reali.
 
@@ -64,7 +67,7 @@ Duplicare un oggetto nell'array `tiles` di **config.js**, cambiando titolo, desc
 }
 ```
 
-`detail` è una seconda riga facoltativa. `newTab: true` apre una destinazione in una nuova scheda. `icon` corrisponde al nome di un file in `assets/icons/` senza estensione. Animazioni disponibili: `observatory`, `servers`, `map`, `models`. È possibile aggiungere altre icone SVG locali.
+`detail` è una seconda riga facoltativa. `newTab: true` apre una destinazione in una nuova scheda. `icon` corrisponde al nome di un file in `assets/icons/` senza estensione. Animazioni disponibili: `observatory`, `servers`, `map`, `models`, `infrastructure`, `facilities`, `policy`. È possibile aggiungere altre icone SVG locali.
 
 La quinta tile è “Infrastrutture di Ricerca”, con sottotitolo “Le infrastrutture di ricerca che collaborano con ISMAR”. La sesta è “Facilities”, con sottotitolo “Piattaforme e reti di strumenti osservativi” e un'icona originale ispirata alla piattaforma AAOT. È attiva anche su smartphone e apre `facilities.html`, nella stessa directory di `index.html`.
 
@@ -72,7 +75,9 @@ Se si modificano i collegamenti e serve il supporto senza JavaScript, aggiornare
 
 ## Animazioni e accessibilità
 
-I diagrammi animati sono richiami visivi illustrativi, non misure o indicatori dello stato dei server. Le quattro animazioni sono disegnate nel browser, senza video o immagini da scaricare.
+I diagrammi animati sono richiami visivi illustrativi, non misure o indicatori dello stato dei server. Le animazioni sono disegnate nel browser, senza video o immagini da scaricare.
+
+La tile Data Policy usa l'animazione dedicata `policy`: tre piccoli insiemi di dati confluiscono in un documento, le righe ricevono una spunta e un sigillo finale completa il ciclo. Mantiene le proporzioni su smartphone e rispetta il comando di pausa e la preferenza di movimento ridotto.
 
 La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ricavata da Natural Earth, inclusa localmente in `assets/maps/mediterranean.js`. L'Italia, le coste e il reticolo geografico fanno da sfondo a punti illustrativi evidenziati in sequenza. Non vengono richieste mappe a servizi esterni. I punti non rappresentano un inventario reale delle osservazioni.
 
@@ -88,6 +93,9 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 - `dataservers.html`: elenco dei data server, con link diretti ai servizi.
 - `models.html`: elenco dei modelli previsionali, con spazio per descrizioni e homepage future.
 - `facilities.html`: mappa dei contorni italiani con AAOT, mede Paloma e S1GB e boa E1.
+- `dashboard.html`: pagina vuota collegata alla tile Dashboard.
+- `datapolicy.html`: pagina vuota collegata alla tile Data Policy e Data Management Plan.
+- `chatbot.html`: pagina vuota collegata alla tile IS-mA-BOT, con sottotitolo “Chiedi al nostro chatbot!”.
 - `config.js`: tile, testi, collegamenti e opzioni.
 - `styles.css`: stile e adattamento a desktop, tablet e smartphone.
 - `app.js`: genera la griglia a partire dalla configurazione.

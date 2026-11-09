@@ -3,7 +3,7 @@
   const config = window.ISMAR_PORTAL || {};
   const container = document.getElementById("tiles");
   const safeIcons = /^[a-z0-9-]+$/;
-  const kinds = new Set(["observatory", "servers", "map", "models", "infrastructure", "facilities"]);
+  const kinds = new Set(["observatory", "servers", "map", "models", "infrastructure", "facilities", "policy"]);
 
   function safeHref(value) {
     if (typeof value !== "string" || !value.trim()) return "./";
