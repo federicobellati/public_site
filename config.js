@@ -93,7 +93,7 @@ window.ISMAR_PORTAL = {
       id: "locations",
       title: "Locations",
       description: "Dove sono installati i sensori",
-      href: "./locations.html",
+      href: "https://assets.ve.ismar.cnr.it/public/public_pages/loc/",
       icon: "map-pin",
       animation: "map"
     }
