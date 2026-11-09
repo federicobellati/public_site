@@ -67,7 +67,7 @@ Duplicare un oggetto nell'array `tiles` di **config.js**, cambiando titolo, desc
 }
 ```
 
-`detail` è una seconda riga facoltativa. `newTab: true` apre una destinazione in una nuova scheda. `icon` corrisponde al nome di un file in `assets/icons/` senza estensione. Animazioni disponibili: `observatory`, `servers`, `map`, `models`, `infrastructure`, `facilities`, `policy`. È possibile aggiungere altre icone SVG locali.
+`detail` è una seconda riga facoltativa. `newTab: true` apre una destinazione in una nuova scheda. `icon` corrisponde al nome di un file in `assets/icons/` senza estensione. Animazioni disponibili: `observatory`, `servers`, `map`, `models`, `infrastructure`, `facilities`, `policy`, `chatbot`. È possibile aggiungere altre icone SVG locali.
 
 La quinta tile è “Infrastrutture di Ricerca”, con sottotitolo “Le infrastrutture di ricerca che collaborano con ISMAR”. La sesta è “Facilities”, con sottotitolo “Piattaforme e reti di strumenti osservativi” e un'icona originale ispirata alla piattaforma AAOT. È attiva anche su smartphone e apre `facilities.html`, nella stessa directory di `index.html`.
 
@@ -78,6 +78,8 @@ Se si modificano i collegamenti e serve il supporto senza JavaScript, aggiornare
 I diagrammi animati sono richiami visivi illustrativi, non misure o indicatori dello stato dei server. Le animazioni sono disegnate nel browser, senza video o immagini da scaricare.
 
 La tile Data Policy usa l'animazione dedicata `policy`: tre piccoli insiemi di dati confluiscono in un documento, le righe ricevono una spunta e un sigillo finale completa il ciclo. Mantiene le proporzioni su smartphone e rispetta il comando di pausa e la preferenza di movimento ridotto.
+
+La tile IS-mA-BOT usa l'animazione originale `chatbot`: un robot con occhi che sbattono le palpebre riceve una domanda, elabora con una piccola forma d'onda e compone una risposta in un fumetto. Il ciclo dura dieci secondi, mantiene le proporzioni su smartphone e segue gli stessi controlli di pausa e movimento ridotto.
 
 La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ricavata da Natural Earth, inclusa localmente in `assets/maps/mediterranean.js`. L'Italia, le coste e il reticolo geografico fanno da sfondo a punti illustrativi evidenziati in sequenza. Non vengono richieste mappe a servizi esterni. I punti non rappresentano un inventario reale delle osservazioni.
 

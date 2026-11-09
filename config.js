@@ -72,7 +72,7 @@ window.ISMAR_PORTAL = {
     {
       id: "datapolicy",
       title: "Data Policy e Data Management Plan",
-      description: "Come gestiamo i dati a Ismar",
+      description: "Come governiamo i dati in Ismar",
       href: "./datapolicy.html",
       icon: "file-check",
       animation: "policy"
@@ -83,7 +83,7 @@ window.ISMAR_PORTAL = {
       description: "Chiedi al nostro chatbot!",
       href: "./chatbot.html",
       icon: "chatbot",
-      animation: "infrastructure"
+      animation: "chatbot"
     }
   ]
 };

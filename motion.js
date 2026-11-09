@@ -396,7 +396,73 @@
     }
   }
 
-  const draw = { observatory, servers, map, models, infrastructure, facilities, policy };
+  // A conversation, rather than a network: question, listening, then a reply.
+  function chatbot(ctx, t, active) {
+    const cycle = t % 10;
+    const ease = value => {
+      const p = Math.max(0, Math.min(1, value));
+      return p * p * (3 - 2 * p);
+    };
+    const fade = 1 - ease((cycle - 9) / 1);
+    const question = ease(cycle / .8) * fade;
+    const answer = ease((cycle - 4.2) / .8) * fade;
+
+    function bubble(x, y, w, h, right, alpha) {
+      stroke(ctx, right ? aqua : indigo, alpha, 1.5);
+      ctx.beginPath();
+      ctx.roundRect(x, y, w, h, 11); ctx.stroke();
+      ctx.beginPath();
+      const tail = right ? x + 13 : x + w - 13;
+      ctx.moveTo(tail - 5, y + h); ctx.lineTo(tail, y + h + 8);
+      ctx.lineTo(tail + 5, y + h); ctx.stroke();
+    }
+
+    bubble(225, 32 - question * 4, 90, 52, false, .2 + question * .65);
+    // Three staggered dots suggest a question being typed.
+    for (let i = 0; i < 3; i++) {
+      const lift = cycle < 2.8 ? Math.max(0, Math.sin(cycle * 5 - i * .8)) * 3 : 0;
+      dot(ctx, 253 + i * 17, 54 - question * 4 - lift, 2.8, indigo, .35 + question * .55);
+    }
+
+    ctx.save();
+    ctx.translate(397, 99 + Math.sin(t * 1.7) * 3);
+    // A rounded visor, antenna and two small ear pieces give the bot its own silhouette.
+    stroke(ctx, indigo, .85, 1.6);
+    ctx.beginPath(); ctx.moveTo(0, -45); ctx.lineTo(0, -59); ctx.stroke();
+    dot(ctx, 0, -63, 4, aqua, .7 + Math.sin(t * 3) * .2);
+    ctx.beginPath(); ctx.roundRect(-47, -30, 8, 24, 4);
+    ctx.roundRect(39, -30, 8, 24, 4); ctx.stroke();
+    ctx.beginPath(); ctx.roundRect(-39, -45, 78, 65, 20);
+    ctx.globalAlpha = 1; ctx.fillStyle = "#093d4a"; ctx.fill();
+    stroke(ctx, active ? aqua : indigo, .95, 1.8); ctx.stroke();
+    ctx.beginPath(); ctx.roundRect(-28, -32, 56, 30, 12);
+    stroke(ctx, aqua, .35, 1); ctx.stroke();
+    const blink = Math.pow(Math.max(0, Math.cos((t - 2.5) * Math.PI / 2.8)), 36);
+    for (const x of [-12, 12]) {
+      ctx.beginPath(); ctx.ellipse(x, -18, 3.3, Math.max(.7, 5 * (1 - blink)), 0, 0, Math.PI * 2);
+      ctx.globalAlpha = .95; ctx.fillStyle = aqua; ctx.fill();
+    }
+    stroke(ctx, aqua, .85, 1.5);
+    ctx.beginPath(); ctx.moveTo(-8, 7); ctx.quadraticCurveTo(0, 13 + answer * 3, 8, 7); ctx.stroke();
+    // A quiet listening waveform becomes more expressive while composing the answer.
+    for (let i = 0; i < 7; i++) {
+      const thinking = cycle > 2 && cycle < 4.6;
+      const h = 2 + (thinking ? (Math.sin(t * 7 + i * 1.2) + 1) * 6 : Math.sin(i * .8 + t) * 1.5 + 2);
+      stroke(ctx, i === 3 ? aqua : indigo, thinking ? .9 : .4, 2.3);
+      ctx.beginPath(); ctx.moveTo((i - 3) * 9, 45 - h); ctx.lineTo((i - 3) * 9, 45 + h); ctx.stroke();
+    }
+    ctx.restore();
+
+    bubble(481, 67 - answer * 5, 109, 72, true, .18 + answer * .7);
+    for (let i = 0; i < 3; i++) {
+      const progress = ease((cycle - 4.5 - i * .65) / .9) * fade;
+      stroke(ctx, aqua, .16 + answer * .7, 1.8);
+      ctx.beginPath(); ctx.moveTo(496, 85 + i * 16 - answer * 5);
+      ctx.lineTo(496 + [76, 60, 42][i] * (.15 + .85 * progress), 85 + i * 16 - answer * 5); ctx.stroke();
+    }
+  }
+
+  const draw = { observatory, servers, map, models, infrastructure, facilities, policy, chatbot };
 
   function paint(scene, time) {
     const { ctx, canvas, width, height } = scene;
@@ -404,7 +470,7 @@
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.save();
     const horizontalScale = canvas.width / 640;
-    if (scene.kind === "infrastructure" || scene.kind === "facilities" || scene.kind === "policy") {
+    if (["infrastructure", "facilities", "policy", "chatbot"].includes(scene.kind)) {
       // Preserve instrument and module proportions, including on small phones.
       const scale = Math.min(horizontalScale, canvas.height / 200);
       ctx.translate((canvas.width - 640 * scale) / 2, (canvas.height - 200 * scale) / 2);
