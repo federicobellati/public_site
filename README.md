@@ -14,24 +14,30 @@ La tile Dashboard richiede l'accesso via HTTP/HTTPS e l'autorizzazione CORS dell
 
 ## Collegamenti da completare
 
-La pagina SOM sarà sviluppata separatamente e non è inclusa. I collegamenti sono configurati in **config.js**; le pagine Data Server, Modelli previsionali e Facilities sono incluse:
+I collegamenti sono configurati in **config.js**; le pagine SOM, Data Server, Modelli previsionali e Facilities sono incluse:
 
 | Tile | Percorso iniziale, da sostituire quando disponibile |
 | --- | --- |
-| SOM | `./som/` |
+| SOM | `./som.html` (pagina inclusa) |
 | Data Server / API | `./dataservers.html` (pagina inclusa) |
 | Esplora i dati · Mappa delle osservazioni | `http://erddapdash.ve.ismar.cnr.it/` (collegamento definitivo) |
 | Modelli previsionali | `./models.html` (pagina inclusa) |
-| Infrastrutture di Ricerca | `https://assets.ve.ismar.cnr.it/public/public_pages/ri/` (collegamento definitivo) |
+| Infrastrutture di Ricerca (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/ri/` (collegamento definitivo) |
 | Facilities | `./facilities.html` (mappa inclusa) |
 | Dashboard | `./dashboard.html` (pagina vuota inclusa) |
 | Data Policy e Data Management Plan | `./datapolicy.html` (pagina vuota inclusa) |
 | IS-mA-BOT | `./chatbot.html` (pagina vuota inclusa) |
-| Locations | `https://assets.ve.ismar.cnr.it/public/public_pages/loc/` (collegamento definitivo) |
+| Locations (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/loc/` (collegamento definitivo) |
 
 Modificare il valore `href` di ciascuna tile con un URL completo, un percorso dalla radice del dominio o un percorso relativo al portale. Finché le destinazioni non esistono, questi percorsi potranno restituire una pagina non trovata. Non sono presenti indirizzi fittizi di servizi reali.
 
 Anche il collegamento ISMAR nel piè di pagina della home è configurabile. Non è stato inserito un indirizzo email di contatto non concordato.
+
+## SOM · Sistema Osservativo Marino
+
+La home contiene otto tile. SOM apre `som.html`, nella stessa cartella di `index.html`, con le due tile Locations e Infrastrutture di Ricerca, i loro collegamenti esterni originali e le stesse icone e animazioni. Facilities resta nella home.
+
+Le due tile sono configurate nell'array `somTiles` di **config.js**; `tiles` contiene solo quelle della home. La pagina riutilizza le risorse locali del portale, mostra il percorso “Dati e servizi › SOM” per tornare alla home e dispone le tile su due colonne su desktop e una su smartphone. I collegamenti sono disponibili anche senza JavaScript.
 
 ## Data server
 
@@ -72,9 +78,9 @@ Duplicare un oggetto nell'array `tiles` di **config.js**, cambiando titolo, desc
 
 `detail` è una seconda riga facoltativa. `newTab: true` apre una destinazione in una nuova scheda. `icon` corrisponde al nome di un file in `assets/icons/` senza estensione. Animazioni disponibili: `observatory`, `servers`, `map`, `models`, `infrastructure`, `facilities`, `dashboard`, `policy`, `chatbot`. È possibile aggiungere altre icone SVG locali.
 
-La quinta tile è “Infrastrutture di Ricerca”, con sottotitolo “Le infrastrutture di ricerca che collaborano con ISMAR”. La sesta è “Facilities”, con sottotitolo “Piattaforme e reti di strumenti osservativi” e un'icona originale ispirata alla piattaforma AAOT. È attiva anche su smartphone e apre `facilities.html`, nella stessa directory di `index.html`.
+La quinta tile della home è “Facilities”, con sottotitolo “Piattaforme e reti di strumenti osservativi” e un'icona originale ispirata alla piattaforma AAOT. È attiva anche su smartphone e apre `facilities.html`, nella stessa directory di `index.html`. Locations e Infrastrutture di Ricerca si trovano nella pagina SOM.
 
-Se si modificano i collegamenti e serve il supporto senza JavaScript, aggiornare anche i link nel blocco `noscript` di `index.html`.
+Se si modificano i collegamenti e serve il supporto senza JavaScript, aggiornare anche i link nel blocco `noscript` di `index.html` o `som.html`, secondo la pagina interessata.
 
 ## Animazioni e accessibilità
 
@@ -105,6 +111,7 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 ## File
 
 - `index.html`: struttura della pagina.
+- `som.html`: pagina SOM con le tile Locations e Infrastrutture di Ricerca.
 - `dataservers.html`: elenco dei data server, con link diretti ai servizi.
 - `models.html`: elenco dei modelli previsionali, con spazio per descrizioni e homepage future.
 - `facilities.html`: mappa dei contorni italiani con AAOT, mede Paloma e S1GB e boa E1.

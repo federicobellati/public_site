@@ -93,6 +93,8 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--aqua); outline-
 .back-link { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--muted); font-size: 14px; text-decoration: none; }
 .back-link img { flex-shrink: 0; filter: brightness(0) invert(1); transform: rotate(180deg); }
 .back-link:hover { color: var(--aqua); }
+.breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 14px; }
+.breadcrumb [aria-current="page"] { color: var(--text); }
 .servers-intro { margin: 32px 0; }
 .servers-intro h2 { margin: 0 0 12px; font-size: clamp(30px, 3.22vw, 49px); line-height: 1.2; letter-spacing: -1.3px; }
 .servers-intro p { max-width: 660px; margin: 0; color: var(--muted); font-size: 18px; line-height: 1.6; }

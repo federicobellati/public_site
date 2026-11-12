@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#062b35">
+  <meta name="description" content="SOM · Sistema Osservativo Marino di CNR ISMAR: accedi alle locations dei sensori e alle infrastrutture di ricerca.">
+  <title>SOM · Sistema Osservativo Marino · CNR ISMAR</title>
+  <link rel="icon" href="assets/brand/ismar.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="assets/maps/mediterranean.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="motion.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenuto">Vai alle sezioni SOM</a>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="CNR ISMAR · pagina iniziale">
+      <img class="brand-cnr" src="assets/brand/cnr.svg" alt="" width="53" height="50">
+      <span class="brand-divider" aria-hidden="true"></span>
+      <img class="brand-ismar" src="assets/brand/ismar.svg" alt="" width="50" height="51">
+      <span class="brand-name" aria-hidden="true">CNR<br>ISMAR</span>
+    </a>
+    <h1>SOM</h1>
+  </header>
+  <main id="contenuto" class="main servers-main" tabindex="-1">
+    <nav class="breadcrumb" aria-label="Percorso di navigazione">
+      <a class="back-link" href="./">
+        <img src="assets/icons/arrow-right.svg" width="20" height="20" alt="">
+        <span>Dati e servizi</span>
+      </a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">SOM</span>
+    </nav>
+    <div class="servers-intro">
+      <h2>Sistema Osservativo Marino</h2>
+      <p>Esplora le locations dei sensori e le infrastrutture di ricerca che collaborano con ISMAR.</p>
+    </div>
+    <nav id="tiles" class="tiles" data-section="som" aria-label="Sezioni del Sistema Osservativo Marino"></nav>
+    <noscript>
+      <div class="no-script">
+        <p>Accedi alle sezioni del Sistema Osservativo Marino:</p>
+        <ul>
+          <li><a href="https://assets.ve.ismar.cnr.it/public/public_pages/loc/">Locations · Dove sono installati i sensori</a></li>
+          <li><a href="https://assets.ve.ismar.cnr.it/public/public_pages/ri/">Infrastrutture di Ricerca · Le infrastrutture di ricerca che collaborano con ISMAR</a></li>
+        </ul>
+      </div>
+    </noscript>
+  </main>
+  <footer class="site-footer">
+    <span>CNR · ISMAR</span>
+    <div class="footer-actions">
+      <button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="true" aria-label="Metti in pausa le animazioni" hidden>
+        <img src="assets/icons/player-pause.svg" width="17" height="17" alt="">
+        <span>Animazioni attive</span>
+      </button>
+      <a id="contact-link" href="https://www.ismar.cnr.it/">ISMAR</a>
+    </div>
+  </footer>
+</body>
+</html>

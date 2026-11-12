@@ -1,7 +1,5 @@
-/* Configurazione di collegamenti, testi e nuove tile della home.
- * Il percorso SOM è predisposto: la pagina di destinazione
- * non è inclusa. Sostituire href con l'indirizzo definitivo.
- * Sono accettati percorsi relativi (./som/), assoluti (/som/) o URL https://.
+/* Configurazione di collegamenti, testi e tile della home e della pagina SOM.
+ * Sono accettati percorsi relativi (./som.html), assoluti (/som.html) o URL https://.
  */
 window.ISMAR_PORTAL = {
   // Animazioni attive, salvo preferenze di accessibilità del visitatore.
@@ -19,8 +17,8 @@ window.ISMAR_PORTAL = {
       id: "som",
       title: "SOM",
       description: "Sistema Osservativo Marino",
-      detail: "Strumenti e facilities",
-      href: "./som/",
+      detail: "Locations e infrastrutture di ricerca",
+      href: "./som.html",
       icon: "radar-2",
       animation: "observatory"
     },
@@ -48,14 +46,6 @@ window.ISMAR_PORTAL = {
       href: "./models.html",
       icon: "grid-3x3",
       animation: "models"
-    },
-    {
-      id: "infrastrutture",
-      title: "Infrastrutture di Ricerca",
-      description: "Le infrastrutture di ricerca che collaborano con ISMAR",
-      href: "https://assets.ve.ismar.cnr.it/public/public_pages/ri/",
-      icon: "network",
-      animation: "infrastructure"
     },
     {
       id: "facilities",
@@ -88,7 +78,9 @@ window.ISMAR_PORTAL = {
       href: "./chatbot.html",
       icon: "chatbot",
       animation: "chatbot"
-    },
+    }
+  ],
+  somTiles: [
     {
       id: "locations",
       title: "Locations",
@@ -96,6 +88,14 @@ window.ISMAR_PORTAL = {
       href: "https://assets.ve.ismar.cnr.it/public/public_pages/loc/",
       icon: "map-pin",
       animation: "map"
+    },
+    {
+      id: "infrastrutture",
+      title: "Infrastrutture di Ricerca",
+      description: "Le infrastrutture di ricerca che collaborano con ISMAR",
+      href: "https://assets.ve.ismar.cnr.it/public/public_pages/ri/",
+      icon: "network",
+      animation: "infrastructure"
     }
   ]
 };

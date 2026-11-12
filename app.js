@@ -29,7 +29,8 @@
     return img;
   }
 
-  for (const [index, item] of (config.tiles || []).entries()) {
+  const tiles = container.dataset.section === "som" ? config.somTiles : config.tiles;
+  for (const [index, item] of (tiles || []).entries()) {
     if (item.placeholder) {
       const placeholder = element("div", "tile tile-placeholder");
       placeholder.setAttribute("aria-hidden", "true");
