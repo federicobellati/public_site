@@ -24,6 +24,7 @@ I collegamenti sono configurati in **config.js**; le pagine SOM, Data Server, Mo
 | Modelli previsionali | `./models.html` (pagina inclusa) |
 | Infrastrutture di Ricerca (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/ri/` (collegamento definitivo) |
 | Facilities (dentro SOM) | `./facilities.html` (mappa inclusa) |
+| Organizations (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/org/` (collegamento definitivo) |
 | Dashboard | `./dashboard.html` (pagina vuota inclusa) |
 | Data Policy e Data Management Plan | `./datapolicy.html` (pagina vuota inclusa) |
 | IS-mA-BOT | `./chatbot.html` (pagina vuota inclusa) |
@@ -35,9 +36,9 @@ Anche il collegamento ISMAR nel piè di pagina della home è configurabile. Non 
 
 ## SOM · Sistema Osservativo Marino
 
-La home contiene sette tile. SOM apre `som.html`, nella stessa cartella di `index.html`, con le tre tile Locations, Infrastrutture di Ricerca e Facilities, con le stesse icone, animazioni e destinazioni originali.
+La home contiene sette tile. SOM apre `som.html`, nella stessa cartella di `index.html`, con le quattro tile Locations, Infrastrutture di Ricerca, Facilities e Organizations, con icone e animazioni nello stile condiviso del portale.
 
-Le tre tile sono configurate nell'array `somTiles` di **config.js**; `tiles` contiene solo quelle della home. La pagina riutilizza le risorse locali del portale, mostra il percorso “Dati e servizi › SOM” per tornare alla home e dispone le tile su due colonne su desktop e una su smartphone. I collegamenti sono disponibili anche senza JavaScript. La pagina Facilities mostra il percorso “Dati e servizi › SOM › Facilities” per risalire alle sezioni precedenti.
+Le quattro tile sono configurate nell'array `somTiles` di **config.js**; `tiles` contiene solo quelle della home. La pagina riutilizza le risorse locali del portale, mostra il percorso “Dati e servizi › SOM” per tornare alla home e dispone le tile su due colonne su desktop e una su smartphone. I collegamenti sono disponibili anche senza JavaScript. La pagina Facilities mostra il percorso “Dati e servizi › SOM › Facilities” per risalire alle sezioni precedenti.
 
 ## Data server
 
@@ -111,7 +112,7 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 ## File
 
 - `index.html`: struttura della pagina.
-- `som.html`: pagina SOM con le tile Locations, Infrastrutture di Ricerca e Facilities.
+- `som.html`: pagina SOM con le tile Locations, Infrastrutture di Ricerca, Facilities e Organizations.
 - `dataservers.html`: elenco dei data server, con link diretti ai servizi.
 - `models.html`: elenco dei modelli previsionali, con spazio per descrizioni e homepage future.
 - `facilities.html`: mappa dei contorni italiani con AAOT, mede Paloma e S1GB e boa E1.
