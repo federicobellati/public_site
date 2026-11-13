@@ -91,7 +91,7 @@ window.ISMAR_PORTAL = {
     },
     {
       id: "facilities",
-      title: "Facilities",
+      title: "Facilities Map",
       description: "Piattaforme e reti di strumenti osservativi",
       href: "./facilities.html",
       icon: "aaot",
