@@ -17,7 +17,7 @@ window.ISMAR_PORTAL = {
       id: "som",
       title: "SOM",
       description: "Sistema Osservativo Marino",
-      detail: "Locations e infrastrutture di ricerca",
+      detail: "Locations, infrastrutture di ricerca e facilities",
       href: "./som.html",
       icon: "radar-2",
       animation: "observatory"
@@ -46,14 +46,6 @@ window.ISMAR_PORTAL = {
       href: "./models.html",
       icon: "grid-3x3",
       animation: "models"
-    },
-    {
-      id: "facilities",
-      title: "Facilities",
-      description: "Piattaforme e reti di strumenti osservativi",
-      href: "./facilities.html",
-      icon: "aaot",
-      animation: "facilities"
     },
     {
       id: "dashboard",
@@ -96,6 +88,14 @@ window.ISMAR_PORTAL = {
       href: "https://assets.ve.ismar.cnr.it/public/public_pages/ri/",
       icon: "network",
       animation: "infrastructure"
+    },
+    {
+      id: "facilities",
+      title: "Facilities",
+      description: "Piattaforme e reti di strumenti osservativi",
+      href: "./facilities.html",
+      icon: "aaot",
+      animation: "facilities"
     }
   ]
 };
