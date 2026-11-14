@@ -23,7 +23,8 @@ I collegamenti sono configurati in **config.js**; le pagine SOM, Data Server, Mo
 | Esplora i dati · Mappa delle osservazioni | `http://erddapdash.ve.ismar.cnr.it/` (collegamento definitivo) |
 | Modelli previsionali | `./models.html` (pagina inclusa) |
 | Infrastrutture di Ricerca (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/ri/` (collegamento definitivo) |
-| Facilities (dentro SOM) | `./facilities.html` (mappa inclusa) |
+| Facilities Map (dentro SOM) | `./facilities.html` (mappa inclusa) |
+| Facilities · registro (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/fac/` (cartella autonoma `../facilities-registry/`, da pubblicare separatamente) |
 | Organizations (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/org/` (collegamento definitivo) |
 | Dashboard | `./dashboard.html` (pagina vuota inclusa) |
 | Data Policy e Data Management Plan | `./datapolicy.html` (pagina vuota inclusa) |
@@ -36,9 +37,9 @@ Anche il collegamento ISMAR nel piè di pagina della home è configurabile. Non 
 
 ## SOM · Sistema Osservativo Marino
 
-La home contiene sette tile. SOM apre `som.html`, nella stessa cartella di `index.html`, con le quattro tile Locations, Infrastrutture di Ricerca, Facilities e Organizations, con icone e animazioni nello stile condiviso del portale.
+La home contiene sette tile. SOM apre `som.html`, nella stessa cartella di `index.html`, con cinque tile: Locations, Infrastrutture di Ricerca, Facilities, Facilities Map e Organizations, con icone e animazioni nello stile condiviso del portale.
 
-Le quattro tile sono configurate nell'array `somTiles` di **config.js**; `tiles` contiene solo quelle della home. La pagina riutilizza le risorse locali del portale, mostra il percorso “Dati e servizi › SOM” per tornare alla home e dispone le tile su due colonne su desktop e una su smartphone. I collegamenti sono disponibili anche senza JavaScript. La pagina Facilities mostra il percorso “Dati e servizi › SOM › Facilities” per risalire alle sezioni precedenti.
+Le cinque tile sono configurate nell'array `somTiles` di **config.js**; `tiles` contiene solo quelle della home. La pagina riutilizza le risorse locali del portale, mostra il percorso “Dati e servizi › SOM” per tornare alla home e dispone le tile su due colonne su desktop e una su smartphone. I collegamenti sono disponibili anche senza JavaScript. Il registro Facilities è preparato nella cartella separata `../facilities-registry/`, con tutte le proprie risorse, e va pubblicato a `/public/public_pages/fac/`. La mappa preesistente resta in `facilities.html`.
 
 ## Data server
 
@@ -79,7 +80,7 @@ Duplicare un oggetto nell'array `tiles` di **config.js**, cambiando titolo, desc
 
 `detail` è una seconda riga facoltativa. `newTab: true` apre una destinazione in una nuova scheda. `icon` corrisponde al nome di un file in `assets/icons/` senza estensione. Animazioni disponibili: `observatory`, `servers`, `map`, `models`, `infrastructure`, `facilities`, `dashboard`, `policy`, `chatbot`. È possibile aggiungere altre icone SVG locali.
 
-La terza tile della pagina SOM è “Facilities”, con sottotitolo “Piattaforme e reti di strumenti osservativi” e un'icona originale ispirata alla piattaforma AAOT. È attiva anche su smartphone e apre `facilities.html`, nella stessa directory di `index.html`, accanto alle sezioni Locations e Infrastrutture di Ricerca.
+La terza tile della pagina SOM è “Facilities” e apre il registro esterno configurato; la quarta è “Facilities Map”, con sottotitolo “Piattaforme e reti di strumenti osservativi” e un'icona originale ispirata alla piattaforma AAOT, e apre `facilities.html`. Sono entrambe disponibili anche su smartphone.
 
 Se si modificano i collegamenti e serve il supporto senza JavaScript, aggiornare anche i link nel blocco `noscript` di `index.html` o `som.html`, secondo la pagina interessata.
 

@@ -90,6 +90,14 @@ window.ISMAR_PORTAL = {
       animation: "infrastructure"
     },
     {
+      id: "facilities-registry",
+      title: "Facilities",
+      description: "Esplora il registro delle facilities",
+      href: "https://assets.ve.ismar.cnr.it/public/public_pages/fac/",
+      icon: "network",
+      animation: "infrastructure"
+    },
+    {
       id: "facilities",
       title: "Facilities Map",
       description: "Piattaforme e reti di strumenti osservativi",
