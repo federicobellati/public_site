@@ -45,6 +45,8 @@ Le cinque tile sono configurate nell'array `somTiles` di **config.js**; `tiles` 
 
 `dataservers.html` contiene undici collegamenti a data server e API, inclusi APIAPP - Dati meteo, ERDDAP-DANUBIUS, ERDDAP-ITINERIS, ERDDAP-HRF NODE, SEAMAP Catalog e SEAMAP Explorer, con titoli e indirizzi visibili. La pagina usa lo stile condiviso del portale, dispone i riquadri su due colonne e passa a una colonna su smartphone. Funziona anche senza JavaScript.
 
+Con JavaScript attivo, `server-status.js` aggiunge un pallino accanto a ogni titolo ed esegue un solo GET per servizio all'apertura della pagina, senza credenziali e senza scaricare integralmente il corpo della risposta. Verde: risposta HTTP riuscita; rosso: errore HTTP leggibile o nessuna risposta entro 5 secondi; grigio: controllo non verificabile, per esempio per CORS o blocco HTTP da una pagina HTTPS. Il timeout descrive il controllo dal browser del visitatore, non certifica un guasto del server. Nessuna dicitura visibile, tooltip o aggiornamento periodico; lo stato è disponibile anche agli screen reader. L'attributo facoltativo `data-status-url` indica l'indirizzo da controllare quando serve evitare un reindirizzamento senza CORS o usare HTTPS; non modifica il link della scheda. Il controllo dell'API meteo è consentito dall'origine `https://assets.ve.ismar.cnr.it`, ma può restare grigio in anteprima locale.
+
 Per aggiungere un server, duplicare un elemento `<li>` dentro `<ul class="server-list">` in **dataservers.html** e aggiornare il titolo (`server-title`), l'indirizzo visibile (`server-url`) e il collegamento (`href`). La griglia si adatta automaticamente. I collegamenti si aprono nella stessa scheda; “Dati e servizi” e i loghi riportano alla home.
 
 ## Modelli previsionali

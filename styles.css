@@ -104,6 +104,9 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--aqua); outline-
 .server-card:is(:hover, :focus-visible) { background: var(--tile-active); border-color: var(--aqua); }
 .server-copy { display: grid; gap: 9px; min-width: 0; }
 .server-title { font-size: clamp(20px, 2vw, 28px); font-weight: 700; line-height: 1.3; letter-spacing: -.6px; overflow-wrap: anywhere; }
+.server-status { display: inline-block; width: .625rem; height: .625rem; margin-right: .65rem; border-radius: 50%; background: #9ca3af; vertical-align: .12em; }
+.server-status[data-state="green"] { background: #4ade80; }
+.server-status[data-state="red"] { background: #f87171; }
 .server-url { color: var(--muted); font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
 .server-arrow { flex-shrink: 0; filter: brightness(0) invert(1); }
 
