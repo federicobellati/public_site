@@ -26,7 +26,7 @@ I collegamenti sono configurati in **config.js**; le pagine SOM, Data Server, Mo
 | Facilities Map (dentro SOM) | `./facilities.html` (mappa inclusa) |
 | Facilities · registro (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/fac/` (cartella autonoma `../facilities-registry/`, da pubblicare separatamente) |
 | Organizations (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/org/` (collegamento definitivo) |
-| Dashboard | `./dashboard.html` (pagina vuota inclusa) |
+| Dashboard | `https://assets.ve.ismar.cnr.it/public/public_pages/dashboards/qc_dash.html` (collegamento definitivo) |
 | Data Policy e Data Management Plan | `./datapolicy.html` (pagina vuota inclusa) |
 | IS-mA-BOT | `./chatbot.html` (pagina vuota inclusa) |
 | Locations (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/loc/` (collegamento definitivo) |
@@ -43,7 +43,7 @@ Le cinque tile sono configurate nell'array `somTiles` di **config.js**; `tiles` 
 
 ## Data server
 
-`dataservers.html` contiene i collegamenti ai sette data server, inclusi SEAMAP Catalog e SEAMAP Explorer, con titoli e indirizzi visibili. La pagina usa lo stile condiviso del portale, dispone i riquadri su due colonne e passa a una colonna su smartphone. Funziona anche senza JavaScript.
+`dataservers.html` contiene undici collegamenti a data server e API, inclusi APIAPP - Dati meteo, ERDDAP-DANUBIUS, ERDDAP-ITINERIS, ERDDAP-HRF NODE, SEAMAP Catalog e SEAMAP Explorer, con titoli e indirizzi visibili. La pagina usa lo stile condiviso del portale, dispone i riquadri su due colonne e passa a una colonna su smartphone. Funziona anche senza JavaScript.
 
 Per aggiungere un server, duplicare un elemento `<li>` dentro `<ul class="server-list">` in **dataservers.html** e aggiornare il titolo (`server-title`), l'indirizzo visibile (`server-url`) e il collegamento (`href`). La griglia si adatta automaticamente. I collegamenti si aprono nella stessa scheda; “Dati e servizi” e i loghi riportano alla home.
 
@@ -117,7 +117,7 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 - `dataservers.html`: elenco dei data server, con link diretti ai servizi.
 - `models.html`: elenco dei modelli previsionali, con spazio per descrizioni e homepage future.
 - `facilities.html`: mappa dei contorni italiani con AAOT, mede Paloma e S1GB e boa E1.
-- `dashboard.html`: pagina vuota collegata alla tile Dashboard.
+- `dashboard.html`: pagina vuota conservata localmente; la tile Dashboard punta al servizio esterno configurato in `config.js`.
 - `datapolicy.html`: pagina vuota collegata alla tile Data Policy e Data Management Plan.
 - `chatbot.html`: pagina vuota collegata alla tile IS-mA-BOT, con sottotitolo “Chiedi al nostro chatbot!”.
 - `locations.html`: pagina vuota conservata localmente; la tile Locations punta al servizio esterno configurato in `config.js`.

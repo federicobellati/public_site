@@ -51,7 +51,7 @@ window.ISMAR_PORTAL = {
       id: "dashboard",
       title: "Dashboard",
       description: "Molti modi di vedere i nostri dati",
-      href: "./dashboard.html",
+      href: "https://assets.ve.ismar.cnr.it/public/public_pages/dashboards/qc_dash.html",
       icon: "chart-data",
       animation: "dashboard"
     },
