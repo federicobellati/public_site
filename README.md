@@ -27,9 +27,10 @@ I collegamenti sono configurati in **config.js**; le pagine SOM, Data Server, Mo
 | Facilities · registro (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/fac/` (cartella autonoma `../facilities-registry/`, da pubblicare separatamente) |
 | Organizations (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/org/` (collegamento definitivo) |
 | Dashboard | `https://assets.ve.ismar.cnr.it/public/public_pages/dashboards/qc_dash.html` (collegamento definitivo) |
-| Data Policy e Data Management Plan | `./datapolicy.html` (pagina vuota inclusa) |
+| Data Policy e Data Management Plan | `./datapolicy.html` (policy v2.0, PDF firmato e collegamento al DMP) |
 | IS-mA-BOT | `https://assets.ve.ismar.cnr.it/public/public_pages/isabot-metadata/chatbot.html` (collegamento definitivo) |
 | Profiles · Profili semantici delle entità | `./profiles.html` (pagina inclusa) |
+| Altre risorse | `./otherresources.html` (pagina inclusa) |
 | Locations (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/loc/` (collegamento definitivo) |
 
 Modificare il valore `href` di ciascuna tile con un URL completo, un percorso dalla radice del dominio o un percorso relativo al portale. Un valore vuoto (`href: ""`) mantiene la tile visibile con l'indicazione “Pagina in preparazione”, senza un collegamento che ricarichi la pagina o apra la home. Non sono presenti indirizzi fittizi di servizi reali.
@@ -46,7 +47,7 @@ Anche il collegamento ISMAR nel piè di pagina della home è configurabile. Non 
 
 ## SOM · Sistema Osservativo Marino
 
-La home contiene otto tile. SOM apre `som.html`, nella stessa cartella di `index.html`, con cinque tile: Locations, Infrastrutture di Ricerca, Facilities, Facilities Map e Organizations, con icone e animazioni nello stile condiviso del portale.
+La home contiene nove tile. SOM apre `som.html`, nella stessa cartella di `index.html`, con cinque tile: Locations, Infrastrutture di Ricerca, Facilities, Facilities Map e Organizations, con icone e animazioni nello stile condiviso del portale.
 
 Le cinque tile sono configurate nell'array `somTiles` di **config.js**; `tiles` contiene solo quelle della home. La pagina riutilizza le risorse locali del portale, mostra il percorso “Dati e servizi › SOM” per tornare alla home e dispone le tile su due colonne su desktop e una su smartphone. I collegamenti sono disponibili anche senza JavaScript. Il registro Facilities è preparato nella cartella separata `../facilities-registry/`, con tutte le proprie risorse, e va pubblicato a `/public/public_pages/fac/`. La mappa preesistente resta in `facilities.html`.
 
@@ -62,11 +63,25 @@ Per aggiungere un server, duplicare un elemento `<li>` dentro `<ul class="server
 
 `models.html` elenca ISSOS, Kassandra, Henetus, Nettuno e AdriOper, nello stile condiviso del portale: due colonne su desktop e una su smartphone. La pagina funziona senza JavaScript ed è collegata alla tile della home, anche nel blocco `noscript`.
 
+Kassandra collega `http://kassandra.ve.ismar.cnr.it:8080/kassandra`.
+
 Ogni riquadro riserva spazio per una descrizione di circa 200 caratteri. Sostituire “Descrizione in arrivo.” nel paragrafo `model-description` con il testo definitivo; lo spazio si espande se necessario. Quando disponibile, sostituire `<span class="model-homepage">Collegamento in arrivo</span>` con `<a class="model-homepage" href="URL-DELLA-HOMEPAGE">Vai al modello →</a>`, usando l'indirizzo effettivo. Al momento non sono presenti collegamenti fittizi alle homepage dei modelli. Per aggiungere un modello, duplicare un elemento `<li>` e aggiornare anche l'ID del titolo e il relativo `aria-labelledby`.
+
+## Data Policy e Data Management Plan
+
+`datapolicy.html` contiene il testo inglese completo della **CNR-ISMAR Data Policy v2.0**, approvata il **30 aprile 2026**, con cronologia delle versioni, indice navigabile, definizioni, riferimenti e i due allegati. I richiami bibliografici portano alle rispettive voci. La pagina riutilizza loghi e font del portale, con un'area di lettura chiara, indice laterale su desktop, tabelle a scorrimento su smartphone e stile per la stampa. Tutte le funzioni sono disponibili senza JavaScript.
+
+Il pulsante di download e il collegamento di lettura aprono `assets/documents/RT-58-ISMAR_Data_Policy_v2.0_signed-1.pdf`, copia identica del PDF originale firmato (19 pagine). I simboli Creative Commons in `assets/policy/` sono estratti dal documento. Il testo HTML conserva la formulazione della policy; sono stati ricomposti soltanto gli artefatti di estrazione, le tabelle e i collegamenti spezzati. L'Allegato II è una riproduzione per consultazione, con accesso diretto alla pagina 17 del PDF per la richiesta; non raccoglie né invia dati online.
+
+Il riquadro **Data Management Plan** collega il documento di Caccavale, Corgnati e Grande (2024) al DOI `https://doi.org/10.26383/CNR-ISMAR.2024.5`, riportato nel riferimento [17] della policy. Lo stile specifico è in `datapolicy.css`. Per la pubblicazione mantenere insieme pagina, foglio di stile e risorse in `assets/`; tutti i percorsi sono relativi alla cartella del portale.
 
 ## Profiles
 
-`profiles.html` contiene 21 voci in un elenco compatto a colonna singola: dieci Semantic application profiles, dieci Registry e un'ontologia, Sensor Description Mapping. Ogni riga affianca un'etichetta cliccabile, la dichiarazione Turtle completa `@prefix nome: <URI> .` e il pulsante dedicato alla copia. I collegamenti mantengono gli indirizzi w3id.org forniti. Per Ultimate Feature of Interest viene usato `sapufoi:`, distinto da `sapfoi:`. La pagina usa lo stile condiviso, con link e dichiarazione sulla stessa riga su desktop e una disposizione adattata agli schermi piccoli; link e dichiarazioni restano leggibili senza JavaScript. `profiles.js` abilita i pulsanti di copia, conferma il successo con una spunta e supporta anche la copia tramite selezione quando l'API clipboard non è disponibile. La tile della home mostra “Profiles” e il sottotitolo “Profili semantici delle entità”.
+`profiles.html` contiene 22 voci in un elenco compatto a colonna singola: dieci Semantic application profiles, dieci Registry, un'ontologia (Sensor Description Mapping) e un Metadata Profile (DANUBIUS · In situ · 1.0.0). Il gruppo Metadata Profiles è in fondo alla pagina e include il collegamento al repository pubblico `https://github.com/federicobellati/metadata-profiles` e il prefix `danmetaprof:`. Ogni riga affianca un'etichetta cliccabile, la dichiarazione Turtle completa `@prefix nome: <URI> .` e il pulsante dedicato alla copia. I collegamenti mantengono gli indirizzi w3id.org forniti. Per Ultimate Feature of Interest viene usato `sapufoi:`, distinto da `sapfoi:`. La pagina usa lo stile condiviso, con link e dichiarazione sulla stessa riga su desktop e una disposizione adattata agli schermi piccoli; link e dichiarazioni restano leggibili senza JavaScript. `profiles.js` abilita i pulsanti di copia, conferma il successo con una spunta e supporta anche la copia tramite selezione quando l'API clipboard non è disponibile. La tile della home mostra “Profiles” e il sottotitolo “Profili semantici delle entità”.
+
+## Altre risorse
+
+La nona tile della home, con icona dedicata `toolbox.svg`, apre `otherresources.html`. La pagina elenca NetCDF to Zarr (`https://netcdf2zarr.lab.dive.edito.eu/`) e Zarr Visualizer (`https://zarr-visualizer.lab.dive.edito.eu/`), con lo stile condiviso di Data Server e collegamento di ritorno alla home. Funziona anche senza JavaScript. Per aggiungere risorse, duplicare una voce della lista e aggiornare titolo e indirizzo.
 
 ## Facilities
 
@@ -135,7 +150,8 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 - `profiles.js`: copia delle dichiarazioni dei prefix e conferma accessibile dell'esito.
 - `facilities.html`: mappa dei contorni italiani con AAOT, mede Paloma e S1GB e boa E1.
 - `dashboard.html`: pagina vuota conservata localmente; la tile Dashboard punta al servizio esterno configurato in `config.js`.
-- `datapolicy.html`: pagina vuota collegata alla tile Data Policy e Data Management Plan.
+- `datapolicy.html`: testo completo della Data Policy v2.0, allegati, download del PDF originale firmato e collegamento al DMP.
+- `datapolicy.css`: impaginazione del documento, indice, tabelle responsive e stile per la stampa.
 - `chatbot.html`: pagina vuota locale conservata; la tile IS-mA-BOT punta al servizio esterno.
 - `locations.html`: pagina vuota conservata localmente; la tile Locations punta al servizio esterno configurato in `config.js`.
 - `config.js`: tile, testi, collegamenti e opzioni.

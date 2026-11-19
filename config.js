@@ -78,6 +78,14 @@ window.ISMAR_PORTAL = {
       href: "./profiles.html",
       icon: "network",
       animation: "infrastructure"
+    },
+    {
+      id: "otherresources",
+      title: "Altre risorse",
+      description: "Strumenti per lavorare con i dati",
+      href: "./otherresources.html",
+      icon: "toolbox",
+      animation: "servers"
     }
   ],
   somTiles: [

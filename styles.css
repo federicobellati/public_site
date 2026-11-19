@@ -122,6 +122,9 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--aqua); outline-
 .profiles-section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 10px; }
 .profiles-section h3 { scroll-margin-top: 24px; margin: 0; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.4; letter-spacing: -.4px; overflow-wrap: anywhere; }
 .profiles-count { flex-shrink: 0; color: var(--muted); font-size: 14px; }
+.profiles-repository { margin: 12px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.profiles-repository a { color: var(--aqua); text-underline-offset: 4px; }
+.profiles-repository a:hover { color: var(--text); }
 .profiles-list { margin: 0; padding: 0; list-style: none; border: 1px solid var(--edge); border-radius: 8px; background: var(--tile); }
 .profile-row { display: grid; grid-template-columns: 16rem minmax(0, 1fr) 44px; align-items: center; gap: 16px; min-width: 0; padding: 6px 14px; }
 .profile-row + .profile-row { border-top: 1px solid var(--edge); }

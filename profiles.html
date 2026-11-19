@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#062b35">
-  <meta name="description" content="Profili semantici delle entità di CNR ISMAR: semantic application profiles, registry e ontologie.">
+  <meta name="description" content="Profili di CNR ISMAR: semantic application profiles, registry, ontologie e metadata profiles.">
   <title>Profiles · CNR ISMAR</title>
   <link rel="icon" href="assets/brand/ismar.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin>
@@ -34,6 +34,7 @@
         <a href="#semantic-application-profiles">Application profiles <span>10</span></a>
         <a href="#registry">Registry <span>10</span></a>
         <a href="#ontologies">Ontologies <span>1</span></a>
+        <a href="#metadata-profiles">Metadata Profiles <span>1</span></a>
       </nav>
     </div>
     <section class="profiles-section" aria-labelledby="semantic-application-profiles">
@@ -233,6 +234,25 @@
             </button>
         </li>
       </ul>
+    </section>
+    <section class="profiles-section" aria-labelledby="metadata-profiles">
+      <div class="profiles-section-heading">
+        <div>
+          <h3 id="metadata-profiles">Metadata Profiles</h3>
+        </div>
+        <span class="profiles-count">1 profilo</span>
+      </div>
+      <ul class="profiles-list">
+        <li class="profile-row">
+          <h4><a href="https://w3id.org/cnr-ismar/metadata-profiles/danubius/insitu/1.0.0/">DANUBIUS · In situ · 1.0.0</a></h4>
+          <code id="prefix-danmetaprof">@prefix danmetaprof: &lt;https://w3id.org/cnr-ismar/metadata-profiles/danubius/insitu/1.0.0/&gt; .</code>
+          <button class="profile-copy" type="button" data-copy="prefix-danmetaprof" aria-label="Copia il prefix danmetaprof:" title="Copia il prefix danmetaprof:" hidden>
+            <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+            <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+          </button>
+        </li>
+      </ul>
+      <p class="profiles-repository">Repository pubblico: <a href="https://github.com/federicobellati/metadata-profiles">metadata-profiles</a></p>
     </section>
     <p id="profile-copy-status" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></p>
   </main>

@@ -121,3 +121,12 @@ Nessun problema P0/P1/P2 residuo nella revisione.
 - Sesta tile vuota per completare la griglia a due colonne: nessun collegamento, testo, animazione o focus. Nascosta sotto i 641 px, quando la griglia passa a una colonna.
 - Controlli sintattici JavaScript e controllo statico delle risorse locali superati. Il controllo distingue ora i collegamenti alle destinazioni dalle dipendenze esterne.
 - Verifica visiva non completata: anteprima integrata non raggiungibile; il controllo del browser Windows si è interrotto perché non riusciva a identificare con certezza l'URL corrente. Le catture delle revisioni precedenti documentano la versione a quattro tile, non questa aggiunta.
+## Kassandra, Metadata Profiles e Altre risorse — 19 novembre 2026
+
+- Kassandra: aggiunto il collegamento HTTP con porta 8080 fornito dall'utente.
+- Profiles: nuovo gruppo finale Metadata Profiles, con DANUBIUS · In situ · 1.0.0, dichiarazione `danmetaprof:`, pulsante copia, collegamento w3id e repository pubblico. Le 21 voci precedenti sono conservate.
+- Home: nona tile Altre risorse, icona originale `toolbox.svg` e collegamento a `otherresources.html`, disponibile anche senza JavaScript. La nuova pagina usa la griglia condivisa e presenta NetCDF to Zarr e Zarr Visualizer; rimossi i punti finali dai domini forniti.
+- Verifica browser: navigazione dalla home alla nuova pagina, indirizzi delle due risorse e di Kassandra, copia del nuovo prefix con conferma visibile. Controllate home e Profiles a 1440 px, Profiles e Altre risorse a 390 px; nessuna fuoriuscita orizzontale. Anteprima finale anche al viewport predefinito.
+- Verifiche statiche superate: risorse e ancore delle quattro pagine interessate, ID univoci, associazioni dei pulsanti copia, sintassi di config.js e controllo esistente del portale aggiornato a nove tile.
+- Catture locali: `../verifica-portale/altre-risorse-tile-1440.jpg`, `../verifica-portale/metadata-profiles-1440.jpg`, `../verifica-portale/altre-risorse.jpg`. Modifiche solo locali; nessuna pubblicazione richiesta in questo passaggio.
+
