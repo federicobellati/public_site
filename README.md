@@ -28,11 +28,19 @@ I collegamenti sono configurati in **config.js**; le pagine SOM, Data Server, Mo
 | Organizations (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/org/` (collegamento definitivo) |
 | Dashboard | `https://assets.ve.ismar.cnr.it/public/public_pages/dashboards/qc_dash.html` (collegamento definitivo) |
 | Data Policy e Data Management Plan | `./datapolicy.html` (pagina vuota inclusa) |
-| IS-mA-BOT | `./chatbot.html` (pagina vuota inclusa) |
+| IS-mA-BOT | `https://assets.ve.ismar.cnr.it/public/public_pages/isabot-metadata/chatbot.html` (collegamento definitivo) |
 | Profiles · Profili semantici delle entità | `./profiles.html` (pagina inclusa) |
 | Locations (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/loc/` (collegamento definitivo) |
 
-Modificare il valore `href` di ciascuna tile con un URL completo, un percorso dalla radice del dominio o un percorso relativo al portale. Finché le destinazioni non esistono, questi percorsi potranno restituire una pagina non trovata. Non sono presenti indirizzi fittizi di servizi reali.
+Modificare il valore `href` di ciascuna tile con un URL completo, un percorso dalla radice del dominio o un percorso relativo al portale. Un valore vuoto (`href: ""`) mantiene la tile visibile con l'indicazione “Pagina in preparazione”, senza un collegamento che ricarichi la pagina o apra la home. Non sono presenti indirizzi fittizi di servizi reali.
+
+## SOM: mappa ed elenco
+
+`som.html` si apre nella vista Mappa. Il selettore Mappa / Elenco mostra alternativamente il diagramma delle nove entità o la griglia di tile originale. Le cinque tile esistenti conservano ordine, testi, collegamenti e animazioni, compresa Facilities Map; sono aggiunte le cinque entità che ancora non hanno una pagina.
+
+Nella mappa, il riquadro seleziona l'entità e ne evidenzia le relazioni; l'icona è un collegamento separato alla sua pagina. Per Sensor Models, Environmental variable, Deployments, Datasets e Features of Interest la destinazione è inizialmente vuota e l'icona è disattivata. I titoli e gli indirizzi sono letti dalle stesse voci `somTiles` di `config.js`, identificate dal campo `entity`: completare `href` abilita sia la tile nell'elenco sia l'icona nella mappa. Sensor Models riguarda i modelli di sensori e non rimanda alla pagina dei modelli previsionali.
+
+`som-map.js` definisce disposizione e relazioni; `som-map.css` mantiene lo stile del mockup approvato. Il grafo conserva le undici relazioni dello schizzo, senza direzionalità. Su schermi piccoli, lo scorrimento è confinato alla mappa, centrata inizialmente su Datasets; l'elenco usa la griglia responsive del portale. Senza JavaScript è disponibile l'elenco testuale delle sezioni.
 
 Anche il collegamento ISMAR nel piè di pagina della home è configurabile. Non è stato inserito un indirizzo email di contatto non concordato.
 
@@ -128,7 +136,7 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 - `facilities.html`: mappa dei contorni italiani con AAOT, mede Paloma e S1GB e boa E1.
 - `dashboard.html`: pagina vuota conservata localmente; la tile Dashboard punta al servizio esterno configurato in `config.js`.
 - `datapolicy.html`: pagina vuota collegata alla tile Data Policy e Data Management Plan.
-- `chatbot.html`: pagina vuota collegata alla tile IS-mA-BOT, con sottotitolo “Chiedi al nostro chatbot!”.
+- `chatbot.html`: pagina vuota locale conservata; la tile IS-mA-BOT punta al servizio esterno.
 - `locations.html`: pagina vuota conservata localmente; la tile Locations punta al servizio esterno configurato in `config.js`.
 - `config.js`: tile, testi, collegamenti e opzioni.
 - `styles.css`: stile e adattamento a desktop, tablet e smartphone.

@@ -67,7 +67,7 @@ window.ISMAR_PORTAL = {
       id: "chatbot",
       title: "IS-mA-BOT",
       description: "Chiedi al nostro chatbot!",
-      href: "./chatbot.html",
+      href: "https://assets.ve.ismar.cnr.it/public/public_pages/isabot-metadata/chatbot.html",
       icon: "chatbot",
       animation: "chatbot"
     },
@@ -83,6 +83,7 @@ window.ISMAR_PORTAL = {
   somTiles: [
     {
       id: "locations",
+      entity: "locations",
       title: "Locations",
       description: "Dove sono installati i sensori",
       href: "https://assets.ve.ismar.cnr.it/public/public_pages/loc/",
@@ -91,6 +92,7 @@ window.ISMAR_PORTAL = {
     },
     {
       id: "infrastrutture",
+      entity: "ris",
       title: "Infrastrutture di Ricerca",
       description: "Le infrastrutture di ricerca che collaborano con ISMAR",
       href: "https://assets.ve.ismar.cnr.it/public/public_pages/ri/",
@@ -99,6 +101,7 @@ window.ISMAR_PORTAL = {
     },
     {
       id: "facilities-registry",
+      entity: "facilities",
       title: "Facilities",
       description: "Esplora il registro delle facilities",
       href: "https://assets.ve.ismar.cnr.it/public/public_pages/fac/",
@@ -115,11 +118,57 @@ window.ISMAR_PORTAL = {
     },
     {
       id: "organizations",
+      entity: "orgs",
       title: "Organizations",
       description: "Le organizzazioni del Sistema Osservativo Marino",
       href: "https://assets.ve.ismar.cnr.it/public/public_pages/org/",
       icon: "network",
       animation: "infrastructure"
+    },
+    {
+      id: "sensor-models",
+      entity: "models",
+      title: "Sensor Models",
+      description: "I diversi modelli di sensori supportati",
+      href: "",
+      icon: "grid-3x3",
+      animation: "models"
+    },
+    {
+      id: "environmental-variable",
+      entity: "ev",
+      title: "Environmental variable",
+      description: "Le variabili ambientali osservate dai sensori",
+      href: "",
+      icon: "chart-data",
+      animation: "servers"
+    },
+    {
+      id: "deployments",
+      entity: "deployments",
+      title: "Deployments",
+      description: "I sensori effettivamente installati sul campo",
+      href: "",
+      icon: "radar-2",
+      animation: "observatory"
+    },
+    {
+      id: "datasets",
+      entity: "datasets",
+      title: "Datasets",
+      description: "I dati del sistema osservativo",
+      href: "",
+      icon: "stack-2",
+      animation: "servers"
+    },
+    {
+      id: "features-of-interest",
+      entity: "features",
+      title: "Features of Interest",
+      description: "Gli elementi oggetto di osservazione",
+      href: "",
+      icon: "map-2",
+      animation: "map"
     }
   ]
 };

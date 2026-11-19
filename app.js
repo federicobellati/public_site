@@ -38,10 +38,11 @@
       continue;
     }
     const kind = kinds.has(item.animation) ? item.animation : "servers";
-    const tile = element("a", "tile");
-    tile.href = safeHref(item.href);
+    const available = typeof item.href === "string" && !!item.href.trim();
+    const tile = element(available ? "a" : "article", available ? "tile" : "tile tile-unavailable");
+    if (available) tile.href = safeHref(item.href);
     tile.dataset.kind = kind;
-    if (item.newTab) {
+    if (available && item.newTab) {
       tile.target = "_blank";
       tile.rel = "noopener noreferrer";
     }
@@ -57,9 +58,12 @@
     copy.append(title);
     if (item.description) copy.append(element("p", "tile-description", item.description));
     if (item.detail) copy.append(element("p", "tile-detail", item.detail));
+    if (!available) copy.append(element("p", "tile-availability", "Pagina in preparazione"));
     const canvas = element("canvas", "tile-visual");
     canvas.setAttribute("aria-hidden", "true");
-    tile.append(icon(item.icon || "stack-2", "tile-icon"), canvas, icon("arrow-right", "tile-arrow"), copy);
+    tile.append(icon(item.icon || "stack-2", "tile-icon"), canvas);
+    if (available) tile.append(icon("arrow-right", "tile-arrow"));
+    tile.append(copy);
     container.append(tile);
   }
 

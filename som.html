@@ -4,15 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#062b35">
-  <meta name="description" content="SOM · Sistema Osservativo Marino di CNR ISMAR: accedi alle locations dei sensori, alle infrastrutture di ricerca, alle facilities e alle organizzazioni.">
+  <meta name="description" content="SOM · Sistema Osservativo Marino di CNR ISMAR: esplora la mappa delle entità e delle loro relazioni, oppure accedi alle sezioni dalla vista a tile.">
   <title>SOM · Sistema Osservativo Marino · CNR ISMAR</title>
   <link rel="icon" href="assets/brand/ismar.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="som-map.css">
   <script src="config.js" defer></script>
   <script src="assets/maps/mediterranean.js" defer></script>
   <script src="app.js" defer></script>
   <script src="motion.js" defer></script>
+  <script src="som-map.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenuto">Vai alle sezioni SOM</a>
@@ -25,7 +27,7 @@
     </a>
     <h1>SOM</h1>
   </header>
-  <main id="contenuto" class="main servers-main" tabindex="-1">
+  <main id="contenuto" class="main som-map-main" tabindex="-1">
     <nav class="breadcrumb" aria-label="Percorso di navigazione">
       <a class="back-link" href="./">
         <img src="assets/icons/arrow-right.svg" width="20" height="20" alt="">
@@ -34,11 +36,30 @@
       <span aria-hidden="true">›</span>
       <span aria-current="page">SOM</span>
     </nav>
-    <div class="servers-intro">
-      <h2>Sistema Osservativo Marino</h2>
-      <p>Esplora le locations dei sensori, le infrastrutture di ricerca che collaborano con ISMAR, le facilities e le organizzazioni.</p>
+    <div class="map-intro">
+      <div><h2>Sistema Osservativo Marino</h2><p id="som-intro">Le entità del sistema, le relazioni che le connettono.</p></div>
+      <div class="view-toggle" role="group" aria-label="Visualizzazione delle entità" id="view-controls" hidden>
+        <button type="button" id="map-view" aria-pressed="true" aria-controls="map-content">Mappa</button>
+        <button type="button" id="list-view" aria-pressed="false" aria-controls="tiles">Elenco</button>
+      </div>
     </div>
-    <nav id="tiles" class="tiles" data-section="som" aria-label="Sezioni del Sistema Osservativo Marino"></nav>
+    <div id="map-content" hidden>
+      <section class="super-tile" aria-labelledby="map-title">
+        <div class="map-toolbar">
+          <div><h3 id="map-title">Un sistema connesso</h3><p>Seleziona un riquadro per evidenziare le relazioni. L’icona apre la pagina di dettaglio.</p></div>
+        </div>
+        <p class="scroll-hint" id="scroll-hint">Scorri lateralmente per esplorare tutta la mappa, oppure passa a Elenco.</p>
+        <div class="map-scroll" id="map-panel" role="region" aria-label="Mappa delle relazioni, scorribile orizzontalmente" tabindex="0" aria-describedby="scroll-hint">
+          <div class="map-stage" id="map-stage"><canvas id="connections" aria-hidden="true"></canvas></div>
+        </div>
+        <div class="map-bottom"><span>9 entità <span aria-hidden="true">·</span> 11 relazioni</span><span>Ogni linea rappresenta una relazione tra entità</span><button type="button" id="reset-selection" disabled>Mostra tutte le relazioni</button></div>
+      </section>
+      <section class="entity-detail" aria-labelledby="detail-title">
+        <div class="detail-heading"><span class="detail-eyebrow" id="detail-eyebrow" role="status">ESPLORA IL SISTEMA</span><h3 id="detail-title">Tutto il SOM, in una sola vista.</h3></div>
+        <div class="detail-content"><p id="detail-description">Dai dati alle piattaforme, dai luoghi alle organizzazioni: seleziona un nodo della mappa per vedere come si collega al resto del sistema.</p><div class="detail-relations" id="detail-relations"></div><a id="detail-link" hidden>Apri la sezione</a><p id="detail-unavailable" hidden>Pagina di dettaglio in preparazione.</p></div>
+      </section>
+    </div>
+    <nav id="tiles" class="tiles" data-section="som" aria-label="Sezioni del Sistema Osservativo Marino" hidden></nav>
     <noscript>
       <div class="no-script">
         <p>Accedi alle sezioni del Sistema Osservativo Marino:</p>
@@ -48,6 +69,11 @@
           <li><a href="https://assets.ve.ismar.cnr.it/public/public_pages/fac/">Facilities · Esplora il registro delle facilities</a></li>
           <li><a href="./facilities.html">Facilities Map · Piattaforme e reti di strumenti osservativi</a></li>
           <li><a href="https://assets.ve.ismar.cnr.it/public/public_pages/org/">Organizations · Le organizzazioni del Sistema Osservativo Marino</a></li>
+          <li>Sensor Models · I diversi modelli di sensori supportati — pagina in preparazione</li>
+          <li>Environmental variable · Le variabili ambientali osservate dai sensori — pagina in preparazione</li>
+          <li>Deployments · I sensori effettivamente installati sul campo — pagina in preparazione</li>
+          <li>Datasets · I dati del sistema osservativo — pagina in preparazione</li>
+          <li>Features of Interest · Gli elementi oggetto di osservazione — pagina in preparazione</li>
         </ul>
       </div>
     </noscript>

@@ -1,5 +1,51 @@
 # Verifica grafica e funzionale
 
+## SOM — integrazione mappa ed elenco, 19 novembre 2026
+
+final result: passed
+
+### Riferimenti ed evidenze
+
+- Mappa: mockup approvato `../verifica-portale/mockup-som/anteprima-desktop.jpg` (1265 × 1233), derivato dallo schizzo dell'utente, e correzioni testuali richieste in chat. Il titolo centrale confermato dall'utente è Datasets.
+- Elenco: pagina `https://assets.ve.ismar.cnr.it/public/public_site/som.html`, aperta e osservata nel browser. Evidenza: `../verifica-portale/som-elenco-riferimento.jpg`, catturata con viewport 1440 × 1000, densità 1×.
+- Implementazione: `som.html`, `som-map.css`, `som-map.js`; titoli e indirizzi condivisi con l'elenco tramite `config.js`.
+- Catture desktop: `../verifica-portale/som-mappa-integrata-1440.jpg` e `../verifica-portale/som-elenco-integrato-1440.jpg`. Viewport CSS 1440 × 1000, densità 1×; le catture a pagina intera escludono la barra di scorrimento e hanno larghezza 1425 px. La mappa misura 1425 × 1329 px nella cattura.
+- Catture smartphone: `../verifica-portale/som-mappa-integrata-390.jpg`, `../verifica-portale/som-elenco-integrato-390.jpg`, viewport 390 × 844; `../verifica-portale/som-organizations-320.jpg`, viewport 320 × 760, stato Organizations selezionato.
+- Confronto complessivo eseguito aprendo insieme riferimento Elenco, Elenco integrato, mockup approvato, Mappa integrata e stato mobile. Per la mappa la differenza di viewport è intenzionale: confronto di struttura e stile, non sovrapposizione pixel per pixel. Per l'elenco confronto allo stesso viewport desktop.
+- Titoli, descrizioni, icone e raccordi risultano leggibili a dimensione nativa nelle acquisizioni desktop; non occorre un ulteriore ritaglio di dettaglio. Verificati separatamente nel browser i nomi estesi e i due controlli di ogni nodo.
+
+### Superfici controllate
+
+- Tipografia: Manrope locale e gerarchia del mockup conservate. Sensor Models ed Environmental variable sostituiscono Models ed EV; Infrastrutture di Ricerca e Organizations sostituiscono le abbreviazioni. Titoli estesi senza troncamenti, anche a 320 px.
+- Impaginazione: unica tile orizzontale, nove nodi e undici relazioni. Le dimensioni dei nodi superiori sono state adattate ai nomi estesi. Nell'elenco riutilizzati generatore, griglia, dimensioni, spaziature e animazioni originali delle tile, con selettore aggiunto nell'introduzione.
+- Colori: palette petrolio, testo bianco, testo secondario e acquamarina del portale. Stato selezionato e relazioni connesse distinguibili.
+- Asset: loghi, font e icone originali locali; raccordi canvas come visualizzazione delle relazioni. Nessuna nuova dipendenza esterna.
+- Contenuti: Sensor Models descrive i modelli dei sensori, Deployments i sensori effettivamente installati sul campo. Rimossa la frase sui risultati dei modelli da Datasets. Conservati titoli, descrizioni e collegamenti delle cinque tile esistenti; aggiunte le cinque entità mancanti con href vuoto.
+
+### Verifiche funzionali
+
+- Apertura di SOM dalla home: vista iniziale Mappa. Le otto tile della home rimangono presenti.
+- Mappa / Elenco: alternanza dei pannelli, stato dei pulsanti e descrizione introduttiva corretti. L'elenco contiene dieci tile: cinque esistenti e cinque nuove; Facilities Map resta una tile aggiuntiva dell'elenco.
+- Selezione Datasets: cinque relazioni corrette. Deployments: tre relazioni e descrizione dei sensori sul campo. Environmental variable: una relazione. Organizations: due relazioni, titolo completo.
+- Le icone sono controlli separati dai riquadri: quattro collegamenti disponibili e cinque icone disabilitate. Nessun controllo annidato e nessun anchor con href vuoto.
+- Clic sull'icona Facilities: navigazione effettiva al registro `https://assets.ve.ismar.cnr.it/public/public_pages/fac/`; ritorno alla pagina locale riuscito.
+- Destinazioni mancanti: articolo non navigabile nell'elenco e messaggio “Pagina in preparazione”; la selezione del nodo nella mappa rimane disponibile. Sensor Models non apre la pagina dei modelli previsionali.
+- Tasto Escape: selezione rimossa e ripristino disabilitato. Selezione mantenuta tra Mappa ed Elenco; icone disponibili anche per nodi non collegati al nodo selezionato.
+- Schermi 390 e 320 px: nessuna fuoriuscita orizzontale del documento; scorrimento confinato alla mappa, centratura iniziale su Datasets e centratura sul nodo selezionato. Nessun overflow dei titoli nelle tile o del contenuto nei nodi a 320 px.
+- Sintassi di `som-map.js`, `app.js`, `config.js`: superata. `node verifica-portale/verifica-statico.mjs`: superato, 39 riferimenti locali e destinazioni verificate; confermate le cinque tile originali e i cinque href vuoti previsti.
+- Console SOM: nessun errore rilevato. Nella verifica di ritorno dalla home è stato osservato il warning preesistente della Dashboard per API/CORS sull'origine locale; estraneo alla pagina SOM e gestito dal suo stato “Dati non raggiungibili”.
+- Viewport temporaneo ripristinato; pagina locale lasciata aperta sulla vista Mappa. Nessuna pubblicazione richiesta o effettuata.
+
+### Iterazioni e risultato
+
+- [P2, risolto] Primo confronto Elenco: tile anticipate di 20 px rispetto alla pagina pubblicata. Ripristinati padding superiore della pagina e margine sotto il titolo; cattura aggiornata `som-elenco-integrato-1440.jpg`. La prima tile inizia ora a y = 361,23 px, come il riferimento.
+- Secondo controllo dopo la correzione: stessa posizione, dimensioni e tipografia delle tile originali. Le differenze nelle illustrazioni sono stati diversi delle animazioni esistenti.
+- Nessuna anomalia P0/P1/P2 residua. I collegamenti mancanti sono intenzionali e autorizzati; completare il relativo href in config.js abiliterà insieme tile e icona.
+
+final result: passed
+
+## Verifica precedente della landing
+
 final result: passed
 
 ## Riferimento ed evidenze
