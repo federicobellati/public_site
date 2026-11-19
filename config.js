@@ -70,6 +70,14 @@ window.ISMAR_PORTAL = {
       href: "./chatbot.html",
       icon: "chatbot",
       animation: "chatbot"
+    },
+    {
+      id: "profiles",
+      title: "Profiles",
+      description: "Profili semantici delle entità",
+      href: "./profiles.html",
+      icon: "network",
+      animation: "infrastructure"
     }
   ],
   somTiles: [

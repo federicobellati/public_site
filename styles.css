@@ -110,6 +110,47 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--aqua); outline-
 .server-url { color: var(--muted); font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
 .server-arrow { flex-shrink: 0; filter: brightness(0) invert(1); }
 
+/* Profiles: elenco compatto con link, dichiarazione e copia sulla stessa riga. */
+.profiles-main .profiles-intro { margin: 20px 0 24px; }
+.profiles-intro h2 { margin-bottom: 8px; font-size: clamp(28px, 2.8vw, 38px); text-wrap: balance; }
+.profiles-intro p { max-width: none; font-size: 16px; }
+.profiles-nav { display: flex; flex-wrap: wrap; column-gap: 24px; margin-top: 12px; }
+.profiles-nav a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--muted); text-decoration: none; font-size: 14px; }
+.profiles-nav a:hover { color: var(--aqua); text-decoration: underline; text-underline-offset: 5px; }
+.profiles-nav span { color: var(--aqua); font-variant-numeric: tabular-nums; }
+.profiles-section { margin-top: 28px; }
+.profiles-section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 10px; }
+.profiles-section h3 { scroll-margin-top: 24px; margin: 0; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.4; letter-spacing: -.4px; overflow-wrap: anywhere; }
+.profiles-count { flex-shrink: 0; color: var(--muted); font-size: 14px; }
+.profiles-list { margin: 0; padding: 0; list-style: none; border: 1px solid var(--edge); border-radius: 8px; background: var(--tile); }
+.profile-row { display: grid; grid-template-columns: 16rem minmax(0, 1fr) 44px; align-items: center; gap: 16px; min-width: 0; padding: 6px 14px; }
+.profile-row + .profile-row { border-top: 1px solid var(--edge); }
+.profile-row:is(:hover, :focus-within) { background: #79e1d008; }
+.profile-row:first-child { border-radius: 7px 7px 0 0; }
+.profile-row:last-child { border-radius: 0 0 7px 7px; }
+.profile-row h4 { min-width: 0; margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
+.profile-row h4 a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 6px; color: var(--aqua); text-decoration-color: #4c7a80; text-underline-offset: 4px; overflow-wrap: anywhere; }
+.profile-row h4 a:hover { color: var(--text); text-decoration-color: currentColor; }
+.profile-row code { display: block; min-width: 0; padding: 8px 10px; border-radius: 4px; background: #052e39; color: #d2e5e3; font-family: Consolas, "Courier New", monospace; font-size: 14px; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
+.profile-copy { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid transparent; border-radius: 6px; background: transparent; color: var(--muted); cursor: pointer; }
+.profile-copy:hover { border-color: var(--aqua); color: var(--aqua); }
+.profile-copy .copied-icon { display: none; }
+.profile-copy[data-state="copied"] { color: var(--aqua); border-color: var(--aqua); }
+.profile-copy[data-state="copied"] .copy-icon { display: none; }
+.profile-copy[data-state="copied"] .copied-icon { display: block; }
+.profile-copy[data-state="error"] { border-color: #e9ac99; color: #e9ac99; }
+@media (max-width: 1100px) {
+  .profile-row { grid-template-columns: 12rem minmax(0, 1fr) 44px; gap: 12px; }
+}
+@media (max-width: 720px) {
+  .profiles-nav { column-gap: 18px; }
+  .profiles-section-heading { flex-wrap: wrap; gap: 6px; }
+  .profile-row { grid-template-columns: minmax(0, 1fr) 44px; gap: 0 10px; padding: 8px 12px; }
+  .profile-row h4 { grid-column: 1; grid-row: 1; }
+  .profile-row code { grid-column: 1 / -1; grid-row: 2; margin-bottom: 4px; }
+  .profile-copy { grid-column: 2; grid-row: 1; }
+}
+
 /* Modelli: descrizioni e homepage da completare senza collegamenti fittizi. */
 .models-header h1 { min-width: 0; text-align: right; }
 .model-card { height: 100%; padding: 30px 32px; background: var(--tile); border: 1px solid var(--edge); border-radius: var(--radius); }
