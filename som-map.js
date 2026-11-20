@@ -11,7 +11,7 @@
     datasets: { x:445, y:225, w:320, h:145 },
     deployments: { x:65, y:340, w:270, h:136 },
     facilities: { x:850, y:360, w:270, h:136, icon:'aaot', description:'Piattaforme e infrastrutture per l’osservazione' },
-    orgs: { x:1100, y:196, w:205, h:128, description:'Le organizzazioni del SOM' },
+    orgs: { x:1100, y:215, w:205, h:128, description:'Le organizzazioni del SOM' },
     locations: { x:480, y:478, w:250, h:114 },
     features: { x:65, y:520, w:315, h:112 }
   };
@@ -25,8 +25,8 @@
     { a:'deployments', b:'locations', points:[[200,476],[200,500],[445,500],[445,535],[480,535]] },
     { a:'deployments', b:'features', points:[[110,476],[110,496],[35,496],[35,576],[65,576]] },
     { a:'facilities', b:'locations', points:[[985,496],[985,535],[730,535]] },
-    { a:'facilities', b:'orgs', points:[[1120,405],[1202,405],[1202,324]] },
-    { a:'ris', b:'orgs', points:[[1105,142],[1202,142],[1202,196]] },
+    { a:'facilities', b:'orgs', points:[[1120,405],[1202,405],[1202,343]] },
+    { a:'ris', b:'orgs', points:[[1105,142],[1202,142],[1202,215]] },
     { a:'ris', b:'locations', points:[[1105,80],[1310,80],[1310,620],[770,620],[770,566],[730,566]] }
   ];
   const canvas = document.getElementById('connections');

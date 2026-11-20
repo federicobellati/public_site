@@ -126,7 +126,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--aqua); outline-
 .profiles-repository a { color: var(--aqua); text-underline-offset: 4px; }
 .profiles-repository a:hover { color: var(--text); }
 .profiles-list { margin: 0; padding: 0; list-style: none; border: 1px solid var(--edge); border-radius: 8px; background: var(--tile); }
-.profile-row { display: grid; grid-template-columns: 16rem minmax(0, 1fr) 44px; align-items: center; gap: 16px; min-width: 0; padding: 6px 14px; }
+.profile-row { display: grid; grid-template-columns: 16rem minmax(0, 1fr) auto; align-items: center; gap: 16px; min-width: 0; padding: 6px 14px; }
 .profile-row + .profile-row { border-top: 1px solid var(--edge); }
 .profile-row:is(:hover, :focus-within) { background: #79e1d008; }
 .profile-row:first-child { border-radius: 7px 7px 0 0; }
@@ -135,23 +135,25 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--aqua); outline-
 .profile-row h4 a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 6px; color: var(--aqua); text-decoration-color: #4c7a80; text-underline-offset: 4px; overflow-wrap: anywhere; }
 .profile-row h4 a:hover { color: var(--text); text-decoration-color: currentColor; }
 .profile-row code { display: block; min-width: 0; padding: 8px 10px; border-radius: 4px; background: #052e39; color: #d2e5e3; font-family: Consolas, "Courier New", monospace; font-size: 14px; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
-.profile-copy { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid transparent; border-radius: 6px; background: transparent; color: var(--muted); cursor: pointer; }
-.profile-copy:hover { border-color: var(--aqua); color: var(--aqua); }
+.profile-actions { display: flex; align-items: center; gap: 8px; }
+.profile-copy, .profile-form { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid transparent; border-radius: 6px; background: transparent; color: var(--muted); cursor: pointer; }
+.profile-copy:hover, a.profile-form:hover { border-color: var(--aqua); color: var(--aqua); }
+.profile-form[disabled] { opacity: .5; cursor: not-allowed; }
 .profile-copy .copied-icon { display: none; }
 .profile-copy[data-state="copied"] { color: var(--aqua); border-color: var(--aqua); }
 .profile-copy[data-state="copied"] .copy-icon { display: none; }
 .profile-copy[data-state="copied"] .copied-icon { display: block; }
 .profile-copy[data-state="error"] { border-color: #e9ac99; color: #e9ac99; }
 @media (max-width: 1100px) {
-  .profile-row { grid-template-columns: 12rem minmax(0, 1fr) 44px; gap: 12px; }
+  .profile-row { grid-template-columns: 12rem minmax(0, 1fr) auto; gap: 12px; }
 }
 @media (max-width: 720px) {
   .profiles-nav { column-gap: 18px; }
   .profiles-section-heading { flex-wrap: wrap; gap: 6px; }
-  .profile-row { grid-template-columns: minmax(0, 1fr) 44px; gap: 0 10px; padding: 8px 12px; }
+  .profile-row { grid-template-columns: minmax(0, 1fr) auto; gap: 0 10px; padding: 8px 12px; }
   .profile-row h4 { grid-column: 1; grid-row: 1; }
   .profile-row code { grid-column: 1 / -1; grid-row: 2; margin-bottom: 4px; }
-  .profile-copy { grid-column: 2; grid-row: 1; }
+  .profile-copy, .profile-actions { grid-column: 2; grid-row: 1; }
 }
 
 /* Modelli: descrizioni e homepage da completare senza collegamenti fittizi. */

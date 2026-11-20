@@ -17,7 +17,7 @@ window.ISMAR_PORTAL = {
       id: "som",
       title: "SOM",
       description: "Sistema Osservativo Marino",
-      detail: "Locations, infrastrutture di ricerca, facilities e organizations",
+      detail: "Entità e relazioni tra sensori, dati, luoghi, infrastrutture e organizzazioni",
       href: "./som.html",
       icon: "radar-2",
       animation: "observatory"
@@ -137,7 +137,7 @@ window.ISMAR_PORTAL = {
       id: "sensor-models",
       entity: "models",
       title: "Sensor Models",
-      description: "I diversi modelli di sensori supportati",
+      description: "Caratteristiche tecniche dei modelli di sensore",
       href: "https://assets.ve.ismar.cnr.it/public/public_pages/sensmod/",
       icon: "grid-3x3",
       animation: "models"

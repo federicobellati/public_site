@@ -29,7 +29,7 @@
     </a>
     <div class="servers-intro profiles-intro">
       <h2>Profili semantici delle entità</h2>
-      <p>Apri una risorsa o copia la sua dichiarazione con il pulsante accanto.</p>
+      <p>Apri una risorsa o copia la sua dichiarazione con il pulsante accanto. Per i profili semantici, l’icona del documento apre un nuovo form in una nuova scheda; le icone attenuate indicano i form non ancora disponibili.</p>
       <nav class="profiles-nav" aria-label="Sezioni dei profili">
         <a href="#semantic-application-profiles">Application profiles <span>10</span></a>
         <a href="#registry">Registry <span>10</span></a>
@@ -48,82 +48,132 @@
         <li class="profile-row">
           <h4><a href="https://w3id.org/cnr-ismar/sap/datastream/1.0.0/">Datastream</a></h4>
           <code id="prefix-sapds">@prefix sapds: &lt;https://w3id.org/cnr-ismar/sap/datastream/1.0.0/&gt; .</code>
-          <button class="profile-copy" type="button" data-copy="prefix-sapds" aria-label="Copia il prefix sapds:" title="Copia il prefix sapds:" hidden>
-              <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
-              <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+          <div class="profile-actions">
+            <button class="profile-form" type="button" disabled aria-label="Form Datastream non ancora disponibile" title="Form Datastream non ancora disponibile">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
             </button>
+            <button class="profile-copy" type="button" data-copy="prefix-sapds" aria-label="Copia il prefix sapds:" title="Copia il prefix sapds:" hidden>
+                <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+                <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              </button>
+          </div>
         </li>
         <li class="profile-row">
           <h4><a href="https://w3id.org/cnr-ismar/sap/facility/1.0.0/">Facility</a></h4>
           <code id="prefix-sapfac">@prefix sapfac: &lt;https://w3id.org/cnr-ismar/sap/facility/1.0.0/&gt; .</code>
-          <button class="profile-copy" type="button" data-copy="prefix-sapfac" aria-label="Copia il prefix sapfac:" title="Copia il prefix sapfac:" hidden>
-              <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
-              <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
-            </button>
+          <div class="profile-actions">
+            <a class="profile-form" href="https://assets.ve.ismar.cnr.it/public/public_forms/sap-facility-shacl-form.html" target="_blank" rel="noopener noreferrer" aria-label="Apri un nuovo form Facility (nuova scheda)" title="Apri un nuovo form Facility (nuova scheda)">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+            </a>
+            <button class="profile-copy" type="button" data-copy="prefix-sapfac" aria-label="Copia il prefix sapfac:" title="Copia il prefix sapfac:" hidden>
+                <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+                <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              </button>
+          </div>
         </li>
         <li class="profile-row">
           <h4><a href="https://w3id.org/cnr-ismar/sap/featureOfInterest/1.0.0/">Feature of Interest</a></h4>
           <code id="prefix-sapfoi">@prefix sapfoi: &lt;https://w3id.org/cnr-ismar/sap/featureOfInterest/1.0.0/&gt; .</code>
-          <button class="profile-copy" type="button" data-copy="prefix-sapfoi" aria-label="Copia il prefix sapfoi:" title="Copia il prefix sapfoi:" hidden>
-              <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
-              <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
-            </button>
+          <div class="profile-actions">
+            <a class="profile-form" href="https://assets.ve.ismar.cnr.it/public/public_forms/sap-feature-of-interest-shacl-form.html" target="_blank" rel="noopener noreferrer" aria-label="Apri un nuovo form Feature of Interest (nuova scheda)" title="Apri un nuovo form Feature of Interest (nuova scheda)">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+            </a>
+            <button class="profile-copy" type="button" data-copy="prefix-sapfoi" aria-label="Copia il prefix sapfoi:" title="Copia il prefix sapfoi:" hidden>
+                <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+                <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              </button>
+          </div>
         </li>
         <li class="profile-row">
           <h4><a href="https://w3id.org/cnr-ismar/sap/location/1.0.0/">Location</a></h4>
           <code id="prefix-saplocation">@prefix saplocation: &lt;https://w3id.org/cnr-ismar/sap/location/1.0.0/&gt; .</code>
-          <button class="profile-copy" type="button" data-copy="prefix-saplocation" aria-label="Copia il prefix saplocation:" title="Copia il prefix saplocation:" hidden>
-              <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
-              <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
-            </button>
+          <div class="profile-actions">
+            <a class="profile-form" href="https://assets.ve.ismar.cnr.it/public/public_forms/sap-location-shacl-form.html" target="_blank" rel="noopener noreferrer" aria-label="Apri un nuovo form Location (nuova scheda)" title="Apri un nuovo form Location (nuova scheda)">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+            </a>
+            <button class="profile-copy" type="button" data-copy="prefix-saplocation" aria-label="Copia il prefix saplocation:" title="Copia il prefix saplocation:" hidden>
+                <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+                <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              </button>
+          </div>
         </li>
         <li class="profile-row">
           <h4><a href="https://w3id.org/cnr-ismar/sap/network/1.0.0/">Network</a></h4>
           <code id="prefix-sapnet">@prefix sapnet: &lt;https://w3id.org/cnr-ismar/sap/network/1.0.0/&gt; .</code>
-          <button class="profile-copy" type="button" data-copy="prefix-sapnet" aria-label="Copia il prefix sapnet:" title="Copia il prefix sapnet:" hidden>
-              <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
-              <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+          <div class="profile-actions">
+            <button class="profile-form" type="button" disabled aria-label="Form Network non ancora disponibile" title="Form Network non ancora disponibile">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
             </button>
+            <button class="profile-copy" type="button" data-copy="prefix-sapnet" aria-label="Copia il prefix sapnet:" title="Copia il prefix sapnet:" hidden>
+                <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+                <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              </button>
+          </div>
         </li>
         <li class="profile-row">
           <h4><a href="https://w3id.org/cnr-ismar/sap/researchInfrastructure/1.0.0/">Research Infrastructure</a></h4>
           <code id="prefix-sapri">@prefix sapri: &lt;https://w3id.org/cnr-ismar/sap/researchInfrastructure/1.0.0/&gt; .</code>
-          <button class="profile-copy" type="button" data-copy="prefix-sapri" aria-label="Copia il prefix sapri:" title="Copia il prefix sapri:" hidden>
-              <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
-              <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
-            </button>
+          <div class="profile-actions">
+            <a class="profile-form" href="https://assets.ve.ismar.cnr.it/public/public_forms/sap-research-infrastructure-shacl-form.html" target="_blank" rel="noopener noreferrer" aria-label="Apri un nuovo form Research Infrastructure (nuova scheda)" title="Apri un nuovo form Research Infrastructure (nuova scheda)">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+            </a>
+            <button class="profile-copy" type="button" data-copy="prefix-sapri" aria-label="Copia il prefix sapri:" title="Copia il prefix sapri:" hidden>
+                <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+                <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              </button>
+          </div>
         </li>
         <li class="profile-row">
           <h4><a href="https://w3id.org/cnr-ismar/sap/sensor/1.0.0/">Sensor</a></h4>
           <code id="prefix-sapsens">@prefix sapsens: &lt;https://w3id.org/cnr-ismar/sap/sensor/1.0.0/&gt; .</code>
-          <button class="profile-copy" type="button" data-copy="prefix-sapsens" aria-label="Copia il prefix sapsens:" title="Copia il prefix sapsens:" hidden>
-              <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
-              <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
-            </button>
+          <div class="profile-actions">
+            <a class="profile-form" href="https://assets.ve.ismar.cnr.it/public/public_forms/sap-sesnor-shacl-form.html" target="_blank" rel="noopener noreferrer" aria-label="Apri un nuovo form Sensor (nuova scheda)" title="Apri un nuovo form Sensor (nuova scheda)">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+            </a>
+            <button class="profile-copy" type="button" data-copy="prefix-sapsens" aria-label="Copia il prefix sapsens:" title="Copia il prefix sapsens:" hidden>
+                <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+                <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              </button>
+          </div>
         </li>
         <li class="profile-row">
           <h4><a href="https://w3id.org/cnr-ismar/sap/thing/1.0.0/">Thing</a></h4>
           <code id="prefix-sapthing">@prefix sapthing: &lt;https://w3id.org/cnr-ismar/sap/thing/1.0.0/&gt; .</code>
-          <button class="profile-copy" type="button" data-copy="prefix-sapthing" aria-label="Copia il prefix sapthing:" title="Copia il prefix sapthing:" hidden>
-              <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
-              <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+          <div class="profile-actions">
+            <button class="profile-form" type="button" disabled aria-label="Form Thing non ancora disponibile" title="Form Thing non ancora disponibile">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
             </button>
+            <button class="profile-copy" type="button" data-copy="prefix-sapthing" aria-label="Copia il prefix sapthing:" title="Copia il prefix sapthing:" hidden>
+                <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+                <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              </button>
+          </div>
         </li>
         <li class="profile-row">
           <h4><a href="https://w3id.org/cnr-ismar/sap/ultimateFeatureOfInterest/1.0.0/">Ultimate Feature of Interest</a></h4>
           <code id="prefix-sapufoi">@prefix sapufoi: &lt;https://w3id.org/cnr-ismar/sap/ultimateFeatureOfInterest/1.0.0/&gt; .</code>
-          <button class="profile-copy" type="button" data-copy="prefix-sapufoi" aria-label="Copia il prefix sapufoi:" title="Copia il prefix sapufoi:" hidden>
-              <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
-              <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+          <div class="profile-actions">
+            <button class="profile-form" type="button" disabled aria-label="Form Ultimate Feature of Interest non ancora disponibile" title="Form Ultimate Feature of Interest non ancora disponibile">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
             </button>
+            <button class="profile-copy" type="button" data-copy="prefix-sapufoi" aria-label="Copia il prefix sapufoi:" title="Copia il prefix sapufoi:" hidden>
+                <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+                <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              </button>
+          </div>
         </li>
         <li class="profile-row">
           <h4><a href="https://w3id.org/cnr-ismar/sap/organization/1.0.0/">Organization</a></h4>
           <code id="prefix-saporg">@prefix saporg: &lt;https://w3id.org/cnr-ismar/sap/organization/1.0.0/&gt; .</code>
-          <button class="profile-copy" type="button" data-copy="prefix-saporg" aria-label="Copia il prefix saporg:" title="Copia il prefix saporg:" hidden>
-              <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
-              <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
-            </button>
+          <div class="profile-actions">
+            <a class="profile-form" href="https://assets.ve.ismar.cnr.it/public/public_forms/sap-organization-shacl-form.html" target="_blank" rel="noopener noreferrer" aria-label="Apri un nuovo form Organization (nuova scheda)" title="Apri un nuovo form Organization (nuova scheda)">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+            </a>
+            <button class="profile-copy" type="button" data-copy="prefix-saporg" aria-label="Copia il prefix saporg:" title="Copia il prefix saporg:" hidden>
+                <svg class="copy-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+                <svg class="copied-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              </button>
+          </div>
         </li>
       </ul>
     </section>
