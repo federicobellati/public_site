@@ -26,6 +26,7 @@ I collegamenti sono configurati in **config.js**; le pagine SOM, Data Server, Mo
 | Facilities Map (dentro SOM) | `./facilities.html` (mappa inclusa) |
 | Facilities · registro (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/fac/` (cartella autonoma `../facilities-registry/`, da pubblicare separatamente) |
 | Organizations (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/org/` (collegamento definitivo) |
+| Sensor Models (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/sensmod/` (collegamento definitivo) |
 | Dashboard | `https://assets.ve.ismar.cnr.it/public/public_pages/dashboards/qc_dash.html` (collegamento definitivo) |
 | Data Policy e Data Management Plan | `./datapolicy.html` (policy v2.0, PDF firmato e collegamento al DMP) |
 | IS-mA-BOT | `https://assets.ve.ismar.cnr.it/public/public_pages/isabot-metadata/chatbot.html` (collegamento definitivo) |
@@ -37,9 +38,9 @@ Modificare il valore `href` di ciascuna tile con un URL completo, un percorso da
 
 ## SOM: mappa ed elenco
 
-`som.html` si apre nella vista Mappa. Il selettore Mappa / Elenco mostra alternativamente il diagramma delle nove entità o la griglia di tile originale. Le cinque tile esistenti conservano ordine, testi, collegamenti e animazioni, compresa Facilities Map; sono aggiunte le cinque entità che ancora non hanno una pagina.
+`som.html` si apre nella vista Mappa. Il selettore Mappa / Elenco mostra alternativamente il diagramma delle nove entità o la griglia di dieci tile, compresa Facilities Map. Sensor Models apre il registro dei modelli di sensore, disponibile anche nell'elenco senza JavaScript.
 
-Nella mappa, il riquadro seleziona l'entità e ne evidenzia le relazioni; l'icona è un collegamento separato alla sua pagina. Per Sensor Models, Environmental variable, Deployments, Datasets e Features of Interest la destinazione è inizialmente vuota e l'icona è disattivata. I titoli e gli indirizzi sono letti dalle stesse voci `somTiles` di `config.js`, identificate dal campo `entity`: completare `href` abilita sia la tile nell'elenco sia l'icona nella mappa. Sensor Models riguarda i modelli di sensori e non rimanda alla pagina dei modelli previsionali.
+Nella mappa, il riquadro seleziona l'entità e ne evidenzia le relazioni; l'icona è un collegamento separato alla sua pagina. Per Environmental variable, Deployments, Datasets e Features of Interest la destinazione è ancora vuota e l'icona è disattivata. I titoli e gli indirizzi sono letti dalle stesse voci `somTiles` di `config.js`, identificate dal campo `entity`: completare `href` abilita sia la tile nell'elenco sia l'icona nella mappa. Sensor Models apre `https://assets.ve.ismar.cnr.it/public/public_pages/sensmod/` nella stessa scheda, come le altre entità disponibili.
 
 `som-map.js` definisce disposizione e relazioni; `som-map.css` mantiene lo stile del mockup approvato. Il grafo conserva le undici relazioni dello schizzo, senza direzionalità. Su schermi piccoli, lo scorrimento è confinato alla mappa, centrata inizialmente su Datasets; l'elenco usa la griglia responsive del portale. Senza JavaScript è disponibile l'elenco testuale delle sezioni.
 

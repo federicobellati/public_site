@@ -138,7 +138,7 @@ window.ISMAR_PORTAL = {
       entity: "models",
       title: "Sensor Models",
       description: "I diversi modelli di sensori supportati",
-      href: "",
+      href: "https://assets.ve.ismar.cnr.it/public/public_pages/sensmod/",
       icon: "grid-3x3",
       animation: "models"
     },
