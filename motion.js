@@ -529,7 +529,79 @@
     }
   }
 
-  const draw = { observatory, servers, map, models, infrastructure, facilities, policy, chatbot };
+  // Una costellazione di documenti, strumenti e collegamenti attorno alle risorse.
+  function resources(ctx, t, active) {
+    const center = { x: 401, y: 104 };
+    const nodes = [
+      { x: 251, y: 81 }, { x: 324, y: 35 }, { x: 474, y: 36 },
+      { x: 559, y: 96 }, { x: 480, y: 166 }, { x: 311, y: 164 }
+    ].map((node, i) => ({ x: node.x, y: node.y + Math.sin(t * .6 + i) * 3 }));
+    stroke(ctx, indigo, .22, 1);
+    ctx.beginPath();
+    nodes.forEach((node, i) => {
+      const next = nodes[(i + 1) % nodes.length];
+      ctx.moveTo(node.x, node.y); ctx.lineTo(next.x, next.y);
+    });
+    ctx.stroke();
+    nodes.forEach((node, i) => {
+      const phase = (t * .25 + i / nodes.length) % 1;
+      const pulse = Math.pow((Math.sin(t * 1.6 - i * Math.PI / 3) + 1) / 2, 3);
+      stroke(ctx, indigo, .26 + pulse * .3, 1.2);
+      ctx.beginPath(); ctx.moveTo(center.x, center.y); ctx.lineTo(node.x, node.y); ctx.stroke();
+      dot(ctx, center.x + (node.x - center.x) * phase, center.y + (node.y - center.y) * phase, active ? 3 : 2.3, aqua, .7);
+      ring(ctx, node.x, node.y, 19 + pulse * 3, .16 + pulse * .5);
+      ctx.save(); ctx.translate(node.x, node.y);
+      stroke(ctx, pulse > .5 ? aqua : indigo, .65 + pulse * .3, 1.5);
+      ctx.beginPath();
+      if (i % 3 === 0) {
+        ctx.moveTo(-7, -10); ctx.lineTo(3, -10); ctx.lineTo(8, -5); ctx.lineTo(8, 10); ctx.lineTo(-7, 10); ctx.closePath();
+        ctx.moveTo(3, -10); ctx.lineTo(3, -5); ctx.lineTo(8, -5);
+        ctx.moveTo(-3, 0); ctx.lineTo(4, 0); ctx.moveTo(-3, 5); ctx.lineTo(2, 5);
+      } else if (i % 3 === 1) {
+        ctx.moveTo(-4, -7); ctx.lineTo(-10, 0); ctx.lineTo(-4, 7);
+        ctx.moveTo(4, -7); ctx.lineTo(10, 0); ctx.lineTo(4, 7);
+        ctx.moveTo(2, -10); ctx.lineTo(-2, 10);
+      } else {
+        ctx.roundRect(-11, -4, 14, 8, 4);
+        ctx.roundRect(-3, -4, 14, 8, 4);
+      }
+      ctx.stroke(); ctx.restore();
+    });
+    ring(ctx, center.x, center.y, 27, active ? .9 : .65);
+    ring(ctx, center.x, center.y, 34 + Math.sin(t) * 2, .2);
+    stroke(ctx, aqua, .9, 1.6);
+    ctx.beginPath(); ctx.roundRect(center.x - 12, center.y - 9, 24, 19, 3);
+    ctx.moveTo(center.x - 5, center.y - 9); ctx.lineTo(center.x - 5, center.y - 14);
+    ctx.lineTo(center.x + 5, center.y - 14); ctx.lineTo(center.x + 5, center.y - 9);
+    ctx.moveTo(center.x - 12, center.y - 1); ctx.lineTo(center.x + 12, center.y - 1); ctx.stroke();
+    dot(ctx, center.x, center.y, 2, aqua);
+  }
+
+  // Rami e commit: il percorso condiviso dai contenuti dell'infrastruttura.
+  function repositories(ctx, t, active) {
+    const main = [{ x: 242, y: 143 }, { x: 350, y: 143 }, { x: 459, y: 143 }, { x: 566, y: 143 }];
+    stroke(ctx, indigo, .6, 2);
+    ctx.beginPath(); ctx.moveTo(221, 143); ctx.lineTo(589, 143); ctx.stroke();
+    stroke(ctx, aqua, .65, 1.8);
+    ctx.beginPath(); ctx.moveTo(242, 143); ctx.bezierCurveTo(279, 143, 282, 58, 323, 58);
+    ctx.lineTo(444, 58); ctx.bezierCurveTo(490, 58, 499, 143, 566, 143); ctx.stroke();
+    const branch = [{ x: 342, y: 58 }, { x: 424, y: 58 }];
+    [...main, ...branch].forEach((node, i) => {
+      const pulse = (Math.sin(t * 1.7 - i * .9) + 1) / 2;
+      ring(ctx, node.x, node.y, 7, .6 + pulse * .3);
+      dot(ctx, node.x, node.y, active ? 3.4 : 2.6, aqua, .6 + pulse * .4);
+      ring(ctx, node.x, node.y, 12 + pulse * 5, pulse * .2);
+    });
+    const progress = (t * .12) % 1;
+    dot(ctx, 242 + 324 * progress, 143, 2.5, aqua, .9);
+    stroke(ctx, indigo, .32, 1.3);
+    [[318, 89], [398, 89], [437, 169]].forEach(([x, y]) => {
+      ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 35, y);
+      ctx.moveTo(x, y + 6); ctx.lineTo(x + 21, y + 6); ctx.stroke();
+    });
+  }
+
+  const draw = { observatory, servers, map, models, infrastructure, facilities, policy, chatbot, resources, repositories };
 
   function paint(scene, time) {
     const { ctx, canvas, width, height } = scene;
@@ -543,7 +615,7 @@
       return;
     }
     const horizontalScale = canvas.width / 640;
-    if (["infrastructure", "facilities", "policy", "chatbot"].includes(scene.kind)) {
+    if (["infrastructure", "facilities", "policy", "chatbot", "resources", "repositories"].includes(scene.kind)) {
       // Preserve instrument and module proportions, including on small phones.
       const scale = Math.min(horizontalScale, canvas.height / 200);
       ctx.translate((canvas.width - 640 * scale) / 2, (canvas.height - 200 * scale) / 2);

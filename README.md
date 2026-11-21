@@ -32,6 +32,7 @@ I collegamenti sono configurati in **config.js**; le pagine SOM, Data Server, Mo
 | IS-mA-BOT | `https://assets.ve.ismar.cnr.it/public/public_pages/isabot-metadata/chatbot.html` (collegamento definitivo) |
 | Profiles · Profili semantici delle entità | `./profiles.html` (pagina inclusa) |
 | Altre risorse | `./otherresources.html` (pagina inclusa) |
+| Git repositories | `./repositories.html` (pagina inclusa) |
 | Locations (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/loc/` (collegamento definitivo) |
 
 Modificare il valore `href` di ciascuna tile con un URL completo, un percorso dalla radice del dominio o un percorso relativo al portale. Un valore vuoto (`href: ""`) mantiene la tile visibile con l'indicazione “Pagina in preparazione”, senza un collegamento che ricarichi la pagina o apra la home. Non sono presenti indirizzi fittizi di servizi reali.
@@ -48,13 +49,13 @@ Anche il collegamento ISMAR nel piè di pagina della home è configurabile. Non 
 
 ## SOM · Sistema Osservativo Marino
 
-La home contiene nove tile. SOM apre `som.html`, nella stessa cartella di `index.html`, con cinque tile: Locations, Infrastrutture di Ricerca, Facilities, Facilities Map e Organizations, con icone e animazioni nello stile condiviso del portale.
+La home contiene dieci tile. SOM apre `som.html`, nella stessa cartella di `index.html`, con cinque tile: Locations, Infrastrutture di Ricerca, Facilities, Facilities Map e Organizations, con icone e animazioni nello stile condiviso del portale.
 
 Le cinque tile sono configurate nell'array `somTiles` di **config.js**; `tiles` contiene solo quelle della home. La pagina riutilizza le risorse locali del portale, mostra il percorso “Dati e servizi › SOM” per tornare alla home e dispone le tile su due colonne su desktop e una su smartphone. I collegamenti sono disponibili anche senza JavaScript. Il registro Facilities è preparato nella cartella separata `../facilities-registry/`, con tutte le proprie risorse, e va pubblicato a `/public/public_pages/fac/`. La mappa preesistente resta in `facilities.html`.
 
 ## Data server
 
-`dataservers.html` contiene undici collegamenti a data server e API, inclusi APIAPP Dati meteo AAOT, ERDDAP-DANUBIUS, ERDDAP-ITINERIS, ERDDAP-HRF NODE, SEAMAP Catalog e SEAMAP Explorer, con titoli e indirizzi visibili. La pagina usa lo stile condiviso del portale, dispone i riquadri su due colonne e passa a una colonna su smartphone. Funziona anche senza JavaScript.
+`dataservers.html` contiene undici collegamenti a data server e API, inclusi APIAPP - Dati Meteo AAOT, ERDDAP-DANUBIUS, ERDDAP-ITINERIS, ERDDAP-HRF NODE, SEAMAP Catalog e SEAMAP Explorer, con titoli e indirizzi visibili. La pagina usa lo stile condiviso del portale, dispone i riquadri su due colonne e passa a una colonna su smartphone. Funziona anche senza JavaScript.
 
 Con JavaScript attivo, `server-status.js` aggiunge un pallino accanto a ogni titolo ed esegue un solo GET per servizio all'apertura della pagina, senza credenziali e senza scaricare integralmente il corpo della risposta. Verde: risposta HTTP riuscita; rosso: errore HTTP leggibile o nessuna risposta entro 5 secondi; grigio: controllo non verificabile, per esempio per CORS o blocco HTTP da una pagina HTTPS. Il timeout descrive il controllo dal browser del visitatore, non certifica un guasto del server. Nessuna dicitura visibile, tooltip o aggiornamento periodico; lo stato è disponibile anche agli screen reader. L'attributo facoltativo `data-status-url` indica l'indirizzo da controllare quando serve evitare un reindirizzamento senza CORS o usare HTTPS; non modifica il link della scheda. Il controllo dell'API meteo è consentito dall'origine `https://assets.ve.ismar.cnr.it`, ma può restare grigio in anteprima locale.
 
@@ -80,11 +81,15 @@ Il riquadro **Data Management Plan** collega il documento di Caccavale, Corgnati
 
 `profiles.html` contiene 22 voci in un elenco compatto a colonna singola: dieci Semantic application profiles, dieci Registry, un'ontologia (Sensor Description Mapping) e un Metadata Profile (DANUBIUS · In situ · 1.0.0). Il gruppo Metadata Profiles è in fondo alla pagina e include il collegamento al repository pubblico `https://github.com/federicobellati/metadata-profiles` e il prefix `danmetaprof:`. Ogni riga affianca un'etichetta cliccabile, la dichiarazione Turtle completa `@prefix nome: <URI> .` e il pulsante dedicato alla copia. I collegamenti mantengono gli indirizzi w3id.org forniti. Per Ultimate Feature of Interest viene usato `sapufoi:`, distinto da `sapfoi:`. La pagina usa lo stile condiviso, con link e dichiarazione sulla stessa riga su desktop e una disposizione adattata agli schermi piccoli; link e dichiarazioni restano leggibili senza JavaScript. `profiles.js` abilita i pulsanti di copia, conferma il successo con una spunta e supporta anche la copia tramite selezione quando l'API clipboard non è disponibile. La tile della home mostra “Profiles” e il sottotitolo “Profili semantici delle entità”.
 
-Le dieci righe dei Semantic application profiles includono, subito prima del pulsante di copia, un’icona documento per aprire un nuovo form in una nuova scheda, senza parametri `id` o dati precompilati. I sei form disponibili sono Facility, Feature of Interest, Location, Organization, Research Infrastructure e Sensor, nella directory `https://assets.ve.ismar.cnr.it/public/public_forms/`. Il file Sensor si chiama attualmente `sap-sesnor-shacl-form.html`: il collegamento conserva il nome effettivo sul server. Per Datastream, Network, Thing e Ultimate Feature of Interest l’icona resta visibile ma disabilitata, con il titolo “Form … non ancora disponibile”; quando il form viene pubblicato, sostituire il relativo pulsante `profile-form` con un link allo stesso modo degli altri. Registry, Ontologies e Metadata Profiles conservano le proprie azioni. Le icone e i collegamenti ai form funzionano anche senza JavaScript.
+Le dieci righe dei Semantic application profiles includono, subito prima del pulsante di copia, un’icona documento per aprire un nuovo form in una nuova scheda, senza parametri `id` o dati precompilati. I sei form disponibili sono Facility, Feature of Interest, Location, Organization, Research Infrastructure e Sensor, nella directory `https://assets.ve.ismar.cnr.it/public/public_forms/`. Il file Sensor si chiama `sap-sensor-shacl-form.html`. Per Datastream, Network, Thing e Ultimate Feature of Interest l’icona resta visibile ma disabilitata, con il titolo “Form … non ancora disponibile”; quando il form viene pubblicato, sostituire il relativo pulsante `profile-form` con un link allo stesso modo degli altri. Registry, Ontologies e Metadata Profiles conservano le proprie azioni. Le icone e i collegamenti ai form funzionano anche senza JavaScript.
 
 ## Altre risorse
 
-La nona tile della home, con icona dedicata `toolbox.svg`, apre `otherresources.html`. La pagina elenca NetCDF to Zarr (`https://netcdf2zarr.lab.dive.edito.eu/`) e Zarr Visualizer (`https://zarr-visualizer.lab.dive.edito.eu/`), con lo stile condiviso di Data Server e collegamento di ritorno alla home. Funziona anche senza JavaScript. Per aggiungere risorse, duplicare una voce della lista e aggiornare titolo e indirizzo.
+La nona tile della home, con icona dedicata `toolbox.svg`, apre `otherresources.html`. L’animazione originale `resources` rappresenta una costellazione di documenti, codice e collegamenti che si illuminano a rotazione attorno a una cassetta degli attrezzi; segue gli stessi controlli di pausa e movimento ridotto delle altre tile. La pagina elenca NetCDF to Zarr (`https://netcdf2zarr.lab.dive.edito.eu/`), Zarr Visualizer (`https://zarr-visualizer.lab.dive.edito.eu/`), le specifiche OGC SensorThings API 2.0 (`https://docs.ogc.org/is/23-019/23-019.html`) e Fuseki ISMAR (`https://fuseki.ve.ismar.cnr.it/#/`), con lo stile condiviso di Data Server e collegamento di ritorno alla home. Funziona anche senza JavaScript. Per aggiungere risorse, duplicare una voce della lista e aggiornare titolo e indirizzo.
+
+## Git repositories
+
+La decima tile della home apre `repositories.html`, con icona locale `git-branch.svg` e animazione di rami e commit. La pagina contiene una tabella con i 18 repository pubblici dell’account GitHub `federicobellati`, nell’ordine concordato, con link diretti e brevi descrizioni. Un testo affiancato spiega il ruolo di profili, registri, ontologia, risorse e componenti web nell’infrastruttura dati. Su schermi piccoli il testo segue la tabella, che mantiene nomi e descrizioni leggibili senza scorrimento orizzontale della pagina. Tutto il contenuto e i collegamenti funzionano senza JavaScript.
 
 ## Facilities
 
@@ -150,6 +155,8 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 - `dataservers.html`: elenco dei data server, con link diretti ai servizi.
 - `models.html`: elenco dei modelli previsionali, con spazio per descrizioni e homepage future.
 - `profiles.html`: elenchi di link ai profili semantici, ai registry e alle ontologie.
+- `otherresources.html`: strumenti, specifiche OGC SensorThings API 2.0 e servizio Fuseki.
+- `repositories.html`: tabella dei 18 repository pubblici e descrizione dell’infrastruttura.
 - `profiles.js`: copia delle dichiarazioni dei prefix e conferma accessibile dell'esito.
 - `facilities.html`: mappa dei contorni italiani con AAOT, mede Paloma e S1GB e boa E1.
 - `dashboard.html`: pagina vuota conservata localmente; la tile Dashboard punta al servizio esterno configurato in `config.js`.

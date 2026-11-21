@@ -85,7 +85,15 @@ window.ISMAR_PORTAL = {
       description: "Strumenti per lavorare con i dati",
       href: "./otherresources.html",
       icon: "toolbox",
-      animation: "servers"
+      animation: "resources"
+    },
+    {
+      id: "repositories",
+      title: "Git repositories",
+      description: "Le basi della nostra infrastruttura dati",
+      href: "./repositories.html",
+      icon: "git-branch",
+      animation: "repositories"
     }
   ],
   somTiles: [
