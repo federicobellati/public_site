@@ -9,6 +9,7 @@
   <link rel="icon" href="assets/brand/ismar.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <script src="server-status.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenuto">Vai ai modelli previsionali</a>
@@ -33,9 +34,8 @@
     <!-- Fonte delle descrizioni di ISSOS, Kassandra, Henetus e Nettuno:
          https://www.ismar.cnr.it/cosa-facciamo/sistemi-di-previsione/
          Consultata il 13 novembre 2026. Mantenere le descrizioni intorno ai 200 caratteri.
-         Quando disponibile, sostituire lo span model-homepage
-         con <a class="model-homepage" href="URL-DELLA-HOMEPAGE">Vai al modello →</a>.
-         Per aggiungere un modello, duplicare un elemento li. -->
+         Per aggiungere un modello, duplicare un elemento li e aggiornare
+         titolo, descrizione e collegamento model-homepage. -->
     <ul class="server-list" aria-label="Modelli previsionali ISMAR">
       <li>
         <article class="model-card" aria-labelledby="issos-title">
@@ -55,14 +55,14 @@
         <article class="model-card" aria-labelledby="henetus-title">
           <h3 id="henetus-title" class="server-title">Henetus</h3>
           <p class="model-description">Prevede il moto ondoso nel Mar Adriatico fino a cinque giorni usando le previsioni del vento ECMWF. Sviluppato con il Centro Previsione e Segnalazione Maree del Comune di Venezia, è operativo dal 1996.</p>
-          <span class="model-homepage">Collegamento in arrivo</span>
+          <a class="model-homepage" href="https://thredds.ve.ismar.cnr.it/thredds/catalog/HENETUS/catalog.html">Vai al modello →</a>
         </article>
       </li>
       <li>
         <article class="model-card" aria-labelledby="nettuno-title">
           <h3 id="nettuno-title" class="server-title">Nettuno</h3>
           <p class="model-description">Prevede vento e onde nel Mediterraneo fino a 72 ore, combinando il modello meteorologico COSMO con il modello d’onda WAM. Il sistema nasce dalla collaborazione tra ISMAR e l’Aeronautica Militare.</p>
-          <span class="model-homepage">Collegamento in arrivo</span>
+          <a class="model-homepage" href="https://thredds.ve.ismar.cnr.it/thredds/catalog/NETTUNO/catalog.html">Vai al modello →</a>
         </article>
       </li>
       <li>
@@ -71,7 +71,7 @@
           <!-- Fonte: Cavaleri, Bertotti e Pezzutto (2019), sezione 3.
                https://doi.org/10.5194/os-15-227-2019 -->
           <p class="model-description">Sistema ISMAR per la previsione del moto ondoso nel Mar Adriatico. Descrive altezza significativa e direzione delle onde, con risultati confrontati con le misure della torre oceanografica Acqua Alta.</p>
-          <span class="model-homepage">Collegamento in arrivo</span>
+          <a class="model-homepage" href="https://thredds.ve.ismar.cnr.it/thredds/catalog/catalog.html">Vai al modello →</a>
         </article>
       </li>
     </ul>

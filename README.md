@@ -55,7 +55,7 @@ Le cinque tile sono configurate nell'array `somTiles` di **config.js**; `tiles` 
 
 ## Data server
 
-`dataservers.html` contiene undici collegamenti a data server e API, inclusi APIAPP - Dati Meteo AAOT, ERDDAP-DANUBIUS, ERDDAP-ITINERIS, ERDDAP-HRF NODE, SEAMAP Catalog e SEAMAP Explorer, con titoli e indirizzi visibili. La pagina usa lo stile condiviso del portale, dispone i riquadri su due colonne e passa a una colonna su smartphone. Funziona anche senza JavaScript.
+`dataservers.html` contiene dodici collegamenti a data server e API, inclusi APIAPP · Dati Meteo AAOT, ERDDAP · DANUBIUS, ERDDAP · ITINERIS, ERDDAP · HRF NODE, SEAMAP · Catalog, SEAMAP · Explorer e Data Registry · LTER Italia (`https://dataregistry.lteritalia.it/`), con titoli e indirizzi visibili. I nomi usano il puntino come separatore. La pagina usa lo stile condiviso del portale, dispone i riquadri su due colonne e passa a una colonna su smartphone. Funziona anche senza JavaScript.
 
 Con JavaScript attivo, `server-status.js` aggiunge un pallino accanto a ogni titolo ed esegue un solo GET per servizio all'apertura della pagina, senza credenziali e senza scaricare integralmente il corpo della risposta. Verde: risposta HTTP riuscita; rosso: errore HTTP leggibile o nessuna risposta entro 5 secondi; grigio: controllo non verificabile, per esempio per CORS o blocco HTTP da una pagina HTTPS. Il timeout descrive il controllo dal browser del visitatore, non certifica un guasto del server. Nessuna dicitura visibile, tooltip o aggiornamento periodico; lo stato è disponibile anche agli screen reader. L'attributo facoltativo `data-status-url` indica l'indirizzo da controllare quando serve evitare un reindirizzamento senza CORS o usare HTTPS; non modifica il link della scheda. Il controllo dell'API meteo è consentito dall'origine `https://assets.ve.ismar.cnr.it`, ma può restare grigio in anteprima locale.
 
@@ -65,9 +65,9 @@ Per aggiungere un server, duplicare un elemento `<li>` dentro `<ul class="server
 
 `models.html` elenca ISSOS, Kassandra, Henetus, Nettuno e AdriOper, nello stile condiviso del portale: due colonne su desktop e una su smartphone. La pagina funziona senza JavaScript ed è collegata alla tile della home, anche nel blocco `noscript`.
 
-Kassandra collega `http://kassandra.ve.ismar.cnr.it:8080/kassandra`.
+ISSOS collega `https://issos.ve.ismar.cnr.it/`; Kassandra collega `http://kassandra.ve.ismar.cnr.it:8080/kassandra`. Henetus apre `https://thredds.ve.ismar.cnr.it/thredds/catalog/HENETUS/catalog.html`, Nettuno apre `https://thredds.ve.ismar.cnr.it/thredds/catalog/NETTUNO/catalog.html` e AdriOper apre `https://thredds.ve.ismar.cnr.it/thredds/catalog/catalog.html`.
 
-Ogni riquadro riserva spazio per una descrizione di circa 200 caratteri. Sostituire “Descrizione in arrivo.” nel paragrafo `model-description` con il testo definitivo; lo spazio si espande se necessario. Quando disponibile, sostituire `<span class="model-homepage">Collegamento in arrivo</span>` con `<a class="model-homepage" href="URL-DELLA-HOMEPAGE">Vai al modello →</a>`, usando l'indirizzo effettivo. Al momento non sono presenti collegamenti fittizi alle homepage dei modelli. Per aggiungere un modello, duplicare un elemento `<li>` e aggiornare anche l'ID del titolo e il relativo `aria-labelledby`.
+Ogni riquadro contiene una descrizione di circa 200 caratteri e un collegamento al modello. Con JavaScript attivo, `server-status.js` controlla il collegamento `model-homepage` e aggiunge al titolo lo stesso pallino verde, rosso o grigio dei Data Server, con le medesime regole e lo stesso timeout. Per aggiungere un modello, duplicare un elemento `<li>` e aggiornare titolo, descrizione, collegamento, ID del titolo e relativo `aria-labelledby`.
 
 ## Data Policy e Data Management Plan
 
@@ -153,7 +153,8 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 - `index.html`: struttura della pagina.
 - `som.html`: pagina SOM con le tile Locations, Infrastrutture di Ricerca, Facilities e Organizations.
 - `dataservers.html`: elenco dei data server, con link diretti ai servizi.
-- `models.html`: elenco dei modelli previsionali, con spazio per descrizioni e homepage future.
+- `models.html`: elenco dei modelli previsionali con descrizioni, collegamenti e indicatori di disponibilità.
+- `server-status.js`: controllo condiviso della disponibilità di data server e modelli previsionali.
 - `profiles.html`: elenchi di link ai profili semantici, ai registry e alle ontologie.
 - `otherresources.html`: strumenti, specifiche OGC SensorThings API 2.0 e servizio Fuseki.
 - `repositories.html`: tabella dei 18 repository pubblici e descrizione dell’infrastruttura.

@@ -1,7 +1,9 @@
 /* Un solo GET per servizio all'apertura della pagina. Gli errori che il browser
  * non permette di interpretare (CORS, rete, contenuti HTTP) restano grigi. */
 (() => {
-  document.querySelectorAll('.server-card').forEach(async (card) => {
+  document.querySelectorAll('.server-card, .model-card').forEach(async (card) => {
+    const url = card.dataset.statusUrl || (card.matches('a') ? card.href : card.querySelector('a.model-homepage')?.href);
+    if (!url) return;
     const dot = document.createElement('span');
     dot.className = 'server-status';
     dot.setAttribute('role', 'img');
@@ -11,7 +13,7 @@
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 5000);
     try {
-      const response = await fetch(card.dataset.statusUrl || card.href, {
+      const response = await fetch(url, {
         method: 'GET',
         credentials: 'omit',
         cache: 'no-store',
