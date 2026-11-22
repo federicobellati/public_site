@@ -33,11 +33,19 @@ window.ISMAR_PORTAL = {
     },
     {
       id: "mappa",
-      title: "Esplora i dati",
+      title: "Esplora le serie temporali",
       description: "Mappa delle osservazioni",
       href: "http://erddapdash.ve.ismar.cnr.it/",
       icon: "map-2",
       animation: "map"
+    },
+    {
+      id: "dati-grigliati",
+      title: "Esplora dati grigliati",
+      description: "Mappa delle aree coperte dai dataset",
+      href: "",
+      icon: "grid-3x3",
+      animation: "models"
     },
     {
       id: "modelli",
