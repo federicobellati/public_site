@@ -35,7 +35,7 @@ window.ISMAR_PORTAL = {
       id: "mappa",
       title: "Esplora le serie temporali",
       description: "Mappa delle osservazioni",
-      href: "http://erddapdash.ve.ismar.cnr.it/",
+      href: "https://assets.ve.ismar.cnr.it/public/public_pages/dashboards/ts_dashboard/ts_dash.html",
       icon: "map-2",
       animation: "map"
     },
@@ -59,7 +59,7 @@ window.ISMAR_PORTAL = {
       id: "dashboard",
       title: "Dashboard",
       description: "Molti modi di vedere i nostri dati",
-      href: "https://assets.ve.ismar.cnr.it/public/public_pages/dashboards/qc_dash.html",
+      href: "https://assets.ve.ismar.cnr.it/public/public_pages/dashboards/qc_dashboard/qc_dash.html",
       icon: "chart-data",
       animation: "dashboard"
     },

@@ -20,14 +20,14 @@ I collegamenti sono configurati in **config.js**; le pagine SOM, Data Server, Mo
 | --- | --- |
 | SOM | `./som.html` (pagina inclusa) |
 | Data Server / API | `./dataservers.html` (pagina inclusa) |
-| Esplora i dati · Mappa delle osservazioni | `http://erddapdash.ve.ismar.cnr.it/` (collegamento definitivo) |
+| Esplora i dati · Mappa delle osservazioni | `https://assets.ve.ismar.cnr.it/public/public_pages/dashboards/ts_dashboard/ts_dash.html` (collegamento definitivo) |
 | Modelli previsionali | `./models.html` (pagina inclusa) |
 | Infrastrutture di Ricerca (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/ri/` (collegamento definitivo) |
 | Facilities Map (dentro SOM) | `./facilities.html` (mappa inclusa) |
 | Facilities · registro (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/fac/` (cartella autonoma `../facilities-registry/`, da pubblicare separatamente) |
 | Organizations (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/org/` (collegamento definitivo) |
 | Sensor Models (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/sensmod/` (collegamento definitivo) |
-| Dashboard | `https://assets.ve.ismar.cnr.it/public/public_pages/dashboards/qc_dash.html` (collegamento definitivo) |
+| Dashboard | `https://assets.ve.ismar.cnr.it/public/public_pages/dashboards/qc_dashboard/qc_dash.html` (collegamento definitivo) |
 | Data Policy e Data Management Plan | `./datapolicy.html` (policy v2.0, PDF firmato e collegamento al DMP) |
 | IS-mA-BOT | `https://assets.ve.ismar.cnr.it/public/public_pages/isabot-metadata/chatbot.html` (collegamento definitivo) |
 | Profiles · Profili semantici delle entità | `./profiles.html` (pagina inclusa) |
