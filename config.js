@@ -43,7 +43,7 @@ window.ISMAR_PORTAL = {
       id: "dati-grigliati",
       title: "Esplora dati grigliati",
       description: "Mappa delle aree coperte dai dataset",
-      href: "",
+      href: "https://assets.ve.ismar.cnr.it/public/public_pages/dashboards/grid_dashboard/browser_dataset_grigliati.html",
       icon: "grid-3x3",
       animation: "models"
     },
