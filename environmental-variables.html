@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#062b35">
+  <meta name="description" content="Esplora le Essential Variables del registry CNR ISMAR: ECV, EOV ed EBV, classificazioni e fonti.">
+  <title>Environmental variables · CNR ISMAR</title>
+  <link rel="icon" href="assets/brand/ismar.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="environmental-variables.css">
+  <script src="config.js" defer></script>
+  <script src="environmental-variables.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenuto">Vai alle variabili</a>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="CNR ISMAR · pagina iniziale">
+      <img class="brand-cnr" src="assets/brand/cnr.svg" alt="" width="53" height="50">
+      <span class="brand-divider" aria-hidden="true"></span>
+      <img class="brand-ismar" src="assets/brand/ismar.svg" alt="" width="50" height="51">
+      <span class="brand-name" aria-hidden="true">CNR<br>ISMAR</span>
+    </a>
+    <span class="ev-header-title">Environmental variables</span>
+  </header>
+  <main id="contenuto" class="main ev-main" tabindex="-1">
+    <nav class="breadcrumb" aria-label="Percorso di navigazione"><a href="./">Dati e servizi</a><span aria-hidden="true">/</span><a href="./som.html">SOM</a><span aria-hidden="true">/</span><span aria-current="page">Environmental variables</span></nav>
+    <section class="ev-intro" aria-labelledby="ev-title">
+      <div><p class="ev-eyebrow">SISTEMA OSSERVATIVO MARINO · REGISTRY</p><h1 id="ev-title">Essential variables<span>.</span></h1><p>Clima, oceano e biodiversità. Esplora le variabili essenziali, le loro classificazioni e le fonti di riferimento.</p></div>
+      <div class="ev-total"><strong id="total-count">—</strong><span>variabili nel registry</span></div>
+    </section>
+    <div id="frameworks" class="ev-frameworks" role="group" aria-label="Filtra per framework">
+      <button type="button" data-framework="" aria-pressed="true" disabled><span>Tutte le variabili</span><strong data-count="all">—</strong></button>
+      <button type="button" data-framework="ECV" aria-pressed="false" disabled><span><b>ECV</b>Essential Climate Variables</span><strong data-count="ECV">—</strong></button>
+      <button type="button" data-framework="EOV" aria-pressed="false" disabled><span><b>EOV</b>Essential Ocean Variables</span><strong data-count="EOV">—</strong></button>
+      <button type="button" data-framework="EBV" aria-pressed="false" disabled><span><b>EBV</b>Essential Biodiversity Variables</span><strong data-count="EBV">—</strong></button>
+    </div>
+    <div class="ev-toolbar">
+      <label class="ev-search" for="search">Cerca una variabile<input id="search" type="search" placeholder="Nome, classificazione o tema…" autocomplete="off" disabled></label>
+      <label for="category">Classificazione<select id="category" disabled><option value="">Tutte le classificazioni</option></select></label>
+      <button id="refresh" class="ev-button" type="button">Aggiorna</button>
+    </div>
+    <div class="ev-status-row"><p id="status" role="status" aria-live="polite">Caricamento del registry…</p><button id="clear-filters" class="ev-text-button" type="button" hidden>Azzera filtri</button></div>
+    <div id="error" class="ev-message" hidden><h2>Registry non disponibile</h2><p id="error-message"></p><button id="retry" class="ev-button" type="button">Riprova</button></div>
+    <div class="ev-layout">
+      <section aria-label="Elenco delle variabili" id="catalogue" aria-busy="true"><ul id="variables" class="ev-list"></ul><div id="empty" class="ev-message" hidden><h2>Nessuna variabile trovata</h2><p>Prova un altro nome o modifica i filtri.</p></div></section>
+      <aside id="detail" class="ev-detail" aria-labelledby="detail-title"><p class="ev-eyebrow">SCHEDA DELLA VARIABILE</p><h2 id="detail-title" tabindex="-1">Scegli una variabile</h2><p class="ev-placeholder">Apri una voce per consultarne la classificazione, le annotazioni e le fonti.</p></aside>
+    </div>
+    <p class="ev-note">Dati caricati dal registry ISMAR. I nomi conservano la lingua delle fonti. Le classificazioni RDF sono quelle del profilo locale; variabili di framework diversi restano voci distinte.</p>
+    <noscript><p class="ev-message">Attiva JavaScript per consultare il registry e le schede delle variabili.</p></noscript>
+  </main>
+  <footer class="site-footer"><span>CNR · ISMAR</span><div class="footer-actions"><a href="./som.html">Torna al SOM</a><a href="https://www.ismar.cnr.it/">ISMAR</a></div></footer>
+</body>
+</html>

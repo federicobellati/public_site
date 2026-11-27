@@ -10,7 +10,7 @@
     ris: { x:850, y:36, w:255, h:162, description:'Collaborazioni e reti di ricerca' },
     datasets: { x:445, y:225, w:320, h:145 },
     deployments: { x:65, y:340, w:270, h:136 },
-    facilities: { x:850, y:360, w:270, h:136, icon:'aaot', description:'Piattaforme e infrastrutture per l’osservazione' },
+    facilities: { x:850, y:360, w:270, h:136, icon:'aaot', description:"Piattaforme e infrastrutture per l'osservazione" },
     orgs: { x:1100, y:215, w:205, h:128, description:'Le organizzazioni del SOM' },
     locations: { x:480, y:478, w:250, h:114 },
     features: { x:65, y:520, w:315, h:112 }

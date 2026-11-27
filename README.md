@@ -27,6 +27,7 @@ I collegamenti sono configurati in **config.js**; le pagine SOM, Data Server, Mo
 | Facilities · registro (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/fac/` (cartella autonoma `../facilities-registry/`, da pubblicare separatamente) |
 | Organizations (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/org/` (collegamento definitivo) |
 | Sensor Models (dentro SOM) | `https://assets.ve.ismar.cnr.it/public/public_pages/sensmod/` (collegamento definitivo) |
+| Environmental variable (dentro SOM) | `./environmental-variables.html` (pagina inclusa, dati da Fuseki `evsreg`) |
 | Dashboard | `https://assets.ve.ismar.cnr.it/public/public_pages/dashboards/qc_dashboard/qc_dash.html` (collegamento definitivo) |
 | Data Policy e Data Management Plan | `./datapolicy.html` (policy v2.0, PDF firmato e collegamento al DMP) |
 | IS-mA-BOT | `https://assets.ve.ismar.cnr.it/public/public_pages/isabot-metadata/chatbot.html` (collegamento definitivo) |
@@ -146,7 +147,17 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 - Il comando nel piè di pagina permette di sospendere e riattivare le animazioni. La preferenza resta sul dispositivo; non viene trasmessa.
 - La preferenza di sistema per ridurre il movimento viene rispettata automaticamente alla prima visita.
 - Il ciclo grafico è limitato a 30 fotogrammi al secondo. Le scene fuori schermo non vengono ridisegnate e il ciclo si ferma quando la scheda del browser è in background.
-- Nessun tracciamento, cookie o dipendenza da CDN. L'unica chiamata API è quella della tile Dashboard.
+- Nessun tracciamento, cookie o dipendenza da CDN. Le chiamate API alimentano la tile Dashboard e il catalogo Environmental variables.
+
+### Environmental variables
+
+`environmental-variables.html` consulta in sola lettura `https://fuseki.ve.ismar.cnr.it/evsreg/query`, configurabile in `config.js` alla voce `environmentalVariables.endpoint`. Il collegamento è nell'icona in alto a destra del nodo Environmental variable del SOM; funziona anche nella vista Elenco e nel contenuto senza JavaScript.
+
+Il catalogo carica etichette, tipi, schemi, temi, annotazioni e fonti direttamente dal dataset. I conteggi non sono fissati nel codice. Sono disponibili ricerca, filtri ECV/EOV/EBV e per classificazione, scheda di dettaglio, collegamento diretto alla variabile con `?id=IRI` e download delle sue triple come Turtle (sintassi N-Triples). I percorsi di classificazione mostrati riprendono il profilo EV locale 1.0.5, anche quando il profilo non è caricato in Fuseki; non vengono aggiunte triple né equivalenze fra framework. Le note pilot e le anomalie della fonte restano quelle del registry.
+
+Servire la pagina via HTTP/HTTPS; Fuseki deve consentire CORS dall'origine del portale. Le richieste non inviano cookie o credenziali e scadono dopo 30 secondi. In caso di errore il catalogo rimuove i dati precedenti e offre Riprova. Non sono inclusi dati simulati o copie statiche del registry.
+
+Verifica del 27 novembre 2026: Fuseki interrogato dal browser restituisce 55 ECV, 36 EOV e 21 EBV. `node verifica-portale/verifica-ev.mjs`, dalla directory del progetto, controlla il comportamento con le 936 triple dei 112 file del registry locale: conteggi, filtri, ricerca, note pilot, schede, download RDF, errore HTTP e ripristino, risorse locali e collegamento SOM. Il controllo usa un DOM minimo, non verifica rendering o CORS: l'anteprima HTTP locale non è stata raggiungibile dal browser di verifica in questa sessione.
 
 ## File
 
@@ -160,6 +171,7 @@ La tile “Esplora i dati” usa una base cartografica reale del Mediterraneo ri
 - `repositories.html`: tabella dei 18 repository pubblici e descrizione dell’infrastruttura.
 - `profiles.js`: copia delle dichiarazioni dei prefix e conferma accessibile dell'esito.
 - `facilities.html`: mappa dei contorni italiani con AAOT, mede Paloma e S1GB e boa E1.
+- `environmental-variables.html`, `.css`, `.js`: catalogo e schede delle Essential Variables dal dataset Fuseki `evsreg`.
 - `dashboard.html`: pagina vuota conservata localmente; la tile Dashboard punta al servizio esterno configurato in `config.js`.
 - `datapolicy.html`: testo completo della Data Policy v2.0, allegati, download del PDF originale firmato e collegamento al DMP.
 - `datapolicy.css`: impaginazione del documento, indice, tabelle responsive e stile per la stampa.

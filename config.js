@@ -4,6 +4,9 @@
 window.ISMAR_PORTAL = {
   // Animazioni attive, salvo preferenze di accessibilità del visitatore.
   animations: true,
+  environmentalVariables: {
+    endpoint: "https://fuseki.ve.ismar.cnr.it/evsreg/query"
+  },
   dashboard: {
     endpoint: "https://apiapp.ve.ismar.cnr.it/api/fetch-data/?format=json",
     refreshMs: 300000
@@ -163,7 +166,7 @@ window.ISMAR_PORTAL = {
       entity: "ev",
       title: "Environmental variable",
       description: "Le variabili ambientali osservate dai sensori",
-      href: "",
+      href: "./environmental-variables.html",
       icon: "chart-data",
       animation: "servers"
     },

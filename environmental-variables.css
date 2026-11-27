@@ -1,0 +1,57 @@
+.ev-main { display: block; padding-top: 32px; }
+.ev-header-title { font-size: 18px; text-align: right; }
+.ev-intro { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin: 42px 0 30px; }
+.ev-eyebrow { margin: 0 0 14px; color: var(--aqua); font-size: 11px; font-weight: 650; letter-spacing: 1.6px; line-height: 1.7; }
+.ev-intro h1 { margin: 0 0 16px; font-size: clamp(32px, 4.2vw, 62px); line-height: 1.13; letter-spacing: -1.8px; }
+.ev-intro h1 span { color: var(--aqua); }
+.ev-intro > div > p:last-child { max-width: 680px; margin: 0; color: var(--muted); font-size: 17px; line-height: 1.7; }
+.ev-total { flex-shrink: 0; display: grid; gap: 4px; padding-left: 28px; border-left: 1px solid var(--edge); color: var(--muted); font-size: 12px; }
+.ev-total strong { font-size: 52px; color: var(--aqua); line-height: 1.2; }
+.ev-frameworks { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.ev-frameworks button { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px; background: var(--tile); color: var(--muted); border: 1px solid var(--edge); border-radius: var(--radius); text-align: left; cursor: pointer; }
+.ev-frameworks button > span { font-size: 12px; line-height: 1.5; }
+.ev-frameworks b { display: block; margin-bottom: 5px; font-size: 20px; color: var(--text); }
+.ev-frameworks strong { font-size: 25px; font-weight: 500; }
+.ev-frameworks button[aria-pressed="true"] { border-color: var(--aqua); background: #104a53; color: var(--aqua); }
+.ev-toolbar { display: flex; align-items: end; flex-wrap: wrap; gap: 18px; padding: 26px 0 18px; }
+.ev-toolbar label { display: grid; gap: 9px; color: var(--muted); font-size: 12px; flex: 1 1 230px; }
+.ev-toolbar .ev-search { flex: 2 1 280px; }
+.ev-toolbar input, .ev-toolbar select { width: 100%; min-width: 0; min-height: 46px; border: 1px solid #47717a; border-radius: 7px; padding: 10px 12px; background: #082f3a; color: var(--text); font: inherit; font-size: 14px; }
+.ev-toolbar input::placeholder { color: var(--muted); opacity: .85; }
+.ev-toolbar :is(input, select):focus-visible { outline: 2px solid var(--aqua); outline-offset: 3px; }
+.ev-button { min-height: 46px; border: 1px solid #47717a; padding: 10px 18px; background: var(--tile); color: var(--text); border-radius: 7px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+.ev-button:hover { border-color: var(--aqua); color: var(--aqua); }
+.ev-text-button { min-height: 44px; border: 0; color: var(--aqua); background: none; cursor: pointer; }
+.ev-status-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 50px; color: var(--muted); font-size: 13px; }
+.ev-status-row p { margin: 0; }
+.ev-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); align-items: start; gap: 26px; }
+.ev-layout > * { min-width: 0; }
+.ev-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--edge); }
+.ev-row { width: 100%; display: grid; grid-template-columns: 45px minmax(0, 1fr) 24px; gap: 14px; align-items: start; min-height: 94px; padding: 20px 14px; color: var(--text); border: 0; border-bottom: 1px solid var(--edge); background: none; text-align: left; cursor: pointer; }
+.ev-row:hover, .ev-row[aria-pressed="true"] { background: var(--tile); }
+.ev-row[aria-pressed="true"] { box-shadow: inset 3px 0 var(--aqua); }
+.ev-badge { display: inline-block; padding: 4px 7px; background: #183e51; border-radius: 5px; color: #c3cdf5; font-size: 10px; letter-spacing: .5px; }
+.ev-badge[data-framework="EOV"] { background: #104e52; color: var(--aqua); }
+.ev-badge[data-framework="EBV"] { background: #324b40; color: #c8e0ad; }
+.ev-row strong { display: block; font-size: 17px; line-height: 1.45; overflow-wrap: anywhere; }
+.ev-row small { display: block; color: var(--muted); font-size: 11px; line-height: 1.6; margin-top: 7px; overflow-wrap: anywhere; }
+.ev-row-arrow { color: var(--aqua); font-size: 23px; }
+.ev-detail { position: sticky; top: 24px; padding: 28px; background: var(--tile); border: 1px solid var(--edge); border-radius: var(--radius); overflow-wrap: anywhere; }
+.ev-detail h2 { margin: 0 0 20px; font-size: clamp(23px, 2.2vw, 33px); line-height: 1.3; letter-spacing: -.6px; outline: none; }
+.ev-detail h3 { font-size: 13px; color: var(--muted); margin: 24px 0 10px; font-weight: 500; }
+.ev-detail p, .ev-detail li { font-size: 14px; line-height: 1.8; }
+.ev-placeholder { color: var(--muted); }
+.ev-detail ul { padding-left: 20px; margin: 0; }
+.ev-detail a { color: var(--aqua); text-underline-offset: 4px; }
+.ev-detail .ev-iri { font-size: 12px; line-height: 1.8; }
+.ev-detail .ev-button { margin-top: 22px; font-size: 13px; }
+.ev-detail pre { max-height: 360px; overflow: auto; padding: 14px; background: var(--page); font-size: 11px; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; }
+.ev-detail summary { cursor: pointer; margin-top: 24px; font-size: 13px; color: var(--muted); }
+.ev-message { padding: 24px; border: 1px solid #6f8484; border-radius: var(--radius); margin-bottom: 20px; }
+.ev-message h2 { margin-top: 0; font-size: 20px; }
+.ev-message p { line-height: 1.7; color: var(--muted); }
+.ev-note { max-width: 900px; color: var(--muted); font-size: 12px; line-height: 1.8; margin: 32px 0 0; }
+.ev-main button:disabled { cursor: wait; opacity: .65; }
+@media (min-width: 1800px) { .ev-layout { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); } }
+@media (max-width: 850px) { .ev-frameworks { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ev-layout { grid-template-columns: 1fr; } .ev-detail { position: static; } }
+@media (max-width: 480px) { .ev-main { padding-top: 22px; } .ev-intro { display: block; margin-top: 30px; } .ev-total { border-left: 0; padding: 20px 0 0; display: flex; align-items: baseline; gap: 10px; } .ev-total strong { font-size: 32px; } .ev-header-title { font-size: 12px; max-width: 110px; } .ev-frameworks button { padding: 12px; gap: 8px; } .ev-frameworks button > span { font-size: 10px; } .ev-frameworks strong { font-size: 21px; } .ev-frameworks b { font-size: 18px; } .ev-toolbar { gap: 14px; } .ev-detail { padding: 20px; } .ev-row { gap: 10px; padding: 18px 10px; } .ev-row strong { font-size: 16px; } }
