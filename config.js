@@ -189,6 +189,24 @@ window.ISMAR_PORTAL = {
       animation: "servers"
     },
     {
+      id: "specimens-samples",
+      entity: "samples",
+      title: "Specimens/Samples",
+      description: "Campioni raccolti nel sistema osservativo",
+      href: "",
+      icon: "sample-tubes",
+      animation: "servers"
+    },
+    {
+      id: "sampler",
+      entity: "sampler",
+      title: "Sampler",
+      description: "Strumento di campionamento",
+      href: "",
+      icon: "sampler",
+      animation: "observatory"
+    },
+    {
       id: "features-of-interest",
       entity: "features",
       title: "Features of Interest",

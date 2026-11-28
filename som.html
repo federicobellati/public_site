@@ -38,21 +38,21 @@
     </nav>
     <div class="map-intro">
       <div><h2>Sistema Osservativo Marino</h2><p id="som-intro">Le entità del sistema, le relazioni che le connettono.</p></div>
+      <div class="map-actions">
+        <span id="map-counts" class="map-counts">11 entità · 15 relazioni</span>
       <div class="view-toggle" role="group" aria-label="Visualizzazione delle entità" id="view-controls" hidden>
         <button type="button" id="map-view" aria-pressed="true" aria-controls="map-content">Mappa</button>
         <button type="button" id="list-view" aria-pressed="false" aria-controls="tiles">Elenco</button>
       </div>
+      </div>
     </div>
     <div id="map-content" hidden>
-      <section class="super-tile" aria-labelledby="map-title">
-        <div class="map-toolbar">
-          <div><h3 id="map-title">Un sistema connesso</h3><p>Seleziona un riquadro per evidenziare le relazioni. L’icona apre la pagina di dettaglio.</p></div>
-        </div>
+      <section class="super-tile" aria-label="Entità e relazioni del SOM">
         <p class="scroll-hint" id="scroll-hint">Scorri lateralmente per esplorare tutta la mappa, oppure passa a Elenco.</p>
         <div class="map-scroll" id="map-panel" role="region" aria-label="Mappa delle relazioni, scorribile orizzontalmente" tabindex="0" aria-describedby="scroll-hint">
           <div class="map-stage" id="map-stage"><canvas id="connections" aria-hidden="true"></canvas></div>
         </div>
-        <div class="map-bottom"><span>9 entità <span aria-hidden="true">·</span> 11 relazioni</span><span>Ogni linea rappresenta una relazione tra entità</span><button type="button" id="reset-selection" disabled>Mostra tutte le relazioni</button></div>
+        <div class="map-bottom"><button type="button" id="reset-selection" disabled>Mostra tutte le relazioni</button></div>
       </section>
       <section class="entity-detail" aria-labelledby="detail-title">
         <div class="detail-heading"><span class="detail-eyebrow" id="detail-eyebrow" role="status">ESPLORA IL SISTEMA</span><h3 id="detail-title">Tutto il SOM, in una sola vista.</h3></div>
@@ -73,6 +73,8 @@
           <li><a href="./environmental-variables.html">Environmental variable — Le variabili ambientali osservate dai sensori</a></li>
           <li>Deployments · I sensori effettivamente installati sul campo — pagina in preparazione</li>
           <li>Datasets · I dati del sistema osservativo — pagina in preparazione</li>
+          <li>Specimens/Samples · Campioni raccolti nel sistema osservativo - pagina in preparazione</li>
+          <li>Sampler · Strumento di campionamento - pagina in preparazione</li>
           <li>Features of Interest · Gli elementi oggetto di osservazione — pagina in preparazione</li>
         </ul>
       </div>

@@ -1,5 +1,34 @@
 # Verifica grafica e funzionale
 
+## SOM - versione finale del grafo, 28 novembre 2026
+
+- 11 entità nella mappa e 12 tile nell'elenco, inclusa Facilities Map; Specimens/Samples e Sampler senza destinazione.
+- Quattro colonne allineate e tre righe regolari. Datasets è l'eccezione: centrato e leggermente più grande. Infrastrutture di Ricerca, Organizations e Facilities condividono la colonna destra.
+- 15 relazioni: aggiunte Sampler–Specimens/Samples, Specimens/Samples–Locations, Locations–Datasets e Specimens/Samples–Datasets; Features of Interest è collegato a Datasets, non a Deployments.
+- Conservati i tratteggi Locations–Deployments e Locations–Facilities. Il primo passa lungo il bordo sinistro e inferiore per lasciare libero il raccordo diretto Samples–Datasets.
+- Solo il grafico deve entrare nella schermata desktop; la pagina scorre normalmente. Sottotitoli sempre visibili, conteggio accanto a Mappa/Elenco; rimossi il blocco “Un sistema connesso” e la legenda del tratteggio.
+- Verifica finale sui percorsi: nessun incrocio o segmento sovrapposto tra le 15 linee, nessuna linea attraverso le tile, tutti i 30 estremi allineati ai bordi. Posizioni conservate nell'ultima aggiunta. Sintassi JavaScript verificata.
+- Le verifiche in Chrome documentate nelle revisioni intermedie non costituiscono una nuova verifica visiva della disposizione finale; quest'ultima è stata esaminata e corretta progressivamente dall'utente.
+
+
+## SOM - grafo in una schermata, 28 novembre 2026
+
+- Sostituita esclusivamente la relazione Features of Interest–Deployments con Features of Interest–Datasets; 14 relazioni totali e i due tratteggi conservati.
+- Riorganizzate le 11 tile su tre fasce nel piano 1320 × 440. La vista Mappa desktop si adatta alla schermata, con dettagli e intestazione compatti; elenco e URL invariati.
+- Verifica in Chrome con la barra del browser visibile: intero grafo, legenda, pannello dettagli e footer presenti nella stessa schermata. La selezione Features of Interest mostra una sola relazione verso Datasets.
+- Confronto automatico con la versione precedente: configurazione identica, altre 13 relazioni preservate, nessun riquadro sovrapposto o attraversato dalle linee, tutti i 28 estremi allineati ai bordi delle tile, sintassi JavaScript valida.
+- Modifiche locali; nessuna pubblicazione eseguita.
+
+
+## SOM - campioni e strumenti di campionamento, 28 novembre 2026
+
+- Aggiunte Specimens/Samples e Sampler (Strumento di campionamento), senza destinazione, nella mappa e nell'elenco. Mappa con 11 entità e 14 relazioni; elenco con 12 tile, inclusa Facilities Map.
+- Aggiunte Sampler–Specimens/Samples, Specimens/Samples–Locations e Locations–Datasets. Locations–Deployments e Locations–Facilities sono tratteggiate, con legenda.
+- Confronto con la versione iniziale: tutte le 10 tile SOM precedenti, le tile della home, i loro testi e URL e le 11 relazioni originali sono conservati. Controllati anche elenco senza JavaScript, icone locali e sintassi degli script.
+- Controllo geometrico: nessuna sovrapposizione fra riquadri e nessuna linea che attraversa un riquadro. Conteggi ricavati dai nodi e dalle relazioni.
+- Verifica grafica in Chrome aprendo il file locale: disposizione desktop, leggibilità delle nuove tile, tratteggi e passaggio Mappa/Elenco. La selezione Specimens/Samples mostra Locations e Sampler. L'anteprima HTTP integrata non è raggiungibile; non eseguita una verifica a viewport smartphone.
+- Modifiche locali; pubblicazione non eseguita in questo passaggio.
+
 ## SOM — integrazione mappa ed elenco, 19 novembre 2026
 
 final result: passed

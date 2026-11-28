@@ -5,29 +5,35 @@
   // Titoli e destinazioni sono condivisi con le tile, compresi gli href vuoti.
   const entities = Object.fromEntries((window.ISMAR_PORTAL?.somTiles || []).filter(item => item.entity).map(item => [item.entity, item]));
   const layout = {
-    models: { x:65, y:45, w:270, h:140 },
-    ev: { x:435, y:16, w:310, h:152 },
-    ris: { x:850, y:36, w:255, h:162, description:'Collaborazioni e reti di ricerca' },
-    datasets: { x:445, y:225, w:320, h:145 },
-    deployments: { x:65, y:340, w:270, h:136 },
-    facilities: { x:850, y:360, w:270, h:136, icon:'aaot', description:"Piattaforme e infrastrutture per l'osservazione" },
-    orgs: { x:1100, y:215, w:205, h:128, description:'Le organizzazioni del SOM' },
-    locations: { x:480, y:478, w:250, h:114 },
-    features: { x:65, y:520, w:315, h:112 }
+    models: { x:30, y:15, w:255, h:110 },
+    ev: { x:365, y:15, w:255, h:110 },
+    features: { x:700, y:15, w:255, h:110 },
+    ris: { x:1035, y:15, w:255, h:110, description:'Collaborazioni e reti di ricerca' },
+    datasets: { x:510, y:155, w:300, h:130 },
+    deployments: { x:30, y:170, w:255, h:110 },
+    facilities: { x:1035, y:325, w:255, h:110, icon:'aaot', description:'Piattaforme di osservazione' },
+    orgs: { x:1035, y:170, w:255, h:110, description:'Le organizzazioni del SOM' },
+    locations: { x:700, y:325, w:255, h:110 },
+    sampler: { x:30, y:325, w:255, h:110 },
+    samples: { x:365, y:325, w:255, h:110 }
   };
-  // Relazioni non direzionali dello schizzo; piano di riferimento 1320 × 660.
+  // Relazioni non direzionali; piano di riferimento 1320 x 480.
   const edges = [
-    { a:'models', b:'datasets', points:[[200,185],[200,212],[402,212],[402,270],[445,270]] },
-    { a:'ev', b:'datasets', points:[[590,168],[590,225]] },
-    { a:'ris', b:'datasets', points:[[850,114],[815,114],[815,264],[765,264]] },
-    { a:'datasets', b:'deployments', points:[[445,330],[390,330],[390,390],[335,390]] },
-    { a:'datasets', b:'facilities', points:[[765,330],[805,330],[805,405],[850,405]] },
-    { a:'deployments', b:'locations', points:[[200,476],[200,500],[445,500],[445,535],[480,535]] },
-    { a:'deployments', b:'features', points:[[110,476],[110,496],[35,496],[35,576],[65,576]] },
-    { a:'facilities', b:'locations', points:[[985,496],[985,535],[730,535]] },
-    { a:'facilities', b:'orgs', points:[[1120,405],[1202,405],[1202,343]] },
-    { a:'ris', b:'orgs', points:[[1105,142],[1202,142],[1202,215]] },
-    { a:'ris', b:'locations', points:[[1105,80],[1310,80],[1310,620],[770,620],[770,566],[730,566]] }
+    { a:'models', b:'datasets', points:[[285,60],[325,60],[325,195],[510,195]] },
+    { a:'ev', b:'datasets', points:[[492,125],[492,140],[570,140],[570,155]] },
+    { a:'features', b:'datasets', points:[[827,125],[827,140],[750,140],[750,155]] },
+    { a:'ris', b:'datasets', points:[[1035,60],[995,60],[995,195],[810,195]] },
+    { a:'datasets', b:'deployments', points:[[510,245],[285,245]] },
+    { a:'datasets', b:'facilities', points:[[810,245],[995,245],[995,345],[1035,345]] },
+    { a:'deployments', b:'locations', dashed:true, points:[[30,255],[15,255],[15,455],[735,455],[735,435]] },
+    { a:'facilities', b:'locations', dashed:true, points:[[1035,385],[955,385]] },
+    { a:'facilities', b:'orgs', points:[[1162,325],[1162,280]] },
+    { a:'ris', b:'orgs', points:[[1162,125],[1162,170]] },
+    { a:'ris', b:'locations', points:[[1290,40],[1310,40],[1310,455],[975,455],[975,410],[955,410]] },
+    { a:'locations', b:'datasets', points:[[827,325],[827,305],[760,305],[760,285]] },
+    { a:'samples', b:'locations', points:[[620,370],[700,370]] },
+    { a:'sampler', b:'samples', points:[[285,370],[365,370]] },
+    { a:'samples', b:'datasets', points:[[570,325],[570,285]] }
   ];
   const canvas = document.getElementById('connections');
   const ctx = canvas.getContext('2d');
@@ -39,6 +45,7 @@
   const reset = document.getElementById('reset-selection');
   const motionToggle = document.getElementById('motion-toggle');
   const main = document.getElementById('contenuto');
+  document.getElementById('map-counts').textContent = `${Object.keys(layout).length} entità · ${edges.length} relazioni`;
   let selected = null;
   let mobileCentered = false;
   const neighbours = id => edges.filter(e => e.a === id || e.b === id).map(e => e.a === id ? e.b : e.a);
@@ -91,13 +98,14 @@
     const density = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = Math.round(rect.width * density);
     canvas.height = Math.round(rect.height * density);
-    ctx.setTransform(canvas.width / 1320, 0, 0, canvas.height / 660, 0, 0);
-    ctx.clearRect(0, 0, 1320, 660);
+    ctx.setTransform(canvas.width / 1320, 0, 0, canvas.height / 480, 0, 0);
+    ctx.clearRect(0, 0, 1320, 480);
     const ordered = [...edges].sort((a,b) => Number(a.a === selected || a.b === selected) - Number(b.a === selected || b.b === selected));
     ordered.forEach(edge => {
       const active = selected && (edge.a === selected || edge.b === selected);
       ctx.strokeStyle = selected ? (active ? '#79e1d0' : '#28535e') : '#6b9a9f';
       ctx.lineWidth = active ? 2.5 : 1.5;
+      ctx.setLineDash(edge.dashed ? [8, 6] : []);
       ctx.lineCap = 'round'; ctx.lineJoin = 'round';
       const points = edge.points;
       ctx.beginPath(); ctx.moveTo(...points[0]);
@@ -111,6 +119,7 @@
         ctx.fillStyle=ctx.strokeStyle; ctx.beginPath(); ctx.arc(...p,active?3.5:2.5,0,Math.PI*2); ctx.fill();
       });
     });
+    ctx.setLineDash([]);
   }
   function center(id) {
     const node = stage.querySelector(`[data-id="${id}"]`);
@@ -151,9 +160,10 @@
   function setView(list) {
     mapContent.hidden = list; listPanel.hidden = !list;
     main.classList.toggle('som-list-view', list);
+    document.body.classList.toggle('som-map-view', !list);
     mapButton.setAttribute('aria-pressed', String(!list));
     listButton.setAttribute('aria-pressed', String(list));
-    document.getElementById('som-intro').textContent = list ? 'Esplora le locations dei sensori, le infrastrutture di ricerca che collaborano con ISMAR, le facilities e le organizzazioni.' : 'Le entità del sistema, le relazioni che le connettono.';
+    document.getElementById('som-intro').textContent = list ? 'Esplora tutte le entità del Sistema Osservativo Marino, compresi campioni e strumenti di campionamento.' : 'Le entità del sistema, le relazioni che le connettono.';
     // Le animazioni e il loro comando appartengono alle tile della vista Elenco.
     if (motionToggle) motionToggle.hidden = !list;
     if (!list) draw();
